@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { GOOGLE_RATING } from "@/lib/reviews-data";
+import Link from "next/link";
+import { FEATURED_REVIEWS, GOOGLE_BUSINESS } from "@/lib/reviews-data";
 
 export default function ReviewsSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -24,7 +25,7 @@ export default function ReviewsSection() {
 
   return (
     <section ref={ref} className="section-padding bg-ivory-100">
-      <div className="container-premium max-w-4xl text-center">
+      <div className="container-premium text-center">
         
         <div
           style={{
@@ -32,59 +33,64 @@ export default function ReviewsSection() {
             transform: visible ? "translateY(0)" : "translateY(30px)",
             transition: `opacity 0.8s ${EASE}, transform 0.8s ${EASE}`,
           }}
+          className="mb-16"
         >
-          <span className="eyebrow mx-auto justify-center mb-6">06 / Patient Stories</span>
+          <span className="eyebrow mx-auto justify-center mb-6">Patient Stories</span>
           
-          {/* Oversized quote mark */}
-          <div className="font-serif text-[6rem] text-champagne-400 leading-none h-16 opacity-60">
-            &ldquo;
-          </div>
-
-          <h2 className="font-serif text-[2rem] md:text-[3rem] text-forest-600 leading-tight mb-12">
+          <h2 className="font-serif text-[2.5rem] md:text-[3.5rem] text-forest-600 leading-tight">
             Kind words from our patients
           </h2>
         </div>
 
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto mb-16 text-left">
+          {FEATURED_REVIEWS.map((review, i) => (
+            <div
+              key={review.id}
+              className="bg-white rounded-[24px] p-8 shadow-sm border border-ivory-300 transition-all duration-500 ease-premium hover:-translate-y-1.5 hover:shadow-premium group flex flex-col h-full"
+              style={{
+                opacity: visible ? 1 : 0,
+                transform: visible ? "translateY(0)" : "translateY(30px)",
+                transition: `opacity 0.8s ${EASE} ${0.1 + i * 0.1}s, transform 0.8s ${EASE} ${0.1 + i * 0.1}s, box-shadow 0.5s ease`,
+              }}
+            >
+              <div className="font-serif text-[4rem] text-champagne-400 leading-none h-10 opacity-40 group-hover:text-champagne-500 transition-colors">
+                &ldquo;
+              </div>
+              <p className="font-sans text-[0.9375rem] text-charcoal-600 leading-relaxed mb-8 flex-grow line-clamp-4 group-hover:line-clamp-none transition-all duration-300">
+                {review.text}
+              </p>
+              
+              <div className="border-t border-ivory-300 pt-5 mt-auto">
+                <p className="font-semibold text-charcoal-700 text-sm mb-1">{review.author}</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-[0.75rem] text-charcoal-400">Google Review</span>
+                  <a
+                    href={review.profileUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-[0.75rem] font-semibold text-sage-600 group-hover:text-forest-600 transition-colors"
+                  >
+                    Read More 
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                      <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
         <div
-          className="bg-white rounded-[24px] p-8 md:p-12 shadow-sm border border-ivory-300 max-w-2xl mx-auto"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? "translateY(0)" : "translateY(30px)",
-            transition: `opacity 0.8s ${EASE} 0.15s, transform 0.8s ${EASE} 0.15s`,
+            transition: `opacity 0.8s ${EASE} 0.5s, transform 0.8s ${EASE} 0.5s`,
           }}
         >
-          {/* Google minimal CTA */}
-          <div className="flex justify-center mb-6">
-            <svg width="28" height="28" viewBox="0 0 24 24" aria-label="Google" role="img">
-              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-            </svg>
-          </div>
-
-          <p className="font-sans text-[1.125rem] text-charcoal-500 leading-relaxed mb-8">
-            We value genuine patient feedback. Read authentic reviews on our Google profile to learn about experiences at Natural Dental Clinic.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href={GOOGLE_RATING.googleMapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-secondary"
-            >
-              Read Google Reviews
-            </a>
-            <a
-              href={GOOGLE_RATING.writeReviewUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
-              Write a Review
-            </a>
-          </div>
+          <Link href="/reviews" className="btn-secondary">
+            View All {GOOGLE_BUSINESS.reviewCount} Reviews
+          </Link>
         </div>
 
       </div>

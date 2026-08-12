@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -10,132 +9,121 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Brand primaries
         forest: {
-          50:  "#EAF0EC",
-          100: "#C6D9CB",
-          200: "#9DBFA7",
-          300: "#74A583",
-          400: "#4B8B5F",
-          500: "#2A6B46",
-          600: "#12372A",   // PRIMARY — deep luxury forest
-          700: "#0D2920",
-          800: "#091C15",
-          900: "#040E0A",
-        },
-        sage: {
           50:  "#F4F6F2",
           100: "#E4E9DF",
           200: "#C9D3C0",
           300: "#AEBDA1",
-          400: "#97A98F",   // BRAND SAGE
+          400: "#97A98F",
           500: "#7A9070",
-          600: "#5E7557",
-          700: "#465A40",
-          800: "#2E3E2A",
-          900: "#182114",
+          600: "#12372A",   // BRAND PRIMARY
+          700: "#0E2B21",
+          800: "#091D16",
+          900: "#05100B",
+        },
+        sage: {
+          50:  "#F5F7F4",
+          100: "#E5EBE3",
+          200: "#CCD6C9",
+          300: "#B0C0AD",
+          400: "#98AA91",   // BRAND SAGE
+          500: "#7A8E72",
+          600: "#5E6E57",
+          700: "#44503E",
+          800: "#2B3226",
+          900: "#141712",
         },
         ivory: {
           50:  "#FFFFFF",
-          100: "#FAF8F2",   // WARM IVORY — main background
-          200: "#F3EFE4",   // SOFT CREAM — secondary background
-          300: "#E8E2D4",
-          400: "#D8D1BC",
-          500: "#C4BCA4",
+          100: "#FAF8F3",   // WARM IVORY — main background
+          200: "#F3EFE5",   // SOFT CREAM — secondary background
+          300: "#E6DBC6",
+          400: "#D6C7A9",
+          500: "#C3B18B",
         },
         champagne: {
           50:  "#FDF8EF",
           100: "#F8EDDA",
           200: "#F0D9A9",
           300: "#E2BF77",
-          400: "#C5A66A",   // MUTED GOLD ACCENT — use sparingly
+          400: "#C4A66C",   // MUTED CHAMPAGNE
           500: "#A8883E",
           600: "#8A6D2A",
         },
         charcoal: {
-          50:  "#F5F5F3",
-          100: "#E6E6E2",
-          200: "#CCCCC5",
-          300: "#A8A89F",
-          400: "#6F746D",   // MUTED TEXT
-          500: "#4A4E48",
-          600: "#2F322D",
-          700: "#252824",   // DEEP CHARCOAL — body text
-          800: "#181A17",
-          900: "#0C0D0B",
+          50:  "#F7F7F7",
+          100: "#EBECEC",
+          200: "#D1D3D2",
+          300: "#A3A7A5",
+          400: "#6D746F",   // MUTED TEXT
+          500: "#4A4F4C",
+          600: "#363A38",
+          700: "#262A27",   // DEEP CHARCOAL
+          800: "#1A1C1A",
+          900: "#0D0E0D",
         },
       },
       fontFamily: {
-        serif: ["Instrument Serif", "Georgia", "serif"],
+        serif: ["Instrument Serif", "Cormorant Garamond", "Georgia", "serif"],
         sans:  ["Manrope", "system-ui", "sans-serif"],
       },
       fontSize: {
-        "display-xl": ["5rem",   { lineHeight: "1.05", letterSpacing: "-0.025em" }],
-        "display-lg": ["4rem",   { lineHeight: "1.08", letterSpacing: "-0.022em" }],
-        "display-md": ["3.25rem",{ lineHeight: "1.1",  letterSpacing: "-0.018em" }],
-        "display-sm": ["2.5rem", { lineHeight: "1.15", letterSpacing: "-0.014em" }],
+        "display-xl": ["4rem", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
+        "display-lg": ["3.5rem", { lineHeight: "1.1", letterSpacing: "-0.015em" }],
+        "display-md": ["3rem", { lineHeight: "1.2",  letterSpacing: "-0.01em" }],
+        "display-sm": ["2.25rem", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
       },
       boxShadow: {
-        // Diffuse, forest-tinted — never harsh
-        "sm":            "0 2px 8px rgba(18, 55, 42, 0.06)",
-        "md":            "0 4px 20px rgba(18, 55, 42, 0.08), 0 1px 4px rgba(18, 55, 42, 0.04)",
-        "lg":            "0 12px 40px rgba(18, 55, 42, 0.10), 0 3px 10px rgba(18, 55, 42, 0.05)",
-        "xl":            "0 24px 64px rgba(18, 55, 42, 0.12), 0 6px 20px rgba(18, 55, 42, 0.06)",
-        "card":          "0 2px 16px rgba(18, 55, 42, 0.07), 0 1px 4px rgba(18, 55, 42, 0.04)",
-        "card-hover":    "0 16px 48px rgba(18, 55, 42, 0.13), 0 4px 14px rgba(18, 55, 42, 0.07)",
-        "premium":       "0 8px 32px rgba(18, 55, 42, 0.09), 0 2px 8px rgba(18, 55, 42, 0.05)",
-        "premium-hover": "0 20px 60px rgba(18, 55, 42, 0.14), 0 6px 18px rgba(18, 55, 42, 0.07)",
-        "gold":          "0 4px 20px rgba(197, 166, 106, 0.18)",
-        "inner-soft":    "inset 0 1px 3px rgba(18, 55, 42, 0.06)",
+        "sm":            "0 2px 8px rgba(18, 55, 42, 0.04)",
+        "md":            "0 4px 16px rgba(18, 55, 42, 0.06), 0 1px 4px rgba(18, 55, 42, 0.03)",
+        "lg":            "0 8px 24px rgba(18, 55, 42, 0.08), 0 2px 8px rgba(18, 55, 42, 0.04)",
+        "card":          "0 2px 12px rgba(18, 55, 42, 0.05), 0 1px 4px rgba(18, 55, 42, 0.03)",
+        "card-hover":    "0 12px 32px rgba(18, 55, 42, 0.08), 0 4px 12px rgba(18, 55, 42, 0.04)",
+        "premium":       "0 6px 24px rgba(18, 55, 42, 0.06), 0 2px 8px rgba(18, 55, 42, 0.03)",
+        "premium-hover": "0 16px 48px rgba(18, 55, 42, 0.10), 0 6px 16px rgba(18, 55, 42, 0.05)",
       },
       backgroundImage: {
-        "gradient-forest":  "linear-gradient(135deg, #040E0A 0%, #12372A 50%, #2A6B46 100%)",
-        "gradient-ivory":   "linear-gradient(180deg, #FAF8F2 0%, #F3EFE4 100%)",
+        "gradient-forest":  "linear-gradient(135deg, #091D16 0%, #12372A 50%, #2A6B46 100%)",
+        "gradient-ivory":   "linear-gradient(180deg, #FAF8F3 0%, #F3EFE5 100%)",
         "gradient-sage":    "linear-gradient(135deg, #F4F6F2 0%, #E4E9DF 100%)",
-        "gradient-premium": "linear-gradient(180deg, rgba(18, 55, 42, 0) 0%, rgba(18, 55, 42, 0.85) 100%)",
+        "gradient-premium": "linear-gradient(180deg, rgba(18, 55, 42, 0) 0%, rgba(18, 55, 42, 0.8) 100%)",
       },
       animation: {
-        "reveal-up":   "revealUp 0.8s cubic-bezier(0.22,1,0.36,1) forwards",
-        "reveal-in":   "revealIn 0.6s cubic-bezier(0.22,1,0.36,1) forwards",
-        "float":       "float 7s ease-in-out infinite",
-        "pulse-slow":  "pulseSlow 4s ease-in-out infinite",
+        "fade-up":   "fadeUp 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards",
+        "fade-in":   "fadeIn 0.5s ease-out forwards",
+        "float":     "float 7s ease-in-out infinite",
       },
       keyframes: {
-        revealUp: {
-          "0%":   { opacity: "0", transform: "translateY(28px)" },
+        fadeUp: {
+          "0%":   { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
-        revealIn: {
+        fadeIn: {
           "0%":   { opacity: "0" },
           "100%": { opacity: "1" },
         },
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
-          "50%":      { transform: "translateY(-12px)" },
-        },
-        pulseSlow: {
-          "0%, 100%": { opacity: "0.5" },
-          "50%":      { opacity: "1" },
+          "50%":      { transform: "translateY(-10px)" },
         },
       },
       transitionTimingFunction: {
-        "premium": "cubic-bezier(0.22, 1, 0.36, 1)",
-        "in-premium": "cubic-bezier(0.36, 0, 0.78, 0)",
+        "premium": "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
       },
       borderRadius: {
-        "btn":   "10px",
-        "card":  "20px",
-        "card-lg": "28px",
-        "image": "36px",
+        "btn":   "0.5rem",
+        "card":  "1.25rem",
+        "card-lg": "1.75rem",
+        "image": "2rem",
         "xl":    "1rem",
         "2xl":   "1.5rem",
         "3xl":   "2rem",
         "4xl":   "3rem",
       },
       spacing: {
-        "section-sm": "5rem",
-        "section-md": "7.5rem",
-        "section-lg": "10rem",
+        "section-sm": "4rem",
+        "section-md": "6rem",
+        "section-lg": "8rem",
       },
     },
   },

@@ -1,96 +1,89 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
 import { SERVICES } from "@/lib/services-data";
+import { 
+  Shield, 
+  Star, 
+  Sparkles, 
+  Smile, 
+  Activity, 
+  Baby, 
+  Heart, 
+  Crown, 
+  Microscope,
+  ArrowRight 
+} from "lucide-react";
+
+// Helper to map string icon names to Lucide components
+const IconMap: Record<string, any> = {
+  Shield,
+  Star,
+  Sparkles,
+  Smile,
+  Activity,
+  Baby,
+  Heart,
+  Crown,
+  Microscope,
+};
 
 export default function ServicesPreview() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  const EASE = "cubic-bezier(0.22,1,0.36,1)";
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
+  const previewServices = SERVICES.slice(0, 6);
 
   return (
-    <section ref={ref} className="section-padding bg-cream-200" style={{ background: "#F3EFE4" }}>
+    <section className="section-padding bg-white">
       <div className="container-premium">
         
-        {/* Header */}
-        <div
-          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(30px)",
-            transition: `opacity 0.8s ${EASE}, transform 0.8s ${EASE}`,
-          }}
-        >
-          <div>
-            <span className="eyebrow">03 / Treatments</span>
-            <h2 className="heading-xl">Boutique Dental Care</h2>
-          </div>
-          <Link href="/services" className="btn-ghost px-0 hover:bg-transparent hover:text-forest-500 group border-b border-transparent hover:border-forest-400 rounded-none pb-1">
-            View All Treatments
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
-              <path d="M3.33334 8H12.6667M12.6667 8L8 3.33333M12.6667 8L8 12.6667" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </Link>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="eyebrow mx-auto justify-center mb-4">Our Treatments</span>
+          <h2 className="heading-xl mb-6">Comprehensive Dental Care</h2>
+          <p className="text-charcoal-500 text-lg">
+            From routine checkups to advanced procedures, we offer a full spectrum of dental services designed to keep your smile healthy and beautiful.
+          </p>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SERVICES.slice(0, 5).map((service, i) => {
-            // Make the first item span 2 columns on desktop if desired, but sticking to standard grid for better responsive control
-            const isFeatured = i === 0;
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {previewServices.map((service) => {
+            const IconComponent = IconMap[service.icon] || Shield;
+            
             return (
-              <Link
-                key={service.slug}
-                href={`/services/${service.slug}`}
-                className={`service-card group flex flex-col p-8 lg:p-10 ${isFeatured ? "md:col-span-2 lg:col-span-2" : ""}`}
-                style={{
-                  opacity: visible ? 1 : 0,
-                  transform: visible ? "translateY(0)" : "translateY(30px)",
-                  transition: `opacity 0.8s ${EASE} ${0.1 + i * 0.1}s, transform 0.8s ${EASE} ${0.1 + i * 0.1}s, box-shadow 0.4s ease, border-color 0.4s ease`,
-                }}
+              <div 
+                key={service.slug} 
+                className="group relative bg-ivory-100 rounded-card p-8 border border-ivory-300 transition-all duration-400 ease-premium hover:shadow-premium hover:border-sage-300 hover:-translate-y-1.5 flex flex-col justify-between"
               >
-                <div className="flex justify-between items-start mb-12">
-                  <span className="font-serif text-2xl text-champagne-400">
-                    0{i + 1}
-                  </span>
-                  <div className="w-10 h-10 rounded-full border border-ivory-300 flex items-center justify-center transition-colors duration-400 group-hover:bg-forest-600 group-hover:border-forest-600 group-hover:text-white text-forest-600">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                      <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
+                <div>
+                  <div className="w-12 h-12 rounded-xl bg-sage-200 text-forest-600 flex items-center justify-center mb-6 transition-transform duration-500 group-hover:scale-110">
+                    <IconComponent size={24} strokeWidth={1.5} />
                   </div>
-                </div>
-
-                <div className="mt-auto">
-                  <p className="text-[0.6875rem] font-sans font-semibold tracking-[0.15em] uppercase text-sage-600 mb-3">
-                    {service.category}
-                  </p>
-                  <h3 className="font-serif text-2xl md:text-3xl text-forest-600 mb-3 group-hover:text-forest-700 transition-colors">
+                  <h3 className="text-[1.375rem] font-serif text-forest-600 mb-3 leading-tight">
                     {service.title}
                   </h3>
-                  <p className="font-sans text-[0.9375rem] text-charcoal-500 line-clamp-2 leading-relaxed">
+                  <p className="text-charcoal-500 font-sans text-[0.9375rem] leading-relaxed mb-6">
                     {service.description}
                   </p>
                 </div>
-              </Link>
+                
+                <div className="mt-auto pt-4 border-t border-ivory-300">
+                  <Link 
+                    href={`/services/${service.slug}`}
+                    className="inline-flex items-center text-[0.875rem] font-semibold text-sage-600 group-hover:text-forest-600 transition-colors"
+                  >
+                    Learn More 
+                    <ArrowRight className="w-4 h-4 ml-1.5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </div>
             );
           })}
         </div>
 
+        <div className="text-center">
+          <Link href="/services" className="btn-secondary">
+            View All Services
+          </Link>
+        </div>
+        
       </div>
     </section>
   );

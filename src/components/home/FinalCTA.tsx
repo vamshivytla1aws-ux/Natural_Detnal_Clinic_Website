@@ -1,80 +1,38 @@
-"use client";
-
 import Link from "next/link";
 import { CLINIC } from "@/lib/config";
-import { useEffect, useRef, useState } from "react";
+import { PhoneCall } from "lucide-react";
 
 export default function FinalCTA() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  const EASE = "cubic-bezier(0.22,1,0.36,1)";
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section
-      ref={ref}
-      className="relative section-padding overflow-hidden"
-      style={{ background: "#12372A" }} // Deep forest
-    >
-      {/* Abstract curves / background elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div
-          className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full mix-blend-screen opacity-10"
-          style={{ background: "radial-gradient(circle, #C5A66A 0%, transparent 70%)", transform: "translate(30%, -30%)" }}
-        />
-        <div
-          className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full mix-blend-screen opacity-5"
-          style={{ background: "radial-gradient(circle, #97A98F 0%, transparent 70%)", transform: "translate(-20%, 20%)" }}
-        />
+    <section className="py-24 md:py-32 bg-forest-600 text-center relative overflow-hidden">
+      
+      {/* Extremely subtle faint organic line art (abstract background) */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-10">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-champagne-400" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-champagne-400 opacity-50" />
       </div>
 
-      <div className="container-premium relative z-10 text-center">
-        <div
-          className="max-w-3xl mx-auto"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(30px)",
-            transition: `opacity 0.9s ${EASE}, transform 0.9s ${EASE}`,
-          }}
-        >
-          {/* Tiny champagne accent dot */}
-          <div className="w-1.5 h-1.5 rounded-full bg-champagne-400 mx-auto mb-8" />
-
-          <h2 className="font-serif text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] text-ivory-100 leading-[1.05] mb-6">
-            Your smile deserves <br/>
-            <span style={{ fontStyle: "italic", color: "#97A98F" }}>thoughtful</span> care.
+      <div className="container-premium relative z-10">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-serif text-[2.5rem] md:text-[4rem] text-ivory-100 leading-tight mb-8">
+            Your smile deserves thoughtful care.
           </h2>
-
-          <p className="font-sans text-[1.125rem] text-sage-200/80 mb-12 max-w-xl mx-auto">
-            Book an appointment at Natural Dental Clinic for an evaluation and personalised treatment discussion.
+          <p className="font-sans text-[1.125rem] text-sage-200 leading-relaxed mb-10 max-w-2xl mx-auto">
+            Visit Natural Dental Clinic in Ramachandrapuram for personalized dental care in a calm and welcoming environment.
           </p>
-
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="btn-primary"
-              style={{ background: "#FAF8F2", color: "#12372A" }}
+            <Link 
+              href="/contact" 
+              className="inline-flex items-center justify-center px-8 py-4 rounded-btn bg-white text-forest-600 font-sans text-[1rem] font-bold transition-all duration-300 hover:bg-ivory-200"
             >
               Book Appointment
             </Link>
-            <a
-              href={CLINIC.contact.phoneHref}
-              className="btn-secondary"
-              style={{ borderColor: "rgba(250,248,242,0.3)", color: "#FAF8F2" }}
+            <a 
+              href={CLINIC.contact.phoneHref} 
+              className="inline-flex items-center justify-center px-8 py-4 rounded-btn bg-transparent text-white font-sans text-[1rem] font-bold border border-white/30 transition-all duration-300 hover:bg-white hover:text-forest-600 hover:border-white"
             >
+              <PhoneCall className="w-4 h-4 mr-2" />
               Call Clinic
             </a>
           </div>

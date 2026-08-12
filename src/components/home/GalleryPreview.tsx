@@ -2,82 +2,58 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-
-const IMAGES = [
-  { src: "/images/clinic/reception.jpg", alt: "Clinic Reception", className: "col-span-2 row-span-2 aspect-[4/3]" },
-  { src: "/images/clinic/treatment-room.jpg", alt: "Treatment Room", className: "col-span-1 row-span-1 aspect-square" },
-  { src: "/images/clinic/equipment.jpg", alt: "Advanced Equipment", className: "col-span-1 row-span-1 aspect-square" },
-];
+import { CLINIC } from "@/lib/config";
+import { ArrowRight } from "lucide-react";
 
 export default function GalleryPreview() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  const EASE = "cubic-bezier(0.22,1,0.36,1)";
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
+  const previewImages = [
+    { src: "/images/clinic/reception.jpg", alt: "Natural Dental Clinic Reception", span: "md:col-span-2 md:row-span-2" },
+    { src: "/images/clinic/treatment-room.jpg", alt: "Treatment Room", span: "md:col-span-1 md:row-span-1" },
+    { src: "/images/clinic/equipment.jpg", alt: "Modern Dental Equipment", span: "md:col-span-1 md:row-span-1" },
+  ];
 
   return (
-    <section ref={ref} className="section-padding bg-cream-200" style={{ background: "#F3EFE4" }}>
+    <section className="section-padding bg-white">
       <div className="container-premium">
         
-        <div
-          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(30px)",
-            transition: `opacity 0.8s ${EASE}, transform 0.8s ${EASE}`,
-          }}
-        >
-          <div>
-            <span className="eyebrow">05 / Our Space</span>
-            <h2 className="heading-xl">Clinic Environment</h2>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div className="max-w-xl">
+            <span className="eyebrow mb-4">Our Clinic</span>
+            <h2 className="heading-lg text-forest-600 mb-4">
+              A calm environment <br className="hidden lg:block"/>
+              for your care.
+            </h2>
+            <p className="text-charcoal-500 font-sans text-lg">
+              We have designed our clinic to feel welcoming and professional, equipped with modern technology.
+            </p>
           </div>
-          <Link href="/gallery" className="btn-ghost px-0 hover:bg-transparent hover:text-forest-500 group border-b border-transparent hover:border-forest-400 rounded-none pb-1">
+          <Link href="/gallery" className="btn-secondary hidden md:inline-flex">
             View Full Gallery
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
-              <path d="M3.33334 8H12.6667M12.6667 8L8 3.33333M12.6667 8L8 12.6667" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-          {IMAGES.map((img, i) => (
-            <Link
-              key={i}
-              href="/gallery"
-              className={`group relative overflow-hidden rounded-[20px] ${img.className} block`}
-              style={{
-                opacity: visible ? 1 : 0,
-                transform: visible ? "translateY(0)" : "translateY(30px)",
-                transition: `opacity 0.8s ${EASE} ${0.1 + i * 0.1}s, transform 0.8s ${EASE} ${0.1 + i * 0.1}s`,
-              }}
+        <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[250px] gap-4 mb-8 md:mb-0">
+          {previewImages.map((img, idx) => (
+            <div 
+              key={idx} 
+              className={`relative rounded-[20px] overflow-hidden group shadow-sm bg-ivory-100 ${img.span}`}
             >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              <Image 
+                src={img.src} 
+                alt={img.alt} 
+                fill 
+                className="object-cover transition-transform duration-700 ease-premium group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-forest-900/0 group-hover:bg-forest-900/20 transition-colors duration-500" />
-              
-              <div className="absolute bottom-0 left-0 right-0 p-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out">
-                <p className="font-sans text-sm font-medium text-white tracking-wide">{img.alt}</p>
-              </div>
-            </Link>
+              <div className="absolute inset-0 bg-forest-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+            </div>
           ))}
+        </div>
+
+        <div className="mt-8 text-center md:hidden">
+          <Link href="/gallery" className="btn-secondary w-full">
+            View Full Gallery
+          </Link>
         </div>
 
       </div>

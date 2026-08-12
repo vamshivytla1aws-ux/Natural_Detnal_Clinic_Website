@@ -1,6 +1,5 @@
 import HeroSection from "@/components/home/HeroSection";
 import PhilosophySection from "@/components/home/PhilosophySection";
-import TrustStrip from "@/components/home/TrustStrip";
 import DoctorHighlight from "@/components/home/DoctorHighlight";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
@@ -17,7 +16,6 @@ export default function Home() {
       <ScrollProgress />
       <HeroSection />
       <PhilosophySection />
-      <TrustStrip />
       <DoctorHighlight />
       <ServicesPreview />
       <WhyChooseUs />

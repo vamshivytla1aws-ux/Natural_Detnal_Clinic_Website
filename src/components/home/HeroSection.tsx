@@ -2,141 +2,321 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { CLINIC } from "@/lib/config";
-import { PhoneCall, MapPin, ChevronRight, Shield, Zap, Heart, Star } from "lucide-react";
+import { ArrowUpRight, Phone } from "lucide-react";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
-};
+const EASE = "cubic-bezier(0.22,1,0.36,1)";
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 100, damping: 20 } },
-};
-
-export default function HeroSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  });
-
-  const yBackground = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const yImage = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  const opacityText = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+function FadeIn({
+  children,
+  delay = 0,
+  y = 24,
+  className = "",
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  y?: number;
+  className?: string;
+}) {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setVisible(true), delay);
+    return () => clearTimeout(t);
+  }, [delay]);
 
   return (
-    <section ref={containerRef} className="relative min-h-[90vh] bg-forest-600 dark:bg-forest-900 overflow-hidden flex flex-col justify-center section-padding">
-      {/* Background gradients and shapes */}
-      <motion.div style={{ y: yBackground }} className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-forest-600 via-forest-600 to-forest-700 dark:from-forest-900 dark:via-forest-900 dark:to-black"></div>
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-sage-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-mint-400/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4"></div>
-      </motion.div>
+    <div
+      className={className}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : `translateY(${y}px)`,
+        transition: `opacity 0.85s ${EASE}, transform 0.85s ${EASE}`,
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+export default function HeroSection() {
+  const imgRef = useRef<HTMLDivElement>(null);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const parallaxY = scrollY * 0.12;
+
+  return (
+    <section
+      className="relative overflow-hidden grain-overlay"
+      style={{
+        minHeight: "100svh",
+        background: "#FAF8F2",
+        paddingTop: "80px",
+      }}
+    >
+      {/* Subtle radial sage bloom */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          top: "-10%",
+          right: "-5%",
+          width: "60vw",
+          height: "60vw",
+          maxWidth: "900px",
+          maxHeight: "900px",
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(151,169,143,0.12) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }}
+      />
+      {/* Subtle bottom left bloom */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          bottom: "0",
+          left: "-10%",
+          width: "50vw",
+          height: "50vw",
+          maxWidth: "700px",
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(197,166,106,0.06) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }}
+      />
 
       <div className="container-premium relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          {/* Text Content */}
-          <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            animate="show"
-            style={{ opacity: opacityText }}
-            className="flex flex-col items-start"
-          >
-            <motion.span variants={itemVariants} className="inline-block py-1 px-3 rounded-full bg-sage-500/20 text-champagne-400 text-sm font-semibold tracking-wider mb-6 border border-champagne-400/20">
-              NATURAL DENTAL CLINIC
-            </motion.span>
-            
-            <motion.h1 variants={itemVariants} className="text-5xl md:text-6xl lg:text-7xl font-serif text-white leading-tight mb-6">
-              Your Smile Deserves <br />
-              <span className="text-champagne-400">Expert Care</span>
-            </motion.h1>
-            
-            <motion.p variants={itemVariants} className="text-lg md:text-xl text-white/80 font-sans mb-8 max-w-xl leading-relaxed">
-              Experience gentle, natural-first dentistry with Dr. Vandana Vytla. Combining advanced technology with a compassionate approach for your entire family.
-            </motion.p>
-            
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mb-12">
-              <Link href="/contact" className="btn-primary flex items-center gap-2">
-                Book Appointment
-                <ChevronRight className="w-4 h-4" />
-              </Link>
-              <a href={CLINIC.contact.phoneHref} className="btn-white flex items-center gap-2">
-                <PhoneCall className="w-4 h-4" />
-                Call Now
-              </a>
-              <a href={CLINIC.address.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-full font-medium transition-all duration-300 text-white hover:bg-white/10 flex items-center gap-2">
-                <MapPin className="w-4 h-4" />
-                Get Directions
-              </a>
-            </motion.div>
+        <div
+          className="grid lg:grid-cols-[1fr_480px] xl:grid-cols-[1fr_540px] gap-12 xl:gap-20 items-center"
+          style={{ minHeight: "calc(100svh - 80px)", paddingTop: "4rem", paddingBottom: "5rem" }}
+        >
+          {/* ── LEFT: CONTENT ── */}
+          <div className="flex flex-col justify-center order-2 lg:order-1">
+            {/* Eyebrow */}
+            <FadeIn delay={0}>
+              <span className="eyebrow">Natural Dental Clinic · Ramachandrapuram</span>
+            </FadeIn>
 
-            {/* Trust Badges */}
-            <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-white/10">
-              <div className="flex flex-col gap-2">
-                <div className="w-10 h-10 rounded-full bg-sage-500/20 flex items-center justify-center text-champagne-400">
-                  <Star className="w-5 h-5" />
-                </div>
-                <span className="text-sm text-white/90 font-medium">Patient-Focused<br/>Care</span>
-              </div>
-              <div className="flex flex-col gap-2">
-                <div className="w-10 h-10 rounded-full bg-sage-500/20 flex items-center justify-center text-champagne-400">
-                  <Heart className="w-5 h-5" />
-                </div>
-                <span className="text-sm text-white/90 font-medium">Personalised<br/>Dental Care</span>
-              </div>
-              <div className="flex flex-col gap-2">
-                <div className="w-10 h-10 rounded-full bg-sage-500/20 flex items-center justify-center text-champagne-400">
-                  <Zap className="w-5 h-5" />
-                </div>
-                <span className="text-sm text-white/90 font-medium">Modern Dental<br/>Solutions</span>
-              </div>
-              <div className="flex flex-col gap-2">
-                <div className="w-10 h-10 rounded-full bg-sage-500/20 flex items-center justify-center text-champagne-400">
-                  <Shield className="w-5 h-5" />
-                </div>
-                <span className="text-sm text-white/90 font-medium">Hygiene-Focused<br/>Environment</span>
-              </div>
-            </motion.div>
-          </motion.div>
+            {/* Headline */}
+            <FadeIn delay={150} y={32}>
+              <h1
+                className="font-serif"
+                style={{
+                  fontSize: "clamp(3rem, 6.5vw, 5.25rem)",
+                  lineHeight: "1.04",
+                  letterSpacing: "-0.028em",
+                  color: "#12372A",
+                  marginBottom: "1.75rem",
+                }}
+              >
+                Dental care,<br />
+                <span style={{ fontStyle: "italic", color: "#97A98F" }}>thoughtfully</span><br />
+                designed for you.
+              </h1>
+            </FadeIn>
 
-          {/* Image */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-            style={{ y: yImage }}
-            className="relative"
+            {/* Description */}
+            <FadeIn delay={310} y={20}>
+              <p
+                className="font-sans"
+                style={{
+                  fontSize: "1.0625rem",
+                  lineHeight: "1.75",
+                  color: "#6F746D",
+                  maxWidth: "460px",
+                  marginBottom: "2.5rem",
+                }}
+              >
+                Gentle, personalised dental care in Ramachandrapuram, Hyderabad. Dr. Vandana Vytla focuses on patient comfort and clear communication.
+              </p>
+            </FadeIn>
+
+            {/* CTAs */}
+            <FadeIn delay={450}>
+              <div className="flex flex-wrap gap-3 mb-10">
+                <Link href="/contact" className="btn-primary flex items-center gap-2">
+                  Book Appointment
+                  <ArrowUpRight size={15} />
+                </Link>
+                <a href={CLINIC.contact.phoneHref} className="btn-secondary flex items-center gap-2">
+                  <Phone size={14} />
+                  {CLINIC.contact.phoneDisplay}
+                </a>
+              </div>
+            </FadeIn>
+
+            {/* Doctor strip */}
+            <FadeIn delay={600} y={12}>
+              <div
+                className="flex items-center gap-4"
+                style={{
+                  paddingTop: "1.5rem",
+                  borderTop: "1px solid rgba(226,222,206,0.8)",
+                }}
+              >
+                <div
+                  className="relative flex-shrink-0"
+                  style={{
+                    width: "48px",
+                    height: "48px",
+                    borderRadius: "50%",
+                    overflow: "hidden",
+                    border: "2px solid rgba(197,166,106,0.4)",
+                  }}
+                >
+                  <Image
+                    src="/images/doctor/doctor-main.jpg"
+                    alt="Dr. Vandana Vytla"
+                    fill
+                    className="object-cover object-top"
+                    sizes="48px"
+                  />
+                </div>
+                <div>
+                  <p
+                    className="font-serif"
+                    style={{ fontSize: "1rem", color: "#12372A", lineHeight: 1.3 }}
+                  >
+                    {CLINIC.doctor.name}
+                  </p>
+                  <p
+                    className="font-sans"
+                    style={{ fontSize: "0.75rem", color: "#6F746D", letterSpacing: "0.05em", marginTop: "2px" }}
+                  >
+                    {CLINIC.doctor.title} · Reg No: {CLINIC.doctor.regNo}
+                  </p>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+
+          {/* ── RIGHT: DOCTOR PORTRAIT ── */}
+          <div
+            ref={imgRef}
+            className="relative order-1 lg:order-2 flex justify-center lg:justify-end"
           >
-            <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5] shadow-2xl border border-white/10 z-10 group">
-              <Image 
-                src="/images/doctor/doctor-main.jpg" 
-                alt="Dr. Vandana Vytla" 
-                fill 
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                priority
+            <FadeIn delay={700} y={40} className="relative w-full max-w-[420px] lg:max-w-none">
+              {/* Decorative circle behind */}
+              <div
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  top: "-8%",
+                  right: "-8%",
+                  width: "88%",
+                  height: "88%",
+                  borderRadius: "50%",
+                  border: "1px solid rgba(151,169,143,0.25)",
+                  pointerEvents: "none",
+                }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-600/90 via-forest-600/20 to-transparent dark:from-black/90"></div>
-              <div className="absolute bottom-8 left-8 right-8">
-                <p className="text-white font-serif text-2xl mb-1">Dr. Vandana Vytla</p>
-                <p className="text-champagne-400 text-sm font-medium">Lead Dental Surgeon</p>
+              <div
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  top: "-14%",
+                  right: "-14%",
+                  width: "80%",
+                  height: "80%",
+                  borderRadius: "50%",
+                  border: "1px solid rgba(197,166,106,0.12)",
+                  pointerEvents: "none",
+                }}
+              />
+
+              {/* Portrait */}
+              <div
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  paddingBottom: "115%",
+                  borderRadius: "55% 45% 60% 40% / 50% 55% 45% 50%",
+                  overflow: "hidden",
+                  boxShadow: "0 32px 80px rgba(18,55,42,0.15), 0 8px 24px rgba(18,55,42,0.08)",
+                  transform: `translateY(${-parallaxY * 0.5}px)`,
+                  transition: "transform 0.1s linear",
+                }}
+              >
+                <Image
+                  src="/images/doctor/doctor-main.jpg"
+                  alt="Dr. Vandana Vytla — Dental Surgeon at Natural Dental Clinic"
+                  fill
+                  className="object-cover object-center"
+                  priority
+                  sizes="(max-width: 1024px) 420px, 540px"
+                />
+                {/* Subtle sage glow overlay */}
+                <div
+                  aria-hidden="true"
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background: "linear-gradient(135deg, rgba(18,55,42,0.08) 0%, transparent 60%)",
+                    pointerEvents: "none",
+                  }}
+                />
               </div>
-            </div>
-            {/* Decorative element behind image */}
-            <div className="absolute -inset-4 border border-champagne-400/30 rounded-[2.5rem] z-0 translate-x-4 translate-y-4"></div>
-          </motion.div>
+
+              {/* Floating reg card */}
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "8%",
+                  left: "-12%",
+                  background: "rgba(250,248,242,0.95)",
+                  backdropFilter: "blur(16px)",
+                  border: "1px solid rgba(226,222,206,0.8)",
+                  borderRadius: "14px",
+                  padding: "14px 18px",
+                  boxShadow: "0 8px 32px rgba(18,55,42,0.1)",
+                  minWidth: "160px",
+                }}
+              >
+                <p
+                  className="font-sans"
+                  style={{ fontSize: "0.6875rem", color: "#97A98F", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "4px" }}
+                >
+                  Registered Surgeon
+                </p>
+                <p
+                  className="font-serif"
+                  style={{ fontSize: "0.9375rem", color: "#12372A" }}
+                >
+                  Reg No: {CLINIC.doctor.regNo}
+                </p>
+              </div>
+            </FadeIn>
+          </div>
         </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
+        aria-hidden="true"
+        style={{ opacity: 0.4 }}
+      >
+        <span
+          className="font-sans"
+          style={{ fontSize: "0.625rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#6F746D" }}
+        >
+          Scroll
+        </span>
+        <div
+          style={{
+            width: "1px",
+            height: "40px",
+            background: "linear-gradient(to bottom, #C5A66A, transparent)",
+            animation: "fadeIn 2s ease infinite alternate",
+          }}
+        />
       </div>
     </section>
   );

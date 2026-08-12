@@ -2,132 +2,119 @@
 
 import { useEffect, useRef, useState } from "react";
 import { CLINIC } from "@/lib/config";
-import { MapPin, Phone, Mail, Clock, ExternalLink } from "lucide-react";
 
 export default function LocationSection() {
-  const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  const EASE = "cubic-bezier(0.22,1,0.36,1)";
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          setVisible(true);
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.15 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section ref={ref} className="section-padding bg-ivory-100" id="location">
+    <section ref={ref} className="section-padding bg-ivory-100 border-t border-ivory-300">
       <div className="container-premium">
-        <div className="text-center mb-12">
-          <div className="section-label justify-center">Find Us</div>
-          <h2 className="heading-xl">Visit Our Clinic</h2>
-          <div className="divider-gold mx-auto" />
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-0 bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100">
-
-          {/* Details */}
+        <div className="grid lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-20 items-center">
+          
+          {/* Text Content */}
           <div
-            className={`p-10 md:p-14 flex flex-col justify-center transition-all duration-700 transform ${
-              isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
-            }`}
+            style={{
+              opacity: visible ? 1 : 0,
+              transform: visible ? "translateY(0)" : "translateY(30px)",
+              transition: `opacity 0.8s ${EASE}, transform 0.8s ${EASE}`,
+            }}
           >
-            <div className="space-y-7">
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-sage-500/10 rounded-full flex items-center justify-center flex-shrink-0 text-forest-600">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-charcoal-700 mb-1">Clinic Address</h3>
-                  <p className="text-charcoal-500 text-sm leading-relaxed">
-                    {CLINIC.address.line1},<br />
-                    {CLINIC.address.line2},<br />
-                    {CLINIC.address.line3},<br />
-                    {CLINIC.address.city}, {CLINIC.address.state} {CLINIC.address.pincode}
-                  </p>
-                  <p className="text-xs text-sage-500 mt-1">{CLINIC.address.landmark}</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-sage-500/10 rounded-full flex items-center justify-center flex-shrink-0 text-forest-600">
-                  <Clock className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-charcoal-700 mb-1">Working Hours</h3>
-                  {CLINIC.hours.schedule.map((item) => (
-                    <div key={item.day} className="flex justify-between gap-4 text-sm text-charcoal-500">
-                      <span className="font-medium">{item.day}:</span>
-                      <span>{item.morning}{item.evening !== "Closed" ? `, ${item.evening}` : ""}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-sage-500/10 rounded-full flex items-center justify-center flex-shrink-0 text-forest-600">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-charcoal-700 mb-1">Phone</h3>
-                  <a href={CLINIC.contact.phoneHref} className="text-sm text-charcoal-500 hover:text-forest-600 transition-colors">
-                    {CLINIC.contact.phoneDisplay}
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-sage-500/10 rounded-full flex items-center justify-center flex-shrink-0 text-forest-600">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-charcoal-700 mb-1">Email</h3>
-                  <a href={CLINIC.contact.emailHref} className="text-sm text-charcoal-500 hover:text-forest-600 transition-colors break-all">
-                    {CLINIC.contact.email}
-                  </a>
-                </div>
-              </div>
+            <span className="eyebrow">07 / Visit Us</span>
+            <h2 className="heading-xl mb-8">Natural Dental Clinic</h2>
+            
+            <div className="space-y-6 font-sans text-[1.0625rem] text-charcoal-500 leading-relaxed mb-10">
+              <p>
+                {CLINIC.address.line1}<br />
+                {CLINIC.address.line2}<br />
+                {CLINIC.address.line3}<br />
+                {CLINIC.address.city}, {CLINIC.address.state} {CLINIC.address.pincode}
+              </p>
+              
+              <p>
+                <strong className="font-semibold text-charcoal-700">Clinic Hours</strong><br />
+                {CLINIC.hours.schedule[0].day}: {CLINIC.hours.schedule[0].morning}, {CLINIC.hours.schedule[0].evening}<br />
+                {CLINIC.hours.schedule[1].day}: {CLINIC.hours.schedule[1].morning}
+              </p>
             </div>
 
-            <div className="mt-10 pt-8 border-t border-gray-100">
+            <div className="flex flex-wrap gap-4">
               <a
                 href={CLINIC.address.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                id="location-directions-btn"
-                className="btn-primary inline-flex items-center gap-2 w-full justify-center md:w-auto"
+                className="btn-primary"
               >
                 Get Directions
-                <ExternalLink className="w-4 h-4" />
+              </a>
+              <a
+                href={CLINIC.contact.phoneHref}
+                className="btn-secondary"
+              >
+                Call Clinic
               </a>
             </div>
           </div>
 
-          {/* Map */}
+          {/* Map Frame */}
           <div
-            className={`relative h-[400px] lg:h-auto bg-gray-200 transition-all duration-700 delay-300 transform ${
-              isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
-            }`}
+            className="relative h-[450px] lg:h-[550px] rounded-[24px] overflow-hidden shadow-lg border border-ivory-300 group"
+            style={{
+              opacity: visible ? 1 : 0,
+              transform: visible ? "translateY(0)" : "translateY(30px)",
+              transition: `opacity 0.8s ${EASE} 0.15s, transform 0.8s ${EASE} 0.15s`,
+            }}
           >
+            {/* The iframe map */}
             <iframe
               src={CLINIC.address.embedUrl}
               width="100%"
               height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
+              style={{ border: 0, filter: "grayscale(20%) contrast(90%)" }}
+              allowFullScreen={false}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Natural Dental Clinic Location"
-              className="absolute inset-0"
+              title="Clinic Location"
+              className="transition-transform duration-1000 ease-out group-hover:scale-[1.02]"
             ></iframe>
+
+            {/* Floating Map Card */}
+            <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-md p-5 rounded-[16px] shadow-premium border border-ivory-300 max-w-[240px]">
+              <p className="font-serif text-lg text-forest-600 leading-tight mb-1">
+                Natural Dental Clinic
+              </p>
+              <p className="font-sans text-xs text-charcoal-400 mb-3">
+                {CLINIC.address.city}
+              </p>
+              <a
+                href={CLINIC.address.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-sans text-[0.8125rem] font-semibold text-sage-600 hover:text-forest-600 transition-colors"
+              >
+                Get Directions
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="translate-y-[0.5px]">
+                  <path d="M2.5 6H9.5M9.5 6L6 2.5M9.5 6L6 9.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
+            </div>
           </div>
+
         </div>
       </div>
     </section>

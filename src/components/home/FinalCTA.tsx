@@ -2,58 +2,80 @@
 
 import Link from "next/link";
 import { CLINIC } from "@/lib/config";
-import { PhoneCall, Calendar, MessageCircle } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 export default function FinalCTA() {
-  const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  const EASE = "cubic-bezier(0.22,1,0.36,1)";
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          setVisible(true);
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.2 }
     );
-    
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section ref={ref} className="py-24 bg-forest-600 relative overflow-hidden text-center">
-      {/* Decorative bg */}
-      <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-      <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-sage-500/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-champagne-400/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+    <section
+      ref={ref}
+      className="relative section-padding overflow-hidden"
+      style={{ background: "#12372A" }} // Deep forest
+    >
+      {/* Abstract curves / background elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div
+          className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full mix-blend-screen opacity-10"
+          style={{ background: "radial-gradient(circle, #C5A66A 0%, transparent 70%)", transform: "translate(30%, -30%)" }}
+        />
+        <div
+          className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full mix-blend-screen opacity-5"
+          style={{ background: "radial-gradient(circle, #97A98F 0%, transparent 70%)", transform: "translate(-20%, 20%)" }}
+        />
+      </div>
 
-      <div className="container-premium relative z-10">
-        <div className={`max-w-3xl mx-auto transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-6">
-            Ready for a Healthier Smile?
+      <div className="container-premium relative z-10 text-center">
+        <div
+          className="max-w-3xl mx-auto"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(30px)",
+            transition: `opacity 0.9s ${EASE}, transform 0.9s ${EASE}`,
+          }}
+        >
+          {/* Tiny champagne accent dot */}
+          <div className="w-1.5 h-1.5 rounded-full bg-champagne-400 mx-auto mb-8" />
+
+          <h2 className="font-serif text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] text-ivory-100 leading-[1.05] mb-6">
+            Your smile deserves <br/>
+            <span style={{ fontStyle: "italic", color: "#97A98F" }}>thoughtful</span> care.
           </h2>
-          <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto font-light">
-            Take the first step towards perfect oral health. Schedule your consultation with Dr. Vandana today.
+
+          <p className="font-sans text-[1.125rem] text-sage-200/80 mb-12 max-w-xl mx-auto">
+            Book an appointment at Natural Dental Clinic for an evaluation and personalised treatment discussion.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact" className="btn-white w-full sm:w-auto flex items-center justify-center gap-2 text-lg px-8 py-4">
-              <Calendar className="w-5 h-5" />
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="btn-primary"
+              style={{ background: "#FAF8F2", color: "#12372A" }}
+            >
               Book Appointment
             </Link>
-            
-            <a href={CLINIC.contact.phoneHref} className="bg-transparent border-2 border-white/30 text-white hover:bg-white/10 w-full sm:w-auto flex items-center justify-center gap-2 text-lg px-8 py-4 rounded-full font-medium transition-all duration-300">
-              <PhoneCall className="w-5 h-5" />
-              Call {CLINIC.contact.phoneDisplay}
-            </a>
-
-            <a href={CLINIC.contact.whatsappHref} target="_blank" rel="noopener noreferrer" className="btn-whatsapp w-full sm:w-auto flex items-center justify-center gap-2 text-lg px-8 py-4">
-              <MessageCircle className="w-5 h-5" />
-              WhatsApp Us
+            <a
+              href={CLINIC.contact.phoneHref}
+              className="btn-secondary"
+              style={{ borderColor: "rgba(250,248,242,0.3)", color: "#FAF8F2" }}
+            >
+              Call Clinic
             </a>
           </div>
         </div>

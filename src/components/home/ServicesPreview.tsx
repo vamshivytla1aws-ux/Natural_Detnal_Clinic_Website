@@ -1,121 +1,96 @@
 "use client";
 
 import Link from "next/link";
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { SERVICES } from "@/lib/services-data";
-import { ChevronRight } from "lucide-react";
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.95 },
-  show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring" as const, stiffness: 100, damping: 20 } },
-};
 
 export default function ServicesPreview() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const [visible, setVisible] = useState(false);
+  const EASE = "cubic-bezier(0.22,1,0.36,1)";
 
-  const previewServices = SERVICES.slice(0, 6);
-
-  // Helper to determine bento grid spans
-  const getBentoClasses = (idx: number) => {
-    switch (idx) {
-      case 0:
-        return "md:col-span-2 md:row-span-2 bg-forest-600 dark:bg-forest-800 text-white"; // Large feature card
-      case 1:
-        return "md:col-span-1 md:row-span-1 bg-white dark:bg-charcoal-900";
-      case 2:
-        return "md:col-span-1 md:row-span-1 bg-champagne-50 dark:bg-champagne-900/20";
-      case 3:
-        return "md:col-span-1 md:row-span-1 bg-white dark:bg-charcoal-900";
-      case 4:
-        return "md:col-span-2 md:row-span-1 bg-sage-50 dark:bg-sage-900/20";
-      case 5:
-        return "md:col-span-1 md:row-span-1 bg-white dark:bg-charcoal-900";
-      default:
-        return "bg-white dark:bg-charcoal-900";
-    }
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="section-padding bg-ivory-100 dark:bg-charcoal-950 overflow-hidden">
+    <section ref={ref} className="section-padding bg-cream-200" style={{ background: "#F3EFE4" }}>
       <div className="container-premium">
-        <motion.div 
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="text-center max-w-3xl mx-auto mb-16"
+        
+        {/* Header */}
+        <div
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(30px)",
+            transition: `opacity 0.8s ${EASE}, transform 0.8s ${EASE}`,
+          }}
         >
-          <span className="section-label justify-center">Our Treatments</span>
-          <h2 className="heading-xl text-forest-600 dark:text-ivory-100 mb-6">Comprehensive Dental Care</h2>
-          <p className="text-gray-600 dark:text-gray-400 text-lg">
-            From routine checkups to advanced procedures, we offer a full spectrum of dental services designed to keep your smile healthy and beautiful.
-          </p>
-        </motion.div>
+          <div>
+            <span className="eyebrow">03 / Treatments</span>
+            <h2 className="heading-xl">Boutique Dental Care</h2>
+          </div>
+          <Link href="/services" className="btn-ghost px-0 hover:bg-transparent hover:text-forest-500 group border-b border-transparent hover:border-forest-400 rounded-none pb-1">
+            View All Treatments
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
+              <path d="M3.33334 8H12.6667M12.6667 8L8 3.33333M12.6667 8L8 12.6667" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </Link>
+        </div>
 
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "show" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-3 auto-rows-[250px] gap-6 mb-12"
-        >
-          {previewServices.map((service, idx) => {
-            const isDarkCard = idx === 0;
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {SERVICES.slice(0, 5).map((service, i) => {
+            // Make the first item span 2 columns on desktop if desired, but sticking to standard grid for better responsive control
+            const isFeatured = i === 0;
             return (
-              <motion.div 
-                variants={cardVariants}
-                key={service.slug} 
-                className={`group relative rounded-3xl p-8 overflow-hidden shadow-card hover:shadow-card-hover border border-ivory-300 dark:border-white/10 transition-all duration-500 flex flex-col justify-between ${getBentoClasses(idx)}`}
+              <Link
+                key={service.slug}
+                href={`/services/${service.slug}`}
+                className={`service-card group flex flex-col p-8 lg:p-10 ${isFeatured ? "md:col-span-2 lg:col-span-2" : ""}`}
+                style={{
+                  opacity: visible ? 1 : 0,
+                  transform: visible ? "translateY(0)" : "translateY(30px)",
+                  transition: `opacity 0.8s ${EASE} ${0.1 + i * 0.1}s, transform 0.8s ${EASE} ${0.1 + i * 0.1}s, box-shadow 0.4s ease, border-color 0.4s ease`,
+                }}
               >
-                {/* Glow effect on hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_100%)]"></div>
-                
-                <div>
-                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mb-6 transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-3 ${isDarkCard ? 'bg-white/10' : 'bg-sage-500/10 dark:bg-sage-500/20'}`}>
-                    {service.icon}
+                <div className="flex justify-between items-start mb-12">
+                  <span className="font-serif text-2xl text-champagne-400">
+                    0{i + 1}
+                  </span>
+                  <div className="w-10 h-10 rounded-full border border-ivory-300 flex items-center justify-center transition-colors duration-400 group-hover:bg-forest-600 group-hover:border-forest-600 group-hover:text-white text-forest-600">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform duration-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                      <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                   </div>
-                  <h3 className={`text-2xl font-serif mb-3 ${isDarkCard ? 'text-white' : 'text-forest-600 dark:text-ivory-100'}`}>
+                </div>
+
+                <div className="mt-auto">
+                  <p className="text-[0.6875rem] font-sans font-semibold tracking-[0.15em] uppercase text-sage-600 mb-3">
+                    {service.category}
+                  </p>
+                  <h3 className="font-serif text-2xl md:text-3xl text-forest-600 mb-3 group-hover:text-forest-700 transition-colors">
                     {service.title}
                   </h3>
-                  <p className={`line-clamp-2 ${isDarkCard ? 'text-white/80' : 'text-gray-600 dark:text-gray-400'}`}>
+                  <p className="font-sans text-[0.9375rem] text-charcoal-500 line-clamp-2 leading-relaxed">
                     {service.description}
                   </p>
                 </div>
-                
-                <div className="pt-4 mt-auto">
-                  <Link 
-                    href={`/services/${service.slug}`}
-                    className={`inline-flex items-center font-medium transition-colors ${isDarkCard ? 'text-champagne-400 hover:text-white' : 'text-sage-500 hover:text-forest-600 dark:hover:text-ivory-100'}`}
-                  >
-                    Learn More <ChevronRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-2" />
-                  </Link>
-                </div>
-              </motion.div>
+              </Link>
             );
           })}
-        </motion.div>
+        </div>
 
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="text-center"
-        >
-          <Link href="/services" className="btn-secondary inline-block dark:border-ivory-200 dark:text-ivory-200 dark:hover:bg-ivory-200 dark:hover:text-forest-900">
-            View All Services
-          </Link>
-        </motion.div>
       </div>
     </section>
   );

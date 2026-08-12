@@ -3,69 +3,83 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ZoomIn } from "lucide-react";
+
+const IMAGES = [
+  { src: "/images/clinic/reception.jpg", alt: "Clinic Reception", className: "col-span-2 row-span-2 aspect-[4/3]" },
+  { src: "/images/clinic/treatment-room.jpg", alt: "Treatment Room", className: "col-span-1 row-span-1 aspect-square" },
+  { src: "/images/clinic/equipment.jpg", alt: "Advanced Equipment", className: "col-span-1 row-span-1 aspect-square" },
+];
 
 export default function GalleryPreview() {
-  const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  const EASE = "cubic-bezier(0.22,1,0.36,1)";
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          setVisible(true);
           observer.disconnect();
         }
       },
       { threshold: 0.1 }
     );
-    
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
-  const images = [
-    { src: "/images/clinic/clinic-exterior.jpg", alt: "Clinic Exterior", span: "col-span-1 row-span-1" },
-    { src: "/images/clinic/reception.jpg", alt: "Reception Area", span: "col-span-1 md:col-span-2 row-span-1" },
-    { src: "/images/doctor/doctor-main.jpg", alt: "Dr. Vandana Consulting", span: "col-span-1 md:col-span-2 row-span-1" },
-    { src: "/images/clinic/treatment-room.jpg", alt: "Modern Treatment Room", span: "col-span-1 row-span-1" },
-  ];
-
   return (
-    <section ref={ref} className="py-20 bg-white">
+    <section ref={ref} className="section-padding bg-cream-200" style={{ background: "#F3EFE4" }}>
       <div className="container-premium">
-        <div className={`flex flex-col md:flex-row justify-between items-end gap-6 mb-12 transition-all duration-700 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+        
+        <div
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(30px)",
+            transition: `opacity 0.8s ${EASE}, transform 0.8s ${EASE}`,
+          }}
+        >
           <div>
-            <span className="section-label">Tour Our Clinic</span>
-            <h2 className="heading-xl text-forest-600">A Calming Environment</h2>
+            <span className="eyebrow">05 / Our Space</span>
+            <h2 className="heading-xl">Clinic Environment</h2>
           </div>
-          <Link href="/gallery" className="text-sage-500 font-medium hover:text-forest-600 transition-colors">
-            View Full Gallery &rarr;
+          <Link href="/gallery" className="btn-ghost px-0 hover:bg-transparent hover:text-forest-500 group border-b border-transparent hover:border-forest-400 rounded-none pb-1">
+            View Full Gallery
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
+              <path d="M3.33334 8H12.6667M12.6667 8L8 3.33333M12.6667 8L8 12.6667" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[250px]">
-          {images.map((img, idx) => (
-            <div 
-              key={idx} 
-              className={`relative rounded-2xl overflow-hidden group ${img.span} transform transition-all duration-700 ${isVisible ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}
-              style={{ transitionDelay: `${idx * 150}ms` }}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          {IMAGES.map((img, i) => (
+            <Link
+              key={i}
+              href="/gallery"
+              className={`group relative overflow-hidden rounded-[20px] ${img.className} block`}
+              style={{
+                opacity: visible ? 1 : 0,
+                transform: visible ? "translateY(0)" : "translateY(30px)",
+                transition: `opacity 0.8s ${EASE} ${0.1 + i * 0.1}s, transform 0.8s ${EASE} ${0.1 + i * 0.1}s`,
+              }}
             >
               <Image
                 src={img.src}
                 alt={img.alt}
                 fill
-                className="object-cover group-hover:scale-110 transition-transform duration-700"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-forest-600/0 group-hover:bg-forest-600/70 transition-colors duration-300 flex items-center justify-center">
-                <div className="text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
-                  <ZoomIn className="w-8 h-8 text-white mx-auto mb-2" />
-                  <p className="text-white font-medium">{img.alt}</p>
-                </div>
+              <div className="absolute inset-0 bg-forest-900/0 group-hover:bg-forest-900/20 transition-colors duration-500" />
+              
+              <div className="absolute bottom-0 left-0 right-0 p-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out">
+                <p className="font-sans text-sm font-medium text-white tracking-wide">{img.alt}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
+
       </div>
     </section>
   );

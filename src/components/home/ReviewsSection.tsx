@@ -1,88 +1,92 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { GOOGLE_RATING } from "@/lib/reviews-data";
-import { Star } from "lucide-react";
 
 export default function ReviewsSection() {
-  const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  const EASE = "cubic-bezier(0.22,1,0.36,1)";
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          setVisible(true);
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.15 }
     );
-    
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section ref={ref} className="section-padding bg-sage-500/10">
-      <div className="container-premium">
-        <div className={`text-center max-w-2xl mx-auto transition-all duration-700 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <span className="section-label justify-center">Patient Reviews</span>
-          <h2 className="heading-xl text-forest-600 mb-4">What Our Patients Say</h2>
-          <p className="text-gray-600 text-lg mb-10">
-            Read genuine patient reviews on Google to hear directly about their experience at Natural Dental Clinic.
+    <section ref={ref} className="section-padding bg-ivory-100">
+      <div className="container-premium max-w-4xl text-center">
+        
+        <div
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(30px)",
+            transition: `opacity 0.8s ${EASE}, transform 0.8s ${EASE}`,
+          }}
+        >
+          <span className="eyebrow mx-auto justify-center mb-6">06 / Patient Stories</span>
+          
+          {/* Oversized quote mark */}
+          <div className="font-serif text-[6rem] text-champagne-400 leading-none h-16 opacity-60">
+            &ldquo;
+          </div>
+
+          <h2 className="font-serif text-[2rem] md:text-[3rem] text-forest-600 leading-tight mb-12">
+            Kind words from our patients
+          </h2>
+        </div>
+
+        <div
+          className="bg-white rounded-[24px] p-8 md:p-12 shadow-sm border border-ivory-300 max-w-2xl mx-auto"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(30px)",
+            transition: `opacity 0.8s ${EASE} 0.15s, transform 0.8s ${EASE} 0.15s`,
+          }}
+        >
+          {/* Google minimal CTA */}
+          <div className="flex justify-center mb-6">
+            <svg width="28" height="28" viewBox="0 0 24 24" aria-label="Google" role="img">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+            </svg>
+          </div>
+
+          <p className="font-sans text-[1.125rem] text-charcoal-500 leading-relaxed mb-8">
+            We value genuine patient feedback. Read authentic reviews on our Google profile to learn about experiences at Natural Dental Clinic.
           </p>
 
-          {/* Google Rating Card */}
-          <div className={`bg-white rounded-2xl p-8 shadow-sm border border-gray-100 mb-8 transition-all duration-700 delay-200 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="flex justify-center mb-4">
-              <svg width="36" height="36" viewBox="0 0 24 24" aria-label="Google" role="img">
-                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-              </svg>
-            </div>
-
-            {/* Only show rating if verified */}
-            {GOOGLE_RATING.score !== null && GOOGLE_RATING.totalReviews !== null ? (
-              <>
-                <p className="text-5xl font-serif font-bold text-forest-600 mb-2">{GOOGLE_RATING.score}</p>
-                <div className="flex justify-center gap-1 mb-2" aria-label={`${GOOGLE_RATING.score} out of 5 stars`}>
-                  {[1,2,3,4,5].map((i) => (
-                    <Star key={i} size={20} className="fill-champagne-400 text-champagne-400" />
-                  ))}
-                </div>
-                <p className="text-charcoal-400 font-sans mb-6">Based on {GOOGLE_RATING.totalReviews} Google Reviews</p>
-              </>
-            ) : (
-              <div className="mb-6">
-                <p className="font-serif text-2xl text-forest-600 mb-2">Google Reviews</p>
-                <p className="text-gray-500 font-sans text-sm">Read patient reviews on Google</p>
-              </div>
-            )}
-
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a
-                href={GOOGLE_RATING.googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-              >
-                Read Google Reviews
-              </a>
-              <a
-                href={GOOGLE_RATING.writeReviewUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary"
-              >
-                Write a Review
-              </a>
-            </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href={GOOGLE_RATING.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary"
+            >
+              Read Google Reviews
+            </a>
+            <a
+              href={GOOGLE_RATING.writeReviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              Write a Review
+            </a>
           </div>
         </div>
+
       </div>
     </section>
   );

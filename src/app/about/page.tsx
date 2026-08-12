@@ -5,7 +5,7 @@ import { CLINIC } from '@/lib/config';
 
 export const metadata: Metadata = {
   title: `About Us | ${CLINIC.name}`,
-  description: 'Learn about Natural Dental Clinic, our philosophy, and our commitment to providing exceptional dental care in a comfortable environment.',
+  description: 'Learn about Natural Dental Clinic, our philosophy and approach to dental care in Ramachandrapuram, Hyderabad.',
 };
 
 const VALUES = [
@@ -114,8 +114,8 @@ export default function AboutPage() {
               <div className="w-16 h-16 mx-auto bg-champagne-400/20 rounded-full flex items-center justify-center mb-6">
                 <span className="text-3xl">🌟</span>
               </div>
-              <h4 className="font-serif text-2xl font-bold mb-3">Experienced Team</h4>
-              <p className="text-sm text-ivory-100 font-sans">Highly qualified professionals dedicated to your smile.</p>
+              <h4 className="font-serif text-2xl font-bold mb-3">Dedicated Care</h4>
+              <p className="text-sm text-ivory-100 font-sans">Patient-focused dental care with clear communication and personalised planning.</p>
             </div>
             <div>
               <div className="w-16 h-16 mx-auto bg-champagne-400/20 rounded-full flex items-center justify-center mb-6">
@@ -151,7 +151,7 @@ export default function AboutPage() {
                 <h2 className="heading-xl text-forest-600 mb-2">Meet Our Lead Dentist</h2>
                 <h3 className="text-2xl font-sans text-sage-500 mb-6">Dr. Vandana Vytla</h3>
                 <p className="text-gray-600 font-sans mb-8">
-                  With years of experience and a passion for holistic dental care, Dr. Vandana Vytla leads Natural Dental Clinic with a commitment to patient-centered excellence. Her approach combines meticulous clinical skill with a genuine warmth that puts patients instantly at ease.
+                  Dr. Vandana Vytla leads Natural Dental Clinic with a commitment to patient-centred dental care. Her approach combines careful clinical assessment with genuine warmth, ensuring patients feel informed and at ease throughout their treatment.
                 </p>
                 <Link href="/doctor" className="btn-primary inline-flex">
                   View Full Profile

@@ -2,22 +2,12 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CLINIC } from '@/lib/config';
+import { SERVICES } from '@/lib/services-data';
 
 export const metadata: Metadata = {
-  title: `Dr. Vandana Vytla | ${CLINIC.name}`,
-  description: 'Meet Dr. Vandana Vytla, lead dentist at Natural Dental Clinic. Dedicated to providing compassionate, comprehensive, and advanced dental care.',
+  title: `Dr. Vandana Vytla | Dental Surgeon | ${CLINIC.name}`,
+  description: `Dr. Vandana Vytla is a Dental Surgeon at Natural Dental Clinic in Ramachandrapuram, Hyderabad. Patient-focused dental care with clear communication and personalised treatment planning.`,
 };
-
-const EXPERTISE = [
-  'Root Canal Treatment',
-  'Dental Implants',
-  'Orthodontics (Braces)',
-  'Teeth Whitening',
-  'Pediatric Dentistry',
-  'Gum Disease Treatment',
-  'Crowns & Bridges',
-  'Painless Extractions'
-];
 
 export default function DoctorPage() {
   return (
@@ -28,12 +18,20 @@ export default function DoctorPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Physician",
-            "name": "Dr. Vandana Vytla",
-            "jobTitle": "Lead Dentist",
-            "image": "/images/doctor/doctor-main.jpg",
+            "name": CLINIC.doctor.name,
+            "jobTitle": CLINIC.doctor.title,
+            "image": `${CLINIC.seo.siteUrl}/images/doctor/doctor-main.jpg`,
             "worksFor": {
               "@type": "MedicalClinic",
-              "name": CLINIC.name
+              "name": CLINIC.name,
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": `${CLINIC.address.line1}, ${CLINIC.address.line2}`,
+                "addressLocality": "Ramachandrapuram",
+                "addressRegion": CLINIC.address.state,
+                "postalCode": CLINIC.address.pincode,
+                "addressCountry": "IN"
+              }
             },
             "medicalSpecialty": "Dentistry"
           })
@@ -47,16 +45,19 @@ export default function DoctorPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 text-white">
               <span className="section-label text-champagne-400 mb-4 block">Meet Your Dentist</span>
-              <h1 className="heading-display mb-4">Dr. Vandana Vytla</h1>
-              <h2 className="text-xl md:text-2xl font-sans text-mint-400 mb-6 font-medium">
-                BDS, Dental Surgeon
+              <h1 className="heading-display mb-2">{CLINIC.doctor.name}</h1>
+              <h2 className="text-xl md:text-2xl font-sans text-mint-400 mb-2 font-medium">
+                {CLINIC.doctor.title}
               </h2>
+              <p className="text-champagne-400/80 font-sans text-sm mb-6 tracking-wide">
+                Reg No: {CLINIC.doctor.regNo}
+              </p>
               <p className="text-lg text-ivory-100 font-sans max-w-2xl leading-relaxed mb-8">
-                Dedicated to transforming smiles and improving lives through gentle, precision-based dentistry in a relaxing environment.
+                {CLINIC.doctor.bio}
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/contact" className="btn-primary">
-                  Consult Dr. Vandana
+                  Book a Consultation
                 </Link>
                 <a href={CLINIC.contact.whatsappHref} target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
                   WhatsApp Us
@@ -67,7 +68,7 @@ export default function DoctorPage() {
               <div className="relative h-[500px] w-full rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl">
                 <Image
                   src="/images/doctor/doctor-main.jpg"
-                  alt="Dr. Vandana Vytla"
+                  alt="Dr. Vandana Vytla — Dental Surgeon at Natural Dental Clinic"
                   fill
                   className="object-cover"
                   priority
@@ -79,65 +80,76 @@ export default function DoctorPage() {
         </div>
       </section>
 
-      {/* Profile & Expertise */}
+      {/* About & Approach */}
       <section className="section-padding bg-ivory-100">
         <div className="container-premium">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             <div className="lg:col-span-2">
-              <h2 className="heading-xl text-forest-600 mb-6">Professional Profile</h2>
+              <h2 className="heading-xl text-forest-600 mb-6">About Dr. Vandana</h2>
               <div className="space-y-4 text-gray-700 font-sans leading-relaxed text-lg">
                 <p>
-                  Dr. Vandana Vytla is a highly skilled dental surgeon known for her gentle touch and comprehensive approach to oral health. With a deep understanding that visiting the dentist can be intimidating, she has dedicated her career to creating a stress-free, painless experience for every patient.
+                  Dr. Vandana Vytla provides patient-focused dental care at Natural Dental Clinic in Ramachandrapuram. Her approach emphasises clear communication, careful evaluation, and personalised treatment planning to ensure each patient understands their condition and available options before any treatment begins.
                 </p>
                 <p>
-                  She believes in a conservative approach to dentistry—preserving as much natural tooth structure as possible while utilizing the latest advancements in dental technology to ensure optimal results.
-                </p>
-                <p>
-                  Dr. Vandana takes the time to listen to her patients, thoroughly explaining treatment options and collaborating with them to design personalized care plans that meet their clinical needs and aesthetic goals.
+                  The clinic environment is designed to be welcoming and unhurried, giving patients the time and space to ask questions and feel comfortable with their care decisions.
                 </p>
               </div>
 
               <div className="mt-12">
-                <h3 className="heading-lg text-forest-600 mb-6">Patient-Centered Approach</h3>
-                <div className="bg-white p-8 rounded-xl border border-sage-500/20 shadow-sm">
-                  <p className="italic font-serif text-xl text-gray-600 mb-4">
-                    "My goal is not just to treat teeth, but to treat the person. I want every patient who walks out of our clinic to feel confident, healthy, and completely at ease with their dental care."
-                  </p>
-                  <span className="font-sans font-semibold text-forest-600">— Dr. Vandana Vytla</span>
+                <h3 className="heading-lg text-forest-600 mb-6">Approach to Dental Care</h3>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {[
+                    { title: "Personalised Consultation", desc: "Each patient receives individual attention and a treatment plan suited to their specific clinical needs." },
+                    { title: "Clear Communication", desc: "Treatment options, steps, and costs are explained clearly before any procedure begins." },
+                    { title: "Patient Comfort", desc: "The clinic prioritises a calm, comfortable environment during every visit." },
+                    { title: "Preventive Focus", desc: "Emphasis on preserving natural tooth structure and maintaining long-term oral health." },
+                    { title: "Hygiene Standards", desc: "Strict sterilisation and infection control protocols are maintained throughout." },
+                    { title: "Appropriate Planning", desc: "Treatment is recommended only after thorough clinical evaluation of each case." },
+                  ].map((item, i) => (
+                    <div key={i} className="bg-white p-5 rounded-xl border border-sage-500/20 shadow-sm">
+                      <h4 className="font-serif text-forest-600 font-semibold mb-1">{item.title}</h4>
+                      <p className="text-gray-600 text-sm">{item.desc}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
 
             <div>
               <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-100 sticky top-24">
-                <h3 className="font-serif text-2xl text-forest-600 mb-6 border-b border-gray-100 pb-4">Areas of Expertise</h3>
+                {/* Verified identity */}
+                <div className="border-b border-gray-100 pb-6 mb-6">
+                  <h3 className="font-serif text-2xl text-forest-600 mb-3">Verified Details</h3>
+                  <ul className="space-y-3 font-sans text-gray-600">
+                    <li className="flex items-start gap-2">
+                      <span className="text-champagne-400 mt-0.5">✓</span>
+                      <span>Dental Surgeon</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-champagne-400 mt-0.5">✓</span>
+                      <span>Reg No: {CLINIC.doctor.regNo}</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Treatments available */}
+                <h3 className="font-serif text-xl text-forest-600 mb-4">Dental treatments available at Natural Dental Clinic</h3>
                 <div className="flex flex-wrap gap-2">
-                  {EXPERTISE.map((skill, idx) => (
-                    <span 
-                      key={idx} 
-                      className="bg-sage-500/10 text-forest-600 px-4 py-2 rounded-full text-sm font-sans font-medium"
+                  {SERVICES.slice(0, 8).map((service) => (
+                    <Link
+                      key={service.slug}
+                      href={`/services/${service.slug}`}
+                      className="bg-sage-500/10 text-forest-600 hover:bg-sage-500/20 px-3 py-1.5 rounded-full text-sm font-sans font-medium transition-colors"
                     >
-                      {skill}
-                    </span>
+                      {service.shortTitle}
+                    </Link>
                   ))}
                 </div>
 
-                <div className="mt-8 pt-8 border-t border-gray-100">
-                  <h3 className="font-serif text-2xl text-forest-600 mb-4">Credentials</h3>
-                  <ul className="space-y-3 font-sans text-gray-600">
-                    <li className="flex items-start">
-                      <span className="text-champagne-400 mr-2">✓</span>
-                      Bachelor of Dental Surgery (BDS)
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-champagne-400 mr-2">✓</span>
-                      Registered Dental Surgeon
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-champagne-400 mr-2">✓</span>
-                      Certified in Advanced Endodontics
-                    </li>
-                  </ul>
+                <div className="mt-6 pt-6 border-t border-gray-100">
+                  <Link href="/services" className="text-sage-500 text-sm font-medium hover:text-forest-600 transition-colors">
+                    View all services →
+                  </Link>
                 </div>
               </div>
             </div>
@@ -150,12 +162,15 @@ export default function DoctorPage() {
         <div className="container-premium text-center">
           <h2 className="heading-xl text-forest-600 mb-6">Schedule a Consultation</h2>
           <p className="text-forest-600/80 font-sans mb-8 max-w-2xl mx-auto">
-            Experience gentle, expert dental care with Dr. Vandana Vytla. Book your appointment today.
+            Book an appointment at Natural Dental Clinic for an evaluation and personalised treatment discussion.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-primary">
               Book Appointment
             </Link>
+            <a href={CLINIC.contact.phoneHref} className="btn-white">
+              Call {CLINIC.contact.phoneDisplay}
+            </a>
           </div>
         </div>
       </section>

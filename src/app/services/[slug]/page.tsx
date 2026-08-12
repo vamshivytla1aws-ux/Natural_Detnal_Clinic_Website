@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { SERVICES, getServiceBySlug } from '@/lib/services-data';
+import { CLINIC } from '@/lib/config';
 import { 
   CheckCircle, 
   ChevronRight, 
@@ -70,7 +71,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       "name": "Natural Dental Clinic"
     },
     "description": service.description,
-    "url": `https://naturaldentalclinic.com/services/${service.slug}`
+    "url": `${CLINIC.seo.siteUrl}/services/${service.slug}`
   };
 
   return (
@@ -252,8 +253,8 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 <div className="flex items-start">
                   <Star className="w-6 h-6 text-emerald-400 mr-4 shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-bold text-lg mb-1">Expert Care</h4>
-                    <p className="text-emerald-100">Highly qualified team with years of specialized experience.</p>
+                    <h4 className="font-bold text-lg mb-1">Patient-Focused Care</h4>
+                    <p className="text-emerald-100">Clear consultation, personalised treatment planning, and a comfortable clinic environment.</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -288,14 +289,16 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 </Link>
                 <div className="grid grid-cols-2 gap-4">
                   <a 
-                    href="tel:+1234567890"
+                    href={CLINIC.contact.phoneHref}
                     className="flex items-center justify-center px-4 py-3 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-700 font-semibold transition-colors"
                   >
                     <Phone className="w-5 h-5 mr-2" />
                     Call Us
                   </a>
                   <a 
-                    href="https://wa.me/1234567890"
+                    href={CLINIC.contact.whatsappHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center justify-center px-4 py-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-semibold transition-colors border border-emerald-200"
                   >
                     <MessageCircle className="w-5 h-5 mr-2" />
@@ -350,6 +353,15 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           </div>
         </section>
       )}
+
+      {/* Treatment Disclaimer */}
+      <section className="py-8 bg-ivory-100 border-t border-gray-100">
+        <div className="container mx-auto px-4 md:px-6 max-w-3xl">
+          <p className="text-center text-xs text-gray-400 font-sans leading-relaxed">
+            Treatment suitability, duration and outcomes vary depending on individual clinical conditions. A dental examination is required before recommending treatment.
+          </p>
+        </div>
+      </section>
     </main>
   );
 }

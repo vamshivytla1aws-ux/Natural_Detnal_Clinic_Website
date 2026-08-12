@@ -26,12 +26,12 @@ export default function WhyChooseUs() {
     {
       icon: Heart,
       title: "Gentle Care",
-      description: "We prioritize your comfort, offering pain-free treatments in a relaxing environment."
+      description: "We prioritise your comfort, using modern techniques to make treatments as comfortable as possible."
     },
     {
       icon: Zap,
       title: "Modern Solutions",
-      description: "Equipped with state-of-the.art technology for precise diagnostics and effective treatments."
+      description: "Equipped with state-of-the-art technology for precise diagnostics and effective treatments."
     },
     {
       icon: Shield,

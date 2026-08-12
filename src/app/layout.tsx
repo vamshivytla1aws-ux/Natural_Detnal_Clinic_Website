@@ -3,6 +3,9 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CLINIC } from "@/lib/config";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { SmoothScroller } from "@/components/providers/SmoothScroller";
+import { CustomCursor } from "@/components/ui/CustomCursor";
 
 export const metadata: Metadata = {
   metadataBase: new URL(CLINIC.seo.siteUrl),
@@ -63,7 +66,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -72,10 +75,15 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-ivory-100 text-charcoal-700 antialiased">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+      <body className="bg-ivory-100 text-charcoal-700 antialiased dark:bg-forest-900 dark:text-ivory-100 transition-colors duration-500">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <SmoothScroller>
+            <CustomCursor />
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </SmoothScroller>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -61,10 +61,9 @@ export function JsonLd({ type, data }: JsonLdProps) {
         priceRange: "₹₹",
         medicalSpecialty: "Dentistry",
         employee: {
-          "@type": "Physician",
+          "@type": "Person",
           name: CLINIC.doctor.name,
           jobTitle: CLINIC.doctor.title,
-          medicalSpecialty: "Dentistry",
         },
         sameAs: [CLINIC.address.googleMapsUrl],
       };

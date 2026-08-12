@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, ChevronDown, Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 import { CLINIC } from "@/lib/config";
 import { SERVICES } from "@/lib/services-data";
 import { clsx } from "clsx";
@@ -30,7 +31,13 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
   const pathname = usePathname();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -156,8 +163,20 @@ export function Header() {
             )}
           </nav>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons & Theme Toggle */}
           <div className="hidden lg:flex items-center gap-3">
+            {mounted && (
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className={clsx(
+                  "p-2 rounded-full transition-colors duration-300",
+                  scrolled ? "text-charcoal-700 hover:bg-gray-100 dark:text-ivory-100 dark:hover:bg-charcoal-800" : "text-white hover:bg-white/10"
+                )}
+                aria-label="Toggle Dark Mode"
+              >
+                {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+              </button>
+            )}
             <a
               href={CLINIC.contact.phoneHref}
               className={clsx(
@@ -174,10 +193,22 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className={clsx(
-              "lg:hidden p-2 rounded-lg transition-colors duration-200",
+          {/* Mobile Menu Toggle & Theme */}
+          <div className="lg:hidden flex items-center gap-2">
+            {mounted && (
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className={clsx(
+                  "p-2 rounded-full transition-colors duration-200",
+                  scrolled ? "text-forest-600 dark:text-ivory-100" : "text-white"
+                )}
+              >
+                {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+              </button>
+            )}
+            <button
+              className={clsx(
+                "p-2 rounded-lg transition-colors duration-200",
               scrolled
                 ? "text-forest-600 hover:bg-forest-50"
                 : "text-white hover:bg-white/10"
@@ -187,7 +218,8 @@ export function Header() {
             aria-expanded={menuOpen}
           >
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+            </button>
+          </div>
         </div>
       </header>
 
@@ -208,7 +240,7 @@ export function Header() {
         {/* Menu Panel */}
         <div
           className={clsx(
-            "absolute top-0 right-0 h-full w-80 bg-white shadow-2xl transition-transform duration-400 ease-premium",
+            "absolute top-0 right-0 h-full w-80 bg-white dark:bg-charcoal-950 shadow-2xl transition-transform duration-400 ease-premium",
             menuOpen ? "translate-x-0" : "translate-x-full"
           )}
         >
@@ -218,7 +250,7 @@ export function Header() {
               <div className="relative w-9 h-9">
                 <Image src="/images/logo.png" alt={CLINIC.name} fill className="object-contain" />
               </div>
-              <span className="font-serif font-semibold text-forest-600 text-base">
+              <span className="font-serif font-semibold text-forest-600 dark:text-ivory-100 text-base">
                 Natural Dental
               </span>
             </div>
@@ -240,8 +272,8 @@ export function Header() {
                   className={clsx(
                     "flex items-center px-4 py-3 rounded-xl text-base font-medium transition-colors duration-200",
                     pathname === link.href
-                      ? "bg-forest-50 text-forest-600"
-                      : "text-charcoal-700 hover:bg-ivory-200 hover:text-forest-600"
+                      ? "bg-forest-50 dark:bg-forest-900 text-forest-600 dark:text-ivory-100"
+                      : "text-charcoal-700 dark:text-ivory-200 hover:bg-ivory-200 dark:hover:bg-charcoal-800 hover:text-forest-600 dark:hover:text-ivory-100"
                   )}
                 >
                   {link.label}

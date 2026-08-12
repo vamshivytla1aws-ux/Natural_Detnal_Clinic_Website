@@ -3,14 +3,23 @@
 export const CLINIC = {
   name: "Natural Dental Clinic",
   shortName: "NDC",
-  tagline: "Your Smile, Our Care",
+  tagline: "Patient-Focused Dental Care",
   description:
-    "Premium dental care in Ramachandrapuram, Hyderabad. Expert treatments delivered with compassion, precision, and a natural approach to oral health.",
+    "Dental care in Ramachandrapuram, Hyderabad. Treatments delivered with care, clear communication, and a focus on patient comfort.",
   doctor: {
     name: "Dr. Vandana Vytla",
     title: "Dental Surgeon",
     regNo: "A-6112",
-    bio: "Dr. Vandana Vytla is a compassionate and highly skilled Dental Surgeon with a patient-first philosophy. She combines modern dental techniques with a gentle approach, ensuring every patient feels comfortable and cared for. Her commitment to continuous learning keeps the clinic at the forefront of dental innovation.",
+    bio: "Dr. Vandana Vytla provides patient-focused dental care at Natural Dental Clinic in Ramachandrapuram. Her approach emphasises clear communication, careful evaluation, personalised treatment planning and a comfortable patient experience.",
+    // Fields to be filled when verified by the clinic
+    qualification: null as string | null,
+    experienceYears: null as number | null,
+    education: null as string | null,
+    languages: null as string[] | null,
+    certifications: null as string[] | null,
+    professionalMemberships: null as string[] | null,
+    areasOfInterest: null as string[] | null,
+    consultationHours: null as string | null,
   },
   contact: {
     phone: "+91 8121860609",
@@ -30,11 +39,12 @@ export const CLINIC = {
     pincode: "502032",
     country: "India",
     full: "H No 4, 46/10/9/A, Road, Backside South India Shopping Mall, Sai Nagar Colony, Ramachandrapuram, Hyderabad, Telangana 502032",
-    landmark: "Behind South India Shopping Mall, Near Bharat Petrol Pump, R.C.Puram",
+    landmark: "Behind South India Shopping Mall, Sai Nagar Colony, R.C.Puram",
     googleMapsUrl: "https://maps.app.goo.gl/t2wSYG2y4RoLZ6Co8",
     embedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.0!2d78.4!3d17.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sNatural+Dental+Clinic!5e0!3m2!1sen!2sin!4v1",
   },
+  // Hours configured by the clinic — update here if timings change
   hours: {
     weekdays: "10:00 AM – 2:00 PM & 5:00 PM – 9:00 PM",
     sunday: "10:00 AM – 2:00 PM",
@@ -52,10 +62,10 @@ export const CLINIC = {
   },
   seo: {
     siteUrl: "https://naturaldentalclinic.in",
-    defaultTitle: "Natural Dental Clinic — Premium Dental Care in Hyderabad",
-    titleTemplate: "%s | Natural Dental Clinic, Hyderabad",
+    defaultTitle: "Natural Dental Clinic | Dental Clinic in Ramachandrapuram, Hyderabad",
+    titleTemplate: "%s | Natural Dental Clinic",
     defaultDescription:
-      "Natural Dental Clinic in Ramachandrapuram, Hyderabad offers expert dental care including root canal, implants, braces, teeth whitening & more. Dr. Vandana Vytla, Dental Surgeon. Call +91 8121860609.",
+      "Natural Dental Clinic in Ramachandrapuram, Hyderabad offers dental care including root canal, implants, braces, teeth whitening and more. Dr. Vandana Vytla, Dental Surgeon. Call +91 8121860609.",
     keywords: [
       "dental clinic Hyderabad",
       "dentist Ramachandrapuram",
@@ -63,7 +73,7 @@ export const CLINIC = {
       "Dr Vandana Vytla",
       "root canal Hyderabad",
       "dental implants Hyderabad",
-      "best dentist RC Puram",
+      "dentist RC Puram",
     ],
     ogImage: "/og-image.jpg",
   },

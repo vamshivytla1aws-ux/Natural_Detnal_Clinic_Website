@@ -64,13 +64,13 @@ const config: Config = {
         },
       },
       fontFamily: {
-        serif: ["Instrument Serif", "Cormorant Garamond", "Georgia", "serif"],
-        sans:  ["Manrope", "system-ui", "sans-serif"],
+        serif: ["var(--font-serif)", "Cormorant Garamond", "Georgia", "serif"],
+        sans:  ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
       },
       fontSize: {
-        "display-xl": ["4rem", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
-        "display-lg": ["3.5rem", { lineHeight: "1.1", letterSpacing: "-0.015em" }],
-        "display-md": ["3rem", { lineHeight: "1.2",  letterSpacing: "-0.01em" }],
+        "display-xl": ["4.5rem", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
+        "display-lg": ["3.75rem", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
+        "display-md": ["3rem", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
         "display-sm": ["2.25rem", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
       },
       boxShadow: {

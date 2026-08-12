@@ -6,8 +6,8 @@
   :root {
     --background: #FAF8F3; /* Warm Ivory */
     --foreground: #262A27; /* Deep Charcoal */
-    --font-sans: "Manrope", system-ui, sans-serif;
-    --font-serif: "Instrument Serif", "Cormorant Garamond", "Georgia", serif;
+    --font-sans: var(--font-sans, system-ui, sans-serif);
+    --font-serif: var(--font-serif, "Georgia", serif);
   }
 
   /* 

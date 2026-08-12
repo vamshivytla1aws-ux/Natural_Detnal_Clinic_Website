@@ -26,7 +26,7 @@ export default function DoctorHighlight() {
             <span className="eyebrow mb-6">Meet Your Dentist</span>
             
             <h2 className="heading-lg text-forest-600 mb-2">
-              Dr. {CLINIC.doctor.name}
+              {CLINIC.doctor.name}
             </h2>
             <div className="flex flex-col mb-8">
               <span className="font-sans text-lg text-forest-600 font-semibold">{CLINIC.doctor.title}</span>
@@ -38,12 +38,12 @@ export default function DoctorHighlight() {
                 Thoughtful dental care centered around comfort, clear communication, and individual treatment needs.
               </p>
               <p>
-                Dr. {CLINIC.doctor.name} believes in taking the time to listen to every patient, ensuring that clinical recommendations are fully understood and tailored to support long-term oral health.
+                {CLINIC.doctor.name} believes in taking the time to listen to every patient, ensuring that clinical recommendations are fully understood and tailored to support long-term oral health.
               </p>
             </div>
             
             <Link href="/doctor" className="inline-flex items-center text-forest-600 font-semibold hover:text-sage-600 transition-colors group">
-              Meet Dr. {CLINIC.doctor.name.split(" ")[0]}
+              Meet Dr. {CLINIC.doctor.name.replace("Dr. ", "").split(" ")[0]}
               <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>

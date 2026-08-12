@@ -72,7 +72,7 @@ export default function HeroSection() {
               {/* Doctor Nameplate */}
               <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-sm border border-white/50">
                 <p className="font-serif text-xl text-forest-600 font-bold mb-0.5">
-                  Dr. {CLINIC.doctor.name}
+                  {CLINIC.doctor.name}
                 </p>
                 <div className="flex justify-between items-end">
                   <p className="font-sans text-sm text-charcoal-500 font-medium">

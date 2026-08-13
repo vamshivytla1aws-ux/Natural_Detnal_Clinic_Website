@@ -4,8 +4,11 @@ import { SERVICES, SERVICE_CATEGORIES } from '@/lib/services-data';
 import { CheckCircle, ArrowRight, Phone, Calendar } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'All Dental Services | Natural Dental Clinic',
-  description: 'Explore our comprehensive range of dental services including general, restorative, and cosmetic dentistry tailored to your needs.',
+  title: 'Dental Treatments in Ramachandrapuram | Natural Dental Clinic',
+  description: 'Explore dental treatments available at Natural Dental Clinic in Ramachandrapuram, Hyderabad, including root canal treatment, dental implants, braces, whitening and preventive dental care.',
+  alternates: {
+    canonical: "/services",
+  },
 };
 
 export default function ServicesPage() {
@@ -23,7 +26,7 @@ export default function ServicesPage() {
             Comprehensive Care
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
-            Our Dental Services
+            Dental Treatments
           </h1>
           <p className="text-lg md:text-xl text-emerald-50 mb-8 max-w-2xl mx-auto">
             From routine check-ups to advanced restorative treatments, we provide high-quality, comfortable dental care to keep your smile healthy and beautiful.

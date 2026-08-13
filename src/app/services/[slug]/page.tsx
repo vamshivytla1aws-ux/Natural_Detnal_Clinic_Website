@@ -29,10 +29,31 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     return { title: 'Service Not Found | Natural Dental Clinic' };
   }
 
+  let title = `${service.title} | Natural Dental Clinic`;
+  let description = service.description;
+
+  if (params.slug === "root-canal-treatment") {
+    title = "Root Canal Treatment in Ramachandrapuram | Natural Dental Clinic";
+    description = "Learn about root canal treatment at Natural Dental Clinic in Ramachandrapuram, Hyderabad, including when it may be recommended, the treatment process and consultation options.";
+  } else if (params.slug === "dental-implants") {
+    title = "Dental Implants in Ramachandrapuram | Natural Dental Clinic";
+  } else if (params.slug === "braces-orthodontics") {
+    title = "Braces Treatment in Ramachandrapuram | Natural Dental Clinic";
+  } else if (params.slug === "teeth-whitening") {
+    title = "Teeth Whitening in Ramachandrapuram | Natural Dental Clinic";
+  } else if (params.slug === "wisdom-tooth-removal") {
+    title = "Wisdom Tooth Removal in Ramachandrapuram | Natural Dental Clinic";
+  } else if (params.slug === "pediatric-dentistry") {
+    title = "Children's Dental Care in Ramachandrapuram | Natural Dental Clinic";
+  }
+
   return {
-    title: `${service.title} | Natural Dental Clinic`,
-    description: service.description,
+    title,
+    description,
     keywords: `${service.title.toLowerCase()}, dental clinic, dentist, ${service.category.toLowerCase()} dentistry, dental treatment`,
+    alternates: {
+      canonical: `/services/${params.slug}`,
+    }
   };
 }
 
@@ -69,6 +90,11 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
     "provider": {
       "@type": "Dentist",
       "name": "Natural Dental Clinic"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Ramachandrapuram",
+      "addressRegion": "Hyderabad"
     },
     "description": service.description,
     "url": `${CLINIC.seo.siteUrl}/services/${service.slug}`
@@ -276,8 +302,8 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
             <div className="bg-white rounded-3xl p-8 md:p-10 text-neutral-900 text-center shadow-xl">
               <h3 className="text-2xl font-bold mb-4">Ready for your treatment?</h3>
-              <p className="text-neutral-600 mb-8">
-                Book your consultation today and take the first step towards a healthier smile.
+              <p className="text-neutral-600 mb-6">
+                For a dental consultation in Ramachandrapuram, contact Natural Dental Clinic to discuss whether this treatment may be appropriate for your dental needs.
               </p>
               <div className="flex flex-col space-y-4">
                 <Link 

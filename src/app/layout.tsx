@@ -48,9 +48,6 @@ export const metadata: Metadata = {
     description: CLINIC.seo.defaultDescription,
     images: [CLINIC.seo.ogImage],
   },
-  alternates: {
-    canonical: CLINIC.seo.siteUrl,
-  },
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",

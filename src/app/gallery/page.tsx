@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import type { Metadata } from 'next';
 import { GALLERY_IMAGES, GALLERY_CATEGORIES } from '@/lib/gallery-data';
 import { X } from 'lucide-react';
 

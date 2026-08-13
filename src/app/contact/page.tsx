@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { CLINIC } from '@/lib/config';
-import type { Metadata } from 'next';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({

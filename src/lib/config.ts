@@ -61,11 +61,11 @@ export const CLINIC = {
     instagram: "#",
   },
   seo: {
-    siteUrl: "https://naturaldentalclinic.in",
-    defaultTitle: "Natural Dental Clinic | Dental Clinic in Ramachandrapuram, Hyderabad",
+    siteUrl: "https://naturaldental.in",
+    defaultTitle: "Natural Dental Clinic | Dentist in Ramachandrapuram, Hyderabad",
     titleTemplate: "%s | Natural Dental Clinic",
     defaultDescription:
-      "Natural Dental Clinic in Ramachandrapuram, Hyderabad offers dental care including root canal, implants, braces, teeth whitening and more. Dr. Vandana Vytla, Dental Surgeon. Call +91 8121860609.",
+      "Visit Natural Dental Clinic in Ramachandrapuram, Hyderabad for personalized dental care with Dr. Vandana Vytla, Dental Surgeon. Explore treatments, reviews, clinic information and directions.",
     keywords: [
       "dental clinic Hyderabad",
       "dentist Ramachandrapuram",

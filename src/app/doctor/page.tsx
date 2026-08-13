@@ -5,8 +5,11 @@ import { CLINIC } from '@/lib/config';
 import { SERVICES } from '@/lib/services-data';
 
 export const metadata: Metadata = {
-  title: `Dr. Vandana Vytla | Dental Surgeon | ${CLINIC.name}`,
-  description: `Dr. Vandana Vytla is a Dental Surgeon at Natural Dental Clinic in Ramachandrapuram, Hyderabad. Patient-focused dental care with clear communication and personalised treatment planning.`,
+  title: "Dr. Vandana Vytla | Dental Surgeon in Ramachandrapuram",
+  description: "Meet Dr. Vandana Vytla, Dental Surgeon at Natural Dental Clinic in Ramachandrapuram, Hyderabad. Learn about her patient-focused approach to dental care.",
+  alternates: {
+    canonical: "/doctor",
+  },
 };
 
 export default function DoctorPage() {

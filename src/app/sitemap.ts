@@ -1,5 +1,6 @@
 import { CLINIC } from "@/lib/config";
 import { SERVICES } from "@/lib/services-data";
+import { getAllPosts } from "@/lib/blog-utils";
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -12,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/services`, priority: 0.9, changeFrequency: "weekly" as const },
     { url: `${baseUrl}/gallery`, priority: 0.7, changeFrequency: "monthly" as const },
     { url: `${baseUrl}/reviews`, priority: 0.7, changeFrequency: "monthly" as const },
+    { url: `${baseUrl}/blog`, priority: 0.9, changeFrequency: "weekly" as const },
     { url: `${baseUrl}/contact`, priority: 0.8, changeFrequency: "monthly" as const },
     { url: `${baseUrl}/privacy-policy`, priority: 0.3, changeFrequency: "yearly" as const },
     { url: `${baseUrl}/terms`, priority: 0.3, changeFrequency: "yearly" as const },
@@ -21,6 +23,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}/services/${service.slug}`,
     priority: 0.8,
     changeFrequency: "monthly" as const,
+  }));
+
+  const blogPages = getAllPosts().map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    priority: 0.7,
+    changeFrequency: "monthly" as const,
+    lastModified: new Date(post.updatedAt || post.publishedAt),
   }));
 
   return [
@@ -33,6 +42,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...servicePages.map((page) => ({
       url: page.url,
       lastModified: new Date(),
+      changeFrequency: page.changeFrequency,
+      priority: page.priority,
+    })),
+    ...blogPages.map((page) => ({
+      url: page.url,
+      lastModified: page.lastModified,
       changeFrequency: page.changeFrequency,
       priority: page.priority,
     })),

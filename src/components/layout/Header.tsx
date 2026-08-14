@@ -23,6 +23,7 @@ export default function Header() {
     { label: "Treatments", href: "/services" },
     { label: "Gallery", href: "/gallery" },
     { label: "Reviews", href: "/reviews" },
+    { label: "Dental Guides", href: "/blog" },
     { label: "Contact", href: "/contact" },
   ];
 

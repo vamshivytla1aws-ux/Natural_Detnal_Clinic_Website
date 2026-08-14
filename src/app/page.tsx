@@ -7,6 +7,7 @@ import GalleryPreview from "@/components/home/GalleryPreview";
 import ReviewsSection from "@/components/home/ReviewsSection";
 import LocationSection from "@/components/home/LocationSection";
 import FinalCTA from "@/components/home/FinalCTA";
+import BlogPreview from "@/components/home/BlogPreview";
 import { MobileActionBar } from "@/components/ui/MobileActionBar";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { Metadata } from "next";
@@ -90,6 +91,7 @@ export default function Home() {
       <WhyChooseUs />
       <GalleryPreview />
       <ReviewsSection />
+      <BlogPreview />
       <LocationSection />
       <FinalCTA />
       <MobileActionBar />

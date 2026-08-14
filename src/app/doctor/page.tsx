@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { CLINIC } from '@/lib/config';
 import { SERVICES } from '@/lib/services-data';
+import { ClinicActions } from '@/components/ui/ClinicActions';
 
 export const metadata: Metadata = {
   title: "Dr. Vandana Vytla | Dental Surgeon in Ramachandrapuram",
@@ -58,13 +59,14 @@ export default function DoctorPage() {
               <p className="text-lg text-ivory-100 font-sans max-w-2xl leading-relaxed mb-8">
                 {CLINIC.doctor.bio}
               </p>
-              <div className="flex flex-wrap gap-4">
-                <Link href="/contact" className="btn-primary">
-                  Book a Consultation
-                </Link>
-                <a href={CLINIC.contact.whatsappHref} target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
-                  WhatsApp Us
-                </a>
+              <div className="mt-8">
+                <ClinicActions 
+                  variant="hero" 
+                  showBook={true} 
+                  showWhatsApp={true} 
+                  showCall={false} 
+                  showDirections={false} 
+                />
               </div>
             </div>
             <div className="lg:col-span-5">
@@ -177,13 +179,14 @@ export default function DoctorPage() {
           <p className="text-forest-600/80 font-sans mb-8 max-w-2xl mx-auto">
             Book an appointment at Natural Dental Clinic for an evaluation and personalised treatment discussion.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="btn-primary">
-              Book Appointment
-            </Link>
-            <a href={CLINIC.contact.phoneHref} className="btn-white">
-              Call {CLINIC.contact.phoneDisplay}
-            </a>
+          <div className="max-w-2xl mx-auto mt-8">
+            <ClinicActions 
+              variant="grid" 
+              showBook={true} 
+              showCall={true} 
+              showWhatsApp={true} 
+              showDirections={false} 
+            />
           </div>
         </div>
       </section>

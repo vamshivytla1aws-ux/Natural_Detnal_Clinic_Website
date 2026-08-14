@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { SERVICES, getServiceBySlug } from '@/lib/services-data';
 import { CLINIC } from '@/lib/config';
+import { ClinicActions } from '@/components/ui/ClinicActions';
 import { 
   CheckCircle, 
   ChevronRight, 
@@ -328,32 +329,15 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               <p className="text-neutral-600 mb-6">
                 {service.localCta}
               </p>
-              <div className="flex flex-col space-y-4">
-                <Link 
-                  href="/contact"
-                  className="flex items-center justify-center w-full px-6 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-colors"
-                >
-                  <Calendar className="w-5 h-5 mr-2" />
-                  Book Appointment Online
-                </Link>
-                <div className="grid grid-cols-2 gap-4">
-                  <a 
-                    href={CLINIC.contact.phoneHref}
-                    className="flex items-center justify-center px-4 py-3 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-700 font-semibold transition-colors"
-                  >
-                    <Phone className="w-5 h-5 mr-2" />
-                    Call Us
-                  </a>
-                  <a 
-                    href={CLINIC.contact.whatsappHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center px-4 py-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-semibold transition-colors border border-emerald-200"
-                  >
-                    <MessageCircle className="w-5 h-5 mr-2" />
-                    WhatsApp
-                  </a>
-                </div>
+              <div className="mt-6">
+                <ClinicActions 
+                  variant="grid"
+                  treatmentName={service.title}
+                  showBook={true}
+                  showCall={true}
+                  showWhatsApp={true}
+                  showDirections={true}
+                />
               </div>
             </div>
           </div>

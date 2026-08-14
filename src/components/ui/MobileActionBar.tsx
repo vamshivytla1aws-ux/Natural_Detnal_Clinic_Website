@@ -16,6 +16,9 @@ export function MobileActionBar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const whatsappMessage = "Hello Natural Dental Clinic, I would like to book a dental consultation.";
+  const whatsappUrl = `${CLINIC.contact.whatsappHref}?text=${encodeURIComponent(whatsappMessage)}`;
+
   return (
     <div
       className="fixed bottom-0 left-0 right-0 z-50 lg:hidden pb-safe"
@@ -29,11 +32,12 @@ export function MobileActionBar() {
         transition: "transform 0.4s cubic-bezier(0.22,1,0.36,1)",
       }}
     >
-      <div className="flex items-center justify-between px-2 py-2">
+      <div className="flex items-center justify-between px-2 py-2 min-h-[60px]">
         <a
           href={CLINIC.contact.phoneHref}
-          className="flex flex-col items-center justify-center flex-1 py-1 gap-1"
+          className="flex flex-col items-center justify-center flex-1 py-2 gap-1 min-h-[44px] min-w-[44px]"
           style={{ color: "#12372A" }}
+          aria-label="Call Natural Dental Clinic"
         >
           <Phone size={20} strokeWidth={1.5} />
           <span className="font-sans text-[0.625rem] font-medium tracking-wide uppercase">Call</span>
@@ -42,11 +46,12 @@ export function MobileActionBar() {
         <div className="w-[1px] h-8 bg-[#E8E2D4]" />
         
         <a
-          href={CLINIC.contact.whatsappHref}
+          href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center flex-1 py-1 gap-1"
+          className="flex flex-col items-center justify-center flex-1 py-2 gap-1 min-h-[44px] min-w-[44px]"
           style={{ color: "#12372A" }}
+          aria-label="WhatsApp Natural Dental Clinic"
         >
           <MessageCircle size={20} strokeWidth={1.5} />
           <span className="font-sans text-[0.625rem] font-medium tracking-wide uppercase">WhatsApp</span>
@@ -58,8 +63,9 @@ export function MobileActionBar() {
           href={CLINIC.address.googleMapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center flex-1 py-1 gap-1"
+          className="flex flex-col items-center justify-center flex-1 py-2 gap-1 min-h-[44px] min-w-[44px]"
           style={{ color: "#12372A" }}
+          aria-label="Get directions to Natural Dental Clinic"
         >
           <MapPin size={20} strokeWidth={1.5} />
           <span className="font-sans text-[0.625rem] font-medium tracking-wide uppercase">Directions</span>

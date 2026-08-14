@@ -11,6 +11,7 @@ import {
 } from "@/lib/reviews-data";
 import { ReviewCard } from "@/components/shared/ReviewCard";
 import { Search } from "lucide-react";
+import { ClinicActions } from "@/components/ui/ClinicActions";
 
 export default function ReviewsPage() {
   const [activeTag, setActiveTag] = useState<string>("All");
@@ -164,8 +165,23 @@ export default function ReviewsPage() {
           </p>
         </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-24 max-w-3xl mx-auto text-center bg-forest-600 rounded-[32px] p-10 md:p-16 shadow-xl relative overflow-hidden">
+        {/* Consultation CTA */}
+        <div className="mt-16 bg-white rounded-[24px] border border-ivory-300 p-8 md:p-12 max-w-4xl mx-auto text-center shadow-sm">
+          <h2 className="font-serif text-[2rem] text-forest-600 mb-4">Need a dental consultation?</h2>
+          <p className="font-sans text-charcoal-500 mb-8 max-w-xl mx-auto">
+            Book an appointment for a clinical evaluation and personalised treatment guidance.
+          </p>
+          <ClinicActions 
+            variant="grid" 
+            showBook={true} 
+            showCall={true} 
+            showWhatsApp={true} 
+            showDirections={true} 
+          />
+        </div>
+
+        {/* Bottom CTA (Write Review) */}
+        <div className="mt-12 max-w-3xl mx-auto text-center bg-forest-600 rounded-[32px] p-10 md:p-16 shadow-xl relative overflow-hidden">
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
              <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full mix-blend-screen opacity-10" style={{ background: "radial-gradient(circle, #C5A66A 0%, transparent 70%)", transform: "translate(30%, -30%)" }} />
           </div>

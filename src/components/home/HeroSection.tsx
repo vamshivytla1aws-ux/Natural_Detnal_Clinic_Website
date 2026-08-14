@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CLINIC } from "@/lib/config";
-import { PhoneCall } from "lucide-react";
+import { ClinicActions } from "@/components/ui/ClinicActions";
 
 export default function HeroSection() {
   return (
@@ -26,15 +26,14 @@ export default function HeroSection() {
               Personalised dental care at Natural Dental Clinic in Ramachandrapuram, Hyderabad. We focus on comfort, clear communication, and your long-term oral health.
             </p>
             
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-10 w-full sm:w-auto">
-              <Link href="/contact" className="btn-primary">
-                Book Appointment
-              </Link>
-              <a href={CLINIC.contact.phoneHref} className="btn-secondary flex items-center gap-2 justify-center">
-                <PhoneCall className="w-4 h-4" />
-                Call Clinic
-              </a>
-            </div>
+            <ClinicActions 
+              variant="hero" 
+              showBook={true} 
+              showWhatsApp={true} 
+              showCall={false} 
+              showDirections={false} 
+              className="mb-10" 
+            />
             
             {/* Trust Principles replacing the unverified stats */}
             <div className="grid grid-cols-2 gap-x-8 gap-y-4 pt-8 border-t border-ivory-300 w-full">

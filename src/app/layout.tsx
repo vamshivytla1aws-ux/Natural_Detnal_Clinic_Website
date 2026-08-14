@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { MobileActionBar } from "@/components/ui/MobileActionBar";
 import { CLINIC } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -77,10 +78,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`scroll-smooth ${cormorant.variable} ${inter.variable}`}>
-      <body className="bg-ivory-100 text-charcoal-700 antialiased font-sans">
+      <body className="bg-ivory-100 text-charcoal-700 antialiased font-sans flex flex-col min-h-screen">
         <Header />
-        <main>{children}</main>
+        <main className="flex-grow pb-24 lg:pb-0">{children}</main>
         <Footer />
+        <MobileActionBar />
       </body>
     </html>
   );

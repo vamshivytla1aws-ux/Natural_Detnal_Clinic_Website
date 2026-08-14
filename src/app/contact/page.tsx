@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { CLINIC } from '@/lib/config';
+import { ClinicActions } from '@/components/ui/ClinicActions';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -182,25 +183,13 @@ export default function ContactPage() {
               </div>
 
               {/* CTAs */}
-              <div className="flex gap-4 flex-wrap">
-                <a
-                  href={CLINIC.address.googleMapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  id="get-directions-btn"
-                  className="btn-secondary flex-1 text-center"
-                >
-                  Get Directions
-                </a>
-                <a
-                  href={CLINIC.contact.whatsappHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  id="whatsapp-contact-btn"
-                  className="btn-whatsapp flex-1 text-center"
-                >
-                  WhatsApp Us
-                </a>
+              <div className="pt-4">
+                <ClinicActions 
+                  variant="grid" 
+                  showCall={true} 
+                  showWhatsApp={true} 
+                  showDirections={true} 
+                />
               </div>
             </div>
           </div>

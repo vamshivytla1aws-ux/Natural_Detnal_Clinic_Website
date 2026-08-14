@@ -23,7 +23,7 @@ export default function HeroSection() {
             </h1>
             
             <p className="text-lg md:text-xl text-charcoal-500 font-sans mb-8 max-w-xl leading-relaxed">
-              Gentle, personalized dental care in Ramachandrapuram, Hyderabad. We focus on comfort, clear communication, and your long-term oral health.
+              Personalised dental care at Natural Dental Clinic in Ramachandrapuram, Hyderabad. We focus on comfort, clear communication, and your long-term oral health.
             </p>
             
             <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-10 w-full sm:w-auto">

@@ -25,8 +25,12 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "Dentist",
     "name": CLINIC.name,
+    "description": CLINIC.description,
     "url": CLINIC.seo.siteUrl,
     "telephone": CLINIC.contact.phone,
+    "email": CLINIC.contact.email,
+    "image": `${CLINIC.seo.siteUrl}/images/gallery/clinic-exterior-real.jpg`,
+    "hasMap": CLINIC.address.googleMapsUrl,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": `${CLINIC.address.line1}, ${CLINIC.address.landmark}, ${CLINIC.address.locality}`,
@@ -35,6 +39,15 @@ export default function Home() {
       "postalCode": CLINIC.address.postalCode,
       "addressCountry": "IN"
     },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 17.5023,
+      "longitude": 78.2974
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Ramachandrapuram" },
+      { "@type": "City", "name": "Hyderabad" }
+    ],
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",

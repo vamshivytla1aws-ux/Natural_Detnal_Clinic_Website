@@ -18,7 +18,7 @@ export default function FinalCTA() {
             Your smile deserves thoughtful care.
           </h2>
           <p className="font-sans text-[1.125rem] text-sage-200 leading-relaxed mb-10 max-w-2xl mx-auto">
-            Visit Natural Dental Clinic in Ramachandrapuram for personalized dental care in a calm and welcoming environment.
+            Visit Natural Dental Clinic in Ramachandrapuram, Hyderabad for personalised dental care in a calm and welcoming environment.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

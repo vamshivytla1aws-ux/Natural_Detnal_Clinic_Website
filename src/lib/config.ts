@@ -10,7 +10,7 @@ export const CLINIC = {
     name: "Dr. Vandana Vytla",
     title: "Dental Surgeon",
     regNo: "A-6112",
-    bio: "Dr. Vandana Vytla provides patient-focused dental care at Natural Dental Clinic in Ramachandrapuram. Her approach emphasises clear communication, careful evaluation, personalised treatment planning and a comfortable patient experience.",
+    bio: "Dr. Vandana Vytla provides patient-focused dental care at Natural Dental Clinic in Ramachandrapuram, Hyderabad. Her approach emphasises clear communication, careful evaluation, personalised treatment planning and a comfortable patient experience.",
     // Fields to be filled when verified by the clinic
     qualification: null as string | null,
     experienceYears: null as number | null,
@@ -95,7 +95,7 @@ export const CLINIC = {
     defaultTitle: "Natural Dental Clinic | Dentist in Ramachandrapuram, Hyderabad",
     titleTemplate: "%s | Natural Dental Clinic",
     defaultDescription:
-      "Visit Natural Dental Clinic in Ramachandrapuram, Hyderabad for personalized dental care with Dr. Vandana Vytla, Dental Surgeon. Explore treatments, reviews, clinic information and directions.",
+      "Visit Natural Dental Clinic in Ramachandrapuram, Hyderabad for personalised dental care with Dr. Vandana Vytla, Dental Surgeon. Explore dental treatments, genuine patient reviews, clinic timings and directions.",
     keywords: [
       "dental clinic Hyderabad",
       "dentist Ramachandrapuram",

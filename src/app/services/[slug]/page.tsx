@@ -29,28 +29,36 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     return { title: 'Service Not Found | Natural Dental Clinic' };
   }
 
-  let title = `${service.title} | Natural Dental Clinic`;
-  let description = service.description;
+  const titleMap: Record<string, string> = {
+    "root-canal-treatment": "Root Canal Treatment in Ramachandrapuram | Natural Dental Clinic",
+    "dental-implants": "Dental Implants in Ramachandrapuram | Natural Dental Clinic",
+    "braces-orthodontics": "Braces Treatment in Ramachandrapuram | Natural Dental Clinic",
+    "teeth-whitening": "Teeth Whitening in Ramachandrapuram | Natural Dental Clinic",
+    "wisdom-tooth-removal": "Wisdom Tooth Removal in Ramachandrapuram | Natural Dental Clinic",
+    "pediatric-dentistry": "Children's Dental Care in Ramachandrapuram | Natural Dental Clinic",
+    "gum-treatment": "Gum Treatment in Ramachandrapuram | Natural Dental Clinic",
+    "crowns-bridges": "Crowns & Bridges in Ramachandrapuram | Natural Dental Clinic",
+    "general-dentistry": "Dental Check-up & General Dentistry in Ramachandrapuram | Natural Dental Clinic",
+  };
 
-  if (params.slug === "root-canal-treatment") {
-    title = "Root Canal Treatment in Ramachandrapuram | Natural Dental Clinic";
-    description = "Learn about root canal treatment at Natural Dental Clinic in Ramachandrapuram, Hyderabad, including when it may be recommended, the treatment process and consultation options.";
-  } else if (params.slug === "dental-implants") {
-    title = "Dental Implants in Ramachandrapuram | Natural Dental Clinic";
-  } else if (params.slug === "braces-orthodontics") {
-    title = "Braces Treatment in Ramachandrapuram | Natural Dental Clinic";
-  } else if (params.slug === "teeth-whitening") {
-    title = "Teeth Whitening in Ramachandrapuram | Natural Dental Clinic";
-  } else if (params.slug === "wisdom-tooth-removal") {
-    title = "Wisdom Tooth Removal in Ramachandrapuram | Natural Dental Clinic";
-  } else if (params.slug === "pediatric-dentistry") {
-    title = "Children's Dental Care in Ramachandrapuram | Natural Dental Clinic";
-  }
+  const descriptionMap: Record<string, string> = {
+    "root-canal-treatment": "Learn about root canal treatment at Natural Dental Clinic in Ramachandrapuram, Hyderabad, including when it may be recommended, the process, and how to arrange a consultation.",
+    "dental-implants": "Explore dental implant options at Natural Dental Clinic in Ramachandrapuram. Learn about suitability, the treatment process, and how to arrange an evaluation.",
+    "braces-orthodontics": "Find out about braces and orthodontic treatment at Natural Dental Clinic in Ramachandrapuram, for children, teenagers, and adults.",
+    "teeth-whitening": "Professional teeth whitening at Natural Dental Clinic in Ramachandrapuram. Learn about suitability, the process, and realistic expectations.",
+    "wisdom-tooth-removal": "Wisdom tooth extraction at Natural Dental Clinic in Ramachandrapuram. Find out about assessment, the procedure, and aftercare.",
+    "pediatric-dentistry": "Child-friendly dental care at Natural Dental Clinic in Ramachandrapuram, Hyderabad. Gentle, reassuring dental visits for children of all ages.",
+    "gum-treatment": "Gum disease assessment and treatment at Natural Dental Clinic in Ramachandrapuram. Scaling, deep cleaning, and ongoing care.",
+    "crowns-bridges": "Dental crowns and bridges at Natural Dental Clinic in Ramachandrapuram. Restore damaged or missing teeth with natural-looking restorations.",
+    "general-dentistry": "Routine dental check-ups, cleaning, and preventive care at Natural Dental Clinic in Ramachandrapuram for patients of all ages.",
+  };
+
+  const title = titleMap[params.slug] || `${service.title} in Ramachandrapuram | Natural Dental Clinic`;
+  const description = descriptionMap[params.slug] || service.description;
 
   return {
     title,
     description,
-    keywords: `${service.title.toLowerCase()}, dental clinic, dentist, ${service.category.toLowerCase()} dentistry, dental treatment`,
     alternates: {
       canonical: `/services/${params.slug}`,
     }
@@ -64,10 +72,10 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
     notFound();
   }
 
-  // Get 3 related services
-  const relatedServices = SERVICES
-    .filter(s => s.slug !== service.slug)
-    .slice(0, 3);
+  // Use data-driven related services
+  const relatedServices = (service.relatedSlugs || [])
+    .map(slug => SERVICES.find(s => s.slug === slug))
+    .filter(Boolean) as typeof SERVICES;
 
   // Generate Schema.org JSON-LD
   const faqSchema = {
@@ -85,25 +93,40 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
   const serviceSchema = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": service.title,
+    "@type": "MedicalProcedure",
+    "name": service.title,
+    "description": service.description,
+    "procedureType": "Therapeutic",
     "provider": {
       "@type": "Dentist",
-      "name": "Natural Dental Clinic"
+      "name": "Natural Dental Clinic",
+      "url": CLINIC.seo.siteUrl,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ramachandrapuram",
+        "addressRegion": "Telangana",
+        "addressCountry": "IN"
+      }
     },
-    "areaServed": {
-      "@type": "City",
-      "name": "Ramachandrapuram",
-      "addressRegion": "Hyderabad"
-    },
-    "description": service.description,
+    "areaServed": "Ramachandrapuram, Hyderabad",
     "url": `${CLINIC.seo.siteUrl}/services/${service.slug}`
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": CLINIC.seo.siteUrl },
+      { "@type": "ListItem", "position": 2, "name": "Dental Treatments", "item": `${CLINIC.seo.siteUrl}/services` },
+      { "@type": "ListItem", "position": 3, "name": service.title, "item": `${CLINIC.seo.siteUrl}/services/${service.slug}` }
+    ]
   };
 
   return (
     <main className="flex flex-col min-h-screen bg-neutral-50">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Hero Section */}
       <section className="bg-emerald-900 text-white pt-24 pb-20 relative overflow-hidden">
@@ -301,9 +324,9 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             </div>
 
             <div className="bg-white rounded-3xl p-8 md:p-10 text-neutral-900 text-center shadow-xl">
-              <h3 className="text-2xl font-bold mb-4">Ready for your treatment?</h3>
+              <h3 className="text-2xl font-bold mb-4">Need a dental consultation?</h3>
               <p className="text-neutral-600 mb-6">
-                For a dental consultation in Ramachandrapuram, contact Natural Dental Clinic to discuss whether this treatment may be appropriate for your dental needs.
+                {service.localCta}
               </p>
               <div className="flex flex-col space-y-4">
                 <Link 
@@ -342,9 +365,9 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex items-center justify-between mb-12">
-              <h2 className="text-3xl font-bold text-neutral-900">Other Services</h2>
+              <h2 className="text-3xl font-bold text-neutral-900">Related Treatments</h2>
               <Link href="/services" className="text-emerald-600 font-semibold hover:text-emerald-700 hidden sm:flex items-center">
-                View All Services <ArrowRight className="w-4 h-4 ml-1" />
+                View All Treatments <ArrowRight className="w-4 h-4 ml-1" />
               </Link>
             </div>
 
@@ -365,7 +388,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                     {related.description}
                   </p>
                   <span className="inline-flex items-center text-emerald-600 font-semibold text-sm">
-                    Learn More <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    Learn about {related.shortTitle} <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </Link>
               ))}

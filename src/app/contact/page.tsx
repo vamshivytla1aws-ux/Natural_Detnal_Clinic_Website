@@ -207,6 +207,30 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Visiting the Clinic */}
+      <section className="section-padding bg-white border-t border-gray-100">
+        <div className="container-premium">
+          <div className="max-w-3xl">
+            <h2 className="heading-lg text-forest-600 mb-4">Visiting Natural Dental Clinic</h2>
+            <p className="font-sans text-gray-700 leading-relaxed mb-4">
+              Natural Dental Clinic is located behind South India Shopping Mall in Sai Nagar Colony, Ramachandrapuram, Hyderabad. The clinic is accessible by local transport, and parking is available nearby.
+            </p>
+            <p className="font-sans text-gray-600 text-sm leading-relaxed">
+              <strong>Address:</strong> H No 4, 46/10/9/A, Backside South India Shopping Mall, Sai Nagar Colony, Ramachandrapuram, Hyderabad, Telangana — 502032
+            </p>
+            <a
+              href={CLINIC.address.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              id="get-directions-visiting-btn"
+              className="inline-block mt-4 text-sage-600 font-medium text-sm hover:text-forest-600 transition-colors"
+            >
+              Open in Google Maps →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Map */}
       <section className="h-[450px] w-full bg-gray-200 relative">
         <iframe

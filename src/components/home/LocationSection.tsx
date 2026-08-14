@@ -15,7 +15,7 @@ export default function LocationSection() {
               {CLINIC.name}
             </h2>
             
-            <div className="space-y-6 mb-10">
+            <div className="space-y-6 mb-6">
               <div className="flex items-start gap-4">
                 <MapPin className="w-6 h-6 text-sage-500 mt-1 flex-shrink-0" />
                 <address className="not-italic font-sans text-[1.0625rem] text-charcoal-600 leading-relaxed">
@@ -26,6 +26,10 @@ export default function LocationSection() {
                 </address>
               </div>
             </div>
+
+            <p className="font-sans text-[0.9375rem] text-charcoal-500 leading-relaxed mb-8 max-w-md">
+              Natural Dental Clinic is located in Sai Nagar Colony, Ramachandrapuram, behind South India Shopping Mall — convenient for patients from Ramachandrapuram and surrounding neighbourhoods.
+            </p>
             
             <div className="flex flex-wrap gap-4">
               <a 

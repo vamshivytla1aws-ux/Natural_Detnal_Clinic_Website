@@ -22,7 +22,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   {
     id: "clinic-exterior-real",
     src: "/images/gallery/clinic-exterior-real.jpg",
-    alt: "Natural Dental Clinic Exterior - Main Entrance",
+    alt: "Natural Dental Clinic exterior in Ramachandrapuram, Hyderabad",
     category: "clinic",
     width: 768,
     height: 1024,
@@ -31,7 +31,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   {
     id: "reception-real",
     src: "/images/gallery/reception-real.jpg",
-    alt: "Welcoming Reception Area",
+    alt: "Natural Dental Clinic reception area in Ramachandrapuram",
     category: "reception",
     width: 768,
     height: 1024,
@@ -40,7 +40,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   {
     id: "clinic-logo-wall",
     src: "/images/gallery/clinic-logo-wall.jpg",
-    alt: "Clinic Logo and Aesthetic Wall",
+    alt: "Natural Dental Clinic signage and interior wall",
     category: "clinic",
     width: 768,
     height: 1024,
@@ -49,7 +49,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   {
     id: "treatment-room",
     src: "/images/gallery/treatment-room.jpg",
-    alt: "Modern Dental Treatment Chair and Equipment",
+    alt: "Dental treatment room at Natural Dental Clinic, Ramachandrapuram",
     category: "treatment",
     width: 768,
     height: 1024,
@@ -58,7 +58,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   {
     id: "clinic-exterior-day",
     src: "/images/gallery/clinic-exterior-day.jpg",
-    alt: "Natural Dental Clinic Exterior - Day View",
+    alt: "Natural Dental Clinic daytime exterior view in Ramachandrapuram",
     category: "clinic",
     width: 768,
     height: 1024,
@@ -66,7 +66,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   {
     id: "clinic-exterior-night",
     src: "/images/gallery/clinic-exterior-night.jpg",
-    alt: "Natural Dental Clinic Exterior - Night View",
+    alt: "Natural Dental Clinic evening exterior in Sai Nagar Colony, Ramachandrapuram",
     category: "clinic",
     width: 768,
     height: 1024,
@@ -74,7 +74,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   {
     id: "doctor-portrait",
     src: "/images/gallery/doctor-portrait.jpg",
-    alt: "Portrait of Dr. Vandana Vytla",
+    alt: "Dr. Vandana Vytla, Dental Surgeon at Natural Dental Clinic",
     category: "doctor",
     width: 768,
     height: 1024,
@@ -82,7 +82,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   {
     id: "reception-desk",
     src: "/images/gallery/reception-desk.jpg",
-    alt: "Clinic Reception Desk",
+    alt: "Reception desk at Natural Dental Clinic",
     category: "reception",
     width: 768,
     height: 1024,

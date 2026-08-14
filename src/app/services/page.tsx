@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { SERVICES, SERVICE_CATEGORIES } from '@/lib/services-data';
+import { CLINIC } from '@/lib/config';
 import { CheckCircle, ArrowRight, Phone, Calendar } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -29,7 +30,7 @@ export default function ServicesPage() {
             Dental Treatments
           </h1>
           <p className="text-lg md:text-xl text-emerald-50 mb-8 max-w-2xl mx-auto">
-            From routine check-ups to advanced restorative treatments, we provide high-quality, comfortable dental care to keep your smile healthy and beautiful.
+            Dental treatments available at Natural Dental Clinic in Ramachandrapuram, Hyderabad — from routine check-ups and preventive care to root canal treatment, dental implants, braces, and children&apos;s dentistry.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link 
@@ -40,7 +41,7 @@ export default function ServicesPage() {
               Book Appointment
             </Link>
             <a 
-              href="tel:+1234567890" 
+              href={CLINIC.contact.phoneHref}
               className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-emerald-800/50 hover:bg-emerald-800 border border-emerald-700 text-white font-medium transition-colors duration-200 w-full sm:w-auto"
             >
               <Phone className="w-5 h-5 mr-2" />

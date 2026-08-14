@@ -47,8 +47,11 @@ export default function ReviewsPage() {
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="eyebrow mx-auto justify-center mb-6">Patient Stories</span>
           <h1 className="heading-display mb-6">Experiences shared by our patients.</h1>
-          <p className="font-sans text-[1.125rem] text-charcoal-500 mb-8 max-w-2xl mx-auto">
-            Real feedback from patients who visited Natural Dental Clinic. We value every experience shared.
+          <p className="font-sans text-[1.125rem] text-charcoal-500 mb-4 max-w-2xl mx-auto">
+            Read genuine Google reviews shared by patients of Natural Dental Clinic in Ramachandrapuram. Feedback includes experiences related to treatment comfort, children&apos;s dental care, clear explanations, affordability and the clinic environment.
+          </p>
+          <p className="font-sans text-[0.9375rem] text-charcoal-400 mb-8 max-w-xl mx-auto">
+            All reviews are from verified Google patients and are displayed without modification.
           </p>
         </div>
 

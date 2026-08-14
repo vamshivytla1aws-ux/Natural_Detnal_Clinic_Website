@@ -88,7 +88,7 @@ export default function DoctorPage() {
         <div className="container-premium">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             <div className="lg:col-span-2">
-              <h2 className="heading-xl text-forest-600 mb-6">About Dr. Vandana</h2>
+              <h2 className="heading-xl text-forest-600 mb-6">About Dr. Vandana Vytla</h2>
               <div className="space-y-4 text-gray-700 font-sans leading-relaxed text-lg">
                 <p>
                   Dr. Vandana Vytla provides patient-focused dental care at Natural Dental Clinic in Ramachandrapuram. Her approach emphasises clear communication, careful evaluation, and personalised treatment planning to ensure each patient understands their condition and available options before any treatment begins.
@@ -152,6 +152,16 @@ export default function DoctorPage() {
                 <div className="mt-6 pt-6 border-t border-gray-100">
                   <Link href="/services" className="text-sage-500 text-sm font-medium hover:text-forest-600 transition-colors">
                     View all services →
+                  </Link>
+                </div>
+
+                <div className="mt-6 pt-6 border-t border-gray-100">
+                  <h3 className="font-serif text-lg text-forest-600 mb-3">Visiting the Clinic</h3>
+                  <p className="font-sans text-sm text-gray-600 leading-relaxed mb-3">
+                    Natural Dental Clinic is located in Sai Nagar Colony, Ramachandrapuram, Hyderabad — behind South India Shopping Mall.
+                  </p>
+                  <Link href="/contact" className="text-sage-500 text-sm font-medium hover:text-forest-600 transition-colors">
+                    Get directions & contact details →
                   </Link>
                 </div>
               </div>

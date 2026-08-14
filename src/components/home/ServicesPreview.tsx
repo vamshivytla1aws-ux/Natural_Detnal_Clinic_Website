@@ -39,7 +39,7 @@ export default function ServicesPreview() {
           <span className="eyebrow mx-auto justify-center mb-4">Our Treatments</span>
           <h2 className="heading-xl mb-6">Comprehensive Dental Care</h2>
           <p className="text-charcoal-500 text-lg">
-            From routine checkups to advanced procedures, we offer a full spectrum of dental services designed to keep your smile healthy and beautiful.
+            Dental treatments available at Natural Dental Clinic in Ramachandrapuram, Hyderabad — from routine check-ups and preventive care to root canals, implants, braces, and children&apos;s dentistry.
           </p>
         </div>
 
@@ -69,7 +69,7 @@ export default function ServicesPreview() {
                     href={`/services/${service.slug}`}
                     className="inline-flex items-center text-[0.875rem] font-semibold text-sage-600 group-hover:text-forest-600 transition-colors"
                   >
-                    Learn More 
+                    About {service.shortTitle}
                     <ArrowRight className="w-4 h-4 ml-1.5 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
                 </div>
@@ -80,7 +80,7 @@ export default function ServicesPreview() {
 
         <div className="text-center">
           <Link href="/services" className="btn-secondary">
-            View All Services
+            View All Treatments
           </Link>
         </div>
         

@@ -29,20 +29,32 @@ export default function Home() {
     "telephone": CLINIC.contact.phone,
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": `${CLINIC.address.line1}, ${CLINIC.address.line2}, ${CLINIC.address.line3}`,
-      "addressLocality": CLINIC.address.city,
+      "streetAddress": `${CLINIC.address.line1}, ${CLINIC.address.landmark}, ${CLINIC.address.locality}`,
+      "addressLocality": CLINIC.address.cityArea,
       "addressRegion": CLINIC.address.state,
-      "postalCode": CLINIC.address.pincode,
-      "addressCountry": CLINIC.address.country
+      "postalCode": CLINIC.address.postalCode,
+      "addressCountry": "IN"
     },
-    "openingHoursSpecification": CLINIC.hours.schedule.map(schedule => ({
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": schedule.day.includes("–") 
-        ? ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] 
-        : ["Sunday"],
-      "opens": schedule.morning.split(" ")[0],
-      "closes": schedule.evening === "Closed" ? schedule.morning.split(" – ")[1].split(" ")[0] : schedule.evening.split(" – ")[1].split(" ")[0]
-    }))
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "10:00",
+        "closes": "14:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "17:00",
+        "closes": "21:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Sunday"],
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ]
   };
 
   return (

@@ -19,10 +19,10 @@ export default function LocationSection() {
               <div className="flex items-start gap-4">
                 <MapPin className="w-6 h-6 text-sage-500 mt-1 flex-shrink-0" />
                 <address className="not-italic font-sans text-[1.0625rem] text-charcoal-600 leading-relaxed">
-                  {CLINIC.address.line1}<br />
-                  {CLINIC.address.line2}<br />
-                  {CLINIC.address.line3}<br />
-                  {CLINIC.address.city}, {CLINIC.address.state} {CLINIC.address.pincode}
+                  {CLINIC.address.line1}, {CLINIC.address.landmark}<br />
+                  {CLINIC.address.locality}<br />
+                  {CLINIC.address.cityArea}, {CLINIC.address.city}<br />
+                  {CLINIC.address.state} — {CLINIC.address.postalCode}
                 </address>
               </div>
             </div>

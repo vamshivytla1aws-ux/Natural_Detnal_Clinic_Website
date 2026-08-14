@@ -33,9 +33,9 @@ export default function AboutPage() {
               "description": "Premium dental clinic offering compassionate and advanced dental care.",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": CLINIC.address.line1,
-                "addressLocality": CLINIC.address.city,
-                "postalCode": CLINIC.address.pincode,
+                "streetAddress": `${CLINIC.address.line1}, ${CLINIC.address.landmark}, ${CLINIC.address.locality}`,
+                "addressLocality": CLINIC.address.cityArea,
+                "postalCode": CLINIC.address.postalCode,
                 "addressCountry": "IN"
               }
             }

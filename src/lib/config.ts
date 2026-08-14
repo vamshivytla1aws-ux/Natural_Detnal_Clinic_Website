@@ -32,20 +32,50 @@ export const CLINIC = {
   },
   address: {
     line1: "H No 4, 46/10/9/A, Road",
-    line2: "Backside South India Shopping Mall",
-    line3: "Sai Nagar Colony, Ramachandrapuram",
+    landmark: "Backside South India Shopping Mall",
+    locality: "Sai Nagar Colony",
+    cityArea: "Ramachandrapuram",
     city: "Hyderabad",
     state: "Telangana",
-    pincode: "502032",
+    postalCode: "502032",
     country: "India",
     full: "H No 4, 46/10/9/A, Road, Backside South India Shopping Mall, Sai Nagar Colony, Ramachandrapuram, Hyderabad, Telangana 502032",
-    landmark: "Behind South India Shopping Mall, Sai Nagar Colony, R.C.Puram",
     googleMapsUrl: "https://maps.app.goo.gl/t2wSYG2y4RoLZ6Co8",
     embedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.0!2d78.4!3d17.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sNatural+Dental+Clinic!5e0!3m2!1sen!2sin!4v1",
   },
-  // Hours configured by the clinic — update here if timings change
-  hours: {
+  // Verified actual clinic hours
+  openingHours: {
+    monday: [
+      { open: "10:00", close: "14:00" },
+      { open: "17:00", close: "21:00" },
+    ],
+    tuesday: [
+      { open: "10:00", close: "14:00" },
+      { open: "17:00", close: "21:00" },
+    ],
+    wednesday: [
+      { open: "10:00", close: "14:00" },
+      { open: "17:00", close: "21:00" },
+    ],
+    thursday: [
+      { open: "10:00", close: "14:00" },
+      { open: "17:00", close: "21:00" },
+    ],
+    friday: [
+      { open: "10:00", close: "14:00" },
+      { open: "17:00", close: "21:00" },
+    ],
+    saturday: [
+      { open: "10:00", close: "14:00" },
+      { open: "17:00", close: "21:00" },
+    ],
+    sunday: [
+      { open: "10:00", close: "14:00" },
+    ],
+  },
+  // Display strings for UI components
+  displayHours: {
     weekdays: "10:00 AM – 2:00 PM & 5:00 PM – 9:00 PM",
     sunday: "10:00 AM – 2:00 PM",
     weekdaysShort: "Mon–Sat: 10AM–2PM, 5PM–9PM",

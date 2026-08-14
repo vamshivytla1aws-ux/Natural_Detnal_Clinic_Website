@@ -24,10 +24,10 @@ export function JsonLd({ type, data }: JsonLdProps) {
         email: CLINIC.contact.email,
         address: {
           "@type": "PostalAddress",
-          streetAddress: `${CLINIC.address.line1}, ${CLINIC.address.line2}`,
-          addressLocality: "Ramachandrapuram",
+          streetAddress: `${CLINIC.address.line1}, ${CLINIC.address.landmark}, ${CLINIC.address.locality}`,
+          addressLocality: CLINIC.address.cityArea,
           addressRegion: CLINIC.address.state,
-          postalCode: CLINIC.address.pincode,
+          postalCode: CLINIC.address.postalCode,
           addressCountry: "IN",
         },
         geo: {
@@ -36,24 +36,18 @@ export function JsonLd({ type, data }: JsonLdProps) {
           longitude: "78.4",
         },
         openingHoursSpecification: [
-          {
+          ...CLINIC.openingHours.monday.map(slot => ({
             "@type": "OpeningHoursSpecification",
             dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-            opens: "10:00",
-            closes: "14:00",
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-            opens: "17:00",
-            closes: "21:00",
-          },
-          {
+            opens: slot.open,
+            closes: slot.close,
+          })),
+          ...CLINIC.openingHours.sunday.map(slot => ({
             "@type": "OpeningHoursSpecification",
             dayOfWeek: ["Sunday"],
-            opens: "10:00",
-            closes: "14:00",
-          },
+            opens: slot.open,
+            closes: slot.close,
+          })),
         ],
         hasMap: CLINIC.address.googleMapsUrl,
         currenciesAccepted: "INR",

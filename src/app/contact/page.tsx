@@ -137,11 +137,10 @@ export default function ContactPage() {
                       <h3 className="font-bold text-gray-900 mb-1">Clinic Address</h3>
                       <p className="leading-relaxed text-sm">
                         {CLINIC.address.line1},<br />
-                        {CLINIC.address.line2},<br />
-                        {CLINIC.address.line3},<br />
-                        {CLINIC.address.city}, {CLINIC.address.state} — {CLINIC.address.pincode}
+                        {CLINIC.address.landmark},<br />
+                        {CLINIC.address.locality},<br />
+                        {CLINIC.address.cityArea}, {CLINIC.address.city}, {CLINIC.address.state} — {CLINIC.address.postalCode}
                       </p>
-                      <p className="text-xs text-sage-500 mt-1">{CLINIC.address.landmark}</p>
                     </div>
                   </div>
 
@@ -167,7 +166,7 @@ export default function ContactPage() {
               <div className="bg-forest-600 text-white p-8 rounded-2xl shadow-lg">
                 <h3 className="font-serif text-2xl mb-6">Clinic Hours</h3>
                 <div className="space-y-3 font-sans">
-                  {CLINIC.hours.schedule.map((item) => (
+                  {CLINIC.displayHours.schedule.map((item) => (
                     <div key={item.day} className="border-b border-white/10 pb-3 last:border-0 last:pb-0">
                       <div className="flex justify-between items-center">
                         <span className="font-medium text-sm">{item.day}</span>

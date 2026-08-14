@@ -29,10 +29,10 @@ export default function DoctorPage() {
               "name": CLINIC.name,
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": `${CLINIC.address.line1}, ${CLINIC.address.line2}`,
-                "addressLocality": "Ramachandrapuram",
+                "streetAddress": `${CLINIC.address.line1}, ${CLINIC.address.landmark}, ${CLINIC.address.locality}`,
+                "addressLocality": CLINIC.address.cityArea,
                 "addressRegion": CLINIC.address.state,
-                "postalCode": CLINIC.address.pincode,
+                "postalCode": CLINIC.address.postalCode,
                 "addressCountry": "IN"
               }
             },

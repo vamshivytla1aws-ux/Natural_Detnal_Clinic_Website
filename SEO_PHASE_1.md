@@ -1,35 +1,43 @@
-# SEO Phase 1: Technical and Local Search Foundation
+# SEO Phase 1: Verification Report & Data Consistency
 
-This document tracks the technical SEO implementation for the Natural Dental Clinic website, ensuring a clean and Google-friendly foundation.
+This document confirms the final state of the SEO Phase 1 implementation for Natural Dental Clinic. The website is now fully consistent with the Google Business Profile (GBP) and technically optimized.
 
-## 1. Canonical Domain Configuration
-- **Production URL**: `https://naturaldental.in`
-- All temporary (`railway.app` / `naturaldetnalclinicwebsite-production`) domains have been completely purged from public SEO metadata.
-- **Root Canonical**: Explicitly defined on the homepage.
-- **Page Canonicals**: Dynamically injected on all indexable pages (e.g., `/doctor` → `https://naturaldental.in/doctor`).
+## Current State
 
-## 2. Core Metadata Rules
-- **Homepage Title**: `Natural Dental Clinic | Dentist in Ramachandrapuram, Hyderabad`
-- **Homepage Description**: `Visit Natural Dental Clinic in Ramachandrapuram, Hyderabad for personalized dental care with Dr. Vandana Vytla, Dental Surgeon. Explore treatments, reviews, clinic information and directions.`
-- **Title Template**: `%s | Natural Dental Clinic`
-- **Open Graph**: Global site settings defined with clinic details.
+- **Domain:** Successfully verified in Google Search Console as `https://naturaldental.in`.
+- **Sitemap:** Submitted successfully (`https://naturaldental.in/sitemap.xml`).
+  - Google Search Console reports 18 pages discovered.
+- **Indexation:** Most priority URLs are indexed.
+  - `/reviews` indexing has been manually requested.
+  - `/contact` indexing has been manually requested.
+- **Google Business Profile:**
+  - Recovered and ownership is available.
+  - Video re-verification is currently pending (to be completed by clinic owner).
 
-## 3. Implemented Schemas (JSON-LD)
-- **Dentist Schema**: Injected on the homepage with verified name, URL, telephone, postal address, and accurate opening hours.
-- **Person Schema**: Injected on the `/doctor` page covering Dr. Vandana Vytla's title and credentials.
-- **Service Schema**: Dynamically injected on all individual treatment pages (`/services/[slug]`) including the service type and `areaServed` attributes linking it to Ramachandrapuram, Hyderabad.
+## Confirmed Clinic Data (Single Source of Truth)
 
-## 4. Crawlability & Indexability
-- **Sitemap**: `/sitemap.xml` dynamically generated using `sitemap.ts`. It includes the homepage, doctor, services, reviews, contact, privacy-policy, terms, and all dynamic service routes.
-- **Robots.txt**: `/robots.txt` dynamically generated to allow crawling (`Allow: /`) and providing the absolute sitemap URL.
+The central configuration (`src/lib/config.ts`) strictly enforces the following data across the entire website:
 
-## 5. Local Search Consistency
-- **NAP Consistency**: Enforced via central configuration (`src/lib/config.ts`).
-  - Name: `Natural Dental Clinic`
-  - Address: `H No 4, 46/10/9/A, Road, Backside South India Shopping Mall, Sai Nagar Colony, Ramachandrapuram, Hyderabad, Telangana 502032`
-  - Phone: `+91 8121860609`
-- **Local Service Content**: A custom CTA was injected at the bottom of every service treatment page encouraging users to book a consultation in Ramachandrapuram.
+- **Clinic Name:** Natural Dental Clinic
+- **Doctor:** Dr. Vandana Vytla (Dental Surgeon, Reg No: A-6112)
+- **Verified Address:**
+  H No 4, 46/10/9/A, Road, Backside South India Shopping Mall, Sai Nagar Colony, Ramachandrapuram, Hyderabad, Telangana 502032
+- **Website URL:** `https://naturaldental.in`
+- **Opening Hours:**
+  - **Monday–Saturday:** 10:00 AM – 2:00 PM and 5:00 PM – 9:00 PM
+  - **Sunday:** 10:00 AM – 2:00 PM
 
-## Next Steps for Clinic Owner
-1. **Google Search Console**: Verify `https://naturaldental.in`. You can use DNS TXT verification or an HTML file upload. Once verified, submit `https://naturaldental.in/sitemap.xml`.
-2. **Google Business Profile**: Ensure the website link on your Google profile is exactly `https://naturaldental.in`.
+## Technical Checks & Validation
+
+1. **Sitemap & Robots:** Cleanly generated. `robots.txt` allows full crawling and points to the sitemap.
+2. **Canonical URLs:** Every indexable page implements a self-referencing canonical URL (`https://naturaldental.in/...`).
+3. **Metadata (Titles & Descriptions):** Custom, high-relevance, location-aware metadata injected per route (Homepage, Doctor, Services, Treatment specific).
+4. **Structured Data (JSON-LD):**
+   - **Dentist/LocalBusiness:** Generated with the exact address, geolocation, and a semantically valid array format for the split opening hours (Mon-Sat two periods, Sun one period).
+   - **Person (Physician):** Dr. Vandana Vytla's schema contains only verified credentials.
+   - **Service:** Specific dental treatments correctly declare `areaServed: Ramachandrapuram`.
+5. **Breadcrumbs:** Structured breadcrumbs applied logically for internal pages.
+6. **NAP Consistency:** The Name, Address, and Phone number dynamically pull from the `config.ts` file rendering consistently on the Homepage, Contact Page, Footer, Schema, and all Google Maps CTA buttons. No old variants (e.g. "Behind Bharat Petrol bunk") exist anywhere in the code.
+7. **Production Guardrails:** No internal references to `railway.app` or other development URLs exist in the final SEO/metadata output.
+
+*This concludes SEO Phase 1.*

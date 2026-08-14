@@ -76,8 +76,8 @@ export default function PrivacyPolicyPage() {
           </p>
           <div className="bg-ivory-100 p-6 rounded-lg not-prose">
             <p className="font-bold">{CLINIC.name}</p>
-            <p>{CLINIC.address.line1}, {CLINIC.address.line3}</p>
-            <p>{CLINIC.address.city}, {CLINIC.address.state} {CLINIC.address.pincode}</p>
+            <p>{CLINIC.address.line1}, {CLINIC.address.landmark}, {CLINIC.address.locality}</p>
+            <p>{CLINIC.address.cityArea}, {CLINIC.address.city}, {CLINIC.address.state} {CLINIC.address.postalCode}</p>
             <p>Phone: {CLINIC.contact.phoneDisplay}</p>
             <p>Email: {CLINIC.contact.email}</p>
           </div>

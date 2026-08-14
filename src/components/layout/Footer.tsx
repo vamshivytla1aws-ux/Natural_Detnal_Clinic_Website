@@ -35,7 +35,18 @@ export default function Footer() {
             <h3 className="font-sans font-bold text-[0.875rem] tracking-wider uppercase text-champagne-400 mb-6">
               Contact
             </h3>
-            <ul className="space-y-4 font-sans text-sage-100">
+            <div className="space-y-4 font-sans text-sm md:text-[0.9375rem] text-forest-50/80">
+            {CLINIC.displayHours.schedule.map((item) => (
+              <div key={item.day} className="flex justify-between items-start border-b border-white/10 pb-3 last:border-0 last:pb-0">
+                  <span className="font-medium">{item.day}</span>
+                  <div className="text-right">
+                    <div>{item.morning}</div>
+                    {item.evening !== 'Closed' && <div>{item.evening}</div>}
+                  </div>
+              </div>
+            ))}
+            </div>
+            <ul className="mt-6 space-y-4 font-sans text-sage-100">
               <li>
                 <a href={CLINIC.contact.phoneHref} className="hover:text-white transition-colors">
                   {CLINIC.contact.phoneDisplay}
@@ -64,10 +75,10 @@ export default function Footer() {
               Visit
             </h3>
             <address className="font-sans text-sage-100 not-italic leading-relaxed mb-4">
-              {CLINIC.address.line1}<br />
-              {CLINIC.address.line2}<br />
-              {CLINIC.address.line3}<br />
-              {CLINIC.address.city}, {CLINIC.address.state} {CLINIC.address.pincode}
+              {CLINIC.address.line1}, {CLINIC.address.landmark}<br />
+              {CLINIC.address.locality}<br />
+              {CLINIC.address.cityArea}, {CLINIC.address.city}<br />
+              {CLINIC.address.state} — {CLINIC.address.postalCode}
             </address>
             <p>
               <a href={CLINIC.address.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="text-white hover:text-champagne-400 font-semibold transition-colors">

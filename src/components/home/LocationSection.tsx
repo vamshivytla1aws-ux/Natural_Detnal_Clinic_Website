@@ -9,7 +9,7 @@ const LOCAL_FAQS = [
   },
   {
     q: "Is Natural Dental Clinic located in Hyderabad?",
-    a: "Yes. Natural Dental Clinic is located in Ramachandrapuram, Hyderabad, Telangana.",
+    a: "Yes. Natural Dental Clinic is located in Ramachandrapuram (RC Puram), Hyderabad, Telangana.",
   },
   {
     q: "How do I find a dental clinic near me in Ramachandrapuram?",
@@ -27,6 +27,18 @@ const LOCAL_FAQS = [
     q: "Is Natural Dental Clinic close to Patancheru?",
     a: "The clinic is located in Ramachandrapuram, Hyderabad, with convenient road access from Patancheru and nearby localities.",
   },
+  {
+    q: "Is Natural Dental Clinic accessible from Lingampally and Chandanagar?",
+    a: "Yes. Natural Dental Clinic is located in Ramachandrapuram and is accessible from nearby Lingampally, Chandanagar and surrounding areas.",
+  },
+  {
+    q: "Is the clinic convenient for patients from Miyapur?",
+    a: "Natural Dental Clinic is located in Ramachandrapuram, Hyderabad. Patients from Miyapur can use the Get Directions option on the website to check the route to the clinic.",
+  },
+  {
+    q: "Is Natural Dental Clinic accessible from Ashok Nagar?",
+    a: "Yes. Patients from Ashok Nagar and nearby areas can reach Natural Dental Clinic in Ramachandrapuram for dental consultations.",
+  }
 ];
 
 export default function LocationSection() {
@@ -44,7 +56,7 @@ export default function LocationSection() {
             </h2>
 
             <p className="font-sans text-[1.0625rem] text-charcoal-500 leading-relaxed mb-6">
-              Looking for a dental clinic near you in Ramachandrapuram, Hyderabad? Natural Dental Clinic is located in Ramachandrapuram, Hyderabad, and is conveniently accessible for patients from nearby areas including Beeramguda, Ameenpur and Patancheru. Patients also visit the clinic from surrounding areas toward Sangareddy.
+              Looking for a dental clinic near you in Ramachandrapuram, Hyderabad? Natural Dental Clinic is located in Ramachandrapuram (RC Puram), Hyderabad, and is conveniently accessible for patients from nearby areas including BHEL, LIG, Ashok Nagar, Beeramguda, Ameenpur, Lingampally, Chandanagar, Miyapur and Patancheru, with patients also visiting from the surrounding Sangareddy region.
             </p>
             
             <div className="space-y-4 mb-6">

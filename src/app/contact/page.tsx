@@ -213,7 +213,7 @@ export default function ContactPage() {
           <div className="max-w-3xl">
             <h2 className="heading-lg text-forest-600 mb-4">Visiting Natural Dental Clinic</h2>
             <p className="font-sans text-gray-700 leading-relaxed mb-4">
-              Natural Dental Clinic is located behind South India Shopping Mall in Sai Nagar Colony, Ramachandrapuram, Hyderabad. The clinic is accessible by local transport, and parking is available nearby.
+              Natural Dental Clinic is located in Sai Nagar Colony, Ramachandrapuram (RC Puram), behind South India Shopping Mall. The clinic is accessible by local transport, and parking is available nearby.
             </p>
             <p className="font-sans text-gray-600 text-sm leading-relaxed mb-6">
               <strong>Address:</strong> H No 4, 46/10/9/A, Backside South India Shopping Mall, Sai Nagar Colony, Ramachandrapuram, Hyderabad, Telangana — 502032
@@ -237,12 +237,18 @@ export default function ContactPage() {
           <div className="max-w-3xl">
             <h2 className="font-serif text-2xl text-forest-600 mb-4">Nearby areas we serve</h2>
             <p className="font-sans text-gray-700 leading-relaxed mb-6">
-              Natural Dental Clinic is based in Ramachandrapuram and is accessible to patients from Beeramguda, Ameenpur, Patancheru and surrounding areas.
+              Natural Dental Clinic is located in Sai Nagar Colony, Ramachandrapuram (RC Puram), behind South India Shopping Mall. The clinic is accessible from nearby BHEL, LIG, Ashok Nagar, Beeramguda, Ameenpur, Lingampally, Chandanagar, Miyapur and Patancheru.
             </p>
             <div className="flex flex-wrap gap-2">
-              <span className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700">Ramachandrapuram</span>
+              <span className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700">Ramachandrapuram / RC Puram</span>
+              <span className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700">BHEL</span>
+              <span className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700">LIG</span>
+              <span className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700">Ashok Nagar</span>
               <span className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700">Beeramguda</span>
               <span className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700">Ameenpur</span>
+              <span className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700">Lingampally</span>
+              <span className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700">Chandanagar</span>
+              <span className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700">Miyapur</span>
               <span className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700">Patancheru</span>
               <span className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700">Sangareddy</span>
             </div>

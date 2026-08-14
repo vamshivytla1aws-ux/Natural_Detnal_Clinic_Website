@@ -66,7 +66,7 @@ Google determines proximity from the user's physical location. We do **not** add
 | Level | Area | Use |
 |---|---|---|
 | Primary | Ramachandrapuram | Strongest local signal — actual clinic locality |
-| Secondary | Beeramguda, Ameenpur, Patancheru | Nearby areas included in body content and FAQs |
+| Secondary | BHEL, LIG, Ashok Nagar, Beeramguda, Ameenpur, Lingampally, Chandanagar, Miyapur, Patancheru | Nearby areas included in body content and FAQs |
 | Broader | Hyderabad, Sangareddy | Broader regional context — used alongside Ramachandrapuram |
 | State | Telangana | Used in schema, full address |
 | Country | India | Schema only |
@@ -94,8 +94,14 @@ After sufficient impression data has accumulated, review queries containing:
 - `near me`
 - `Ramachandrapuram`
 - `Hyderabad`
+- `BHEL`
+- `LIG`
+- `Ashok Nagar`
 - `Beeramguda`
 - `Ameenpur`
+- `Lingampally`
+- `Chandanagar`
+- `Miyapur`
 - `Patancheru`
 - `Sangareddy`
 - `dentist`
@@ -113,6 +119,6 @@ After sufficient impression data has accumulated, review queries containing:
 
 No doorway pages for individual nearby localities. Natural sentences cover nearby patient context, such as:
 
-> "Natural Dental Clinic is located in Ramachandrapuram, Hyderabad, and is conveniently accessible for patients from nearby areas including Beeramguda, Ameenpur and Patancheru."
+> "Natural Dental Clinic is located in Ramachandrapuram (RC Puram), Hyderabad, and is conveniently accessible for patients from nearby areas including BHEL, LIG, Ashok Nagar, Beeramguda, Ameenpur, Lingampally, Chandanagar, Miyapur and Patancheru."
 
-Do not create `/dentist-beeramguda`, `/dentist-ameenpur`, `/dentist-patancheru` etc. unless Search Console data shows legitimate demand and each page would contain genuinely unique, useful information.
+Do not create `/dentist-beeramguda`, `/dentist-ameenpur`, `/dentist-patancheru`, `/dentist-ashok-nagar`, `/dentist-lingampally`, `/dentist-chandanagar`, `/dentist-miyapur` etc. unless Search Console data shows legitimate demand and each page would contain genuinely unique, useful information.

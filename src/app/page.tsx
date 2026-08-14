@@ -46,9 +46,14 @@ export default function Home() {
     },
     "areaServed": [
       { "@type": "City", "name": "Ramachandrapuram" },
-      { "@type": "City", "name": "Hyderabad" },
+      { "@type": "City", "name": "BHEL" },
+      { "@type": "City", "name": "LIG" },
+      { "@type": "City", "name": "Ashok Nagar" },
       { "@type": "City", "name": "Beeramguda" },
       { "@type": "City", "name": "Ameenpur" },
+      { "@type": "City", "name": "Lingampally" },
+      { "@type": "City", "name": "Chandanagar" },
+      { "@type": "City", "name": "Miyapur" },
       { "@type": "City", "name": "Patancheru" },
       { "@type": "City", "name": "Sangareddy" }
     ],

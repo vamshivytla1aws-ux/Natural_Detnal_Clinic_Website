@@ -66,7 +66,8 @@ Google determines proximity from the user's physical location. We do **not** add
 | Level | Area | Use |
 |---|---|---|
 | Primary | Ramachandrapuram | Strongest local signal — actual clinic locality |
-| Broader | Hyderabad | Broader city context — used alongside Ramachandrapuram |
+| Secondary | Beeramguda, Ameenpur, Patancheru | Nearby areas included in body content and FAQs |
+| Broader | Hyderabad, Sangareddy | Broader regional context — used alongside Ramachandrapuram |
 | State | Telangana | Used in schema, full address |
 | Country | India | Schema only |
 
@@ -93,6 +94,10 @@ After sufficient impression data has accumulated, review queries containing:
 - `near me`
 - `Ramachandrapuram`
 - `Hyderabad`
+- `Beeramguda`
+- `Ameenpur`
+- `Patancheru`
+- `Sangareddy`
 - `dentist`
 - `dental clinic`
 - `root canal`
@@ -106,8 +111,8 @@ After sufficient impression data has accumulated, review queries containing:
 
 ## 8. Nearby Area Strategy
 
-No doorway pages for individual nearby localities. A single natural sentence covers nearby patient context:
+No doorway pages for individual nearby localities. Natural sentences cover nearby patient context, such as:
 
-> "The clinic is conveniently located in Ramachandrapuram and accessible to patients from nearby neighbourhoods."
+> "Natural Dental Clinic is located in Ramachandrapuram, Hyderabad, and is conveniently accessible for patients from nearby areas including Beeramguda, Ameenpur and Patancheru."
 
-Do not create `/dentist-bhel`, `/dentist-lingampally`, `/dentist-chandanagar` etc. unless Search Console data shows legitimate demand and each page would contain genuinely unique, useful information.
+Do not create `/dentist-beeramguda`, `/dentist-ameenpur`, `/dentist-patancheru` etc. unless Search Console data shows legitimate demand and each page would contain genuinely unique, useful information.

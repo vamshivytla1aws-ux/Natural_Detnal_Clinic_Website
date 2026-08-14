@@ -19,6 +19,14 @@ const LOCAL_FAQS = [
     q: "What should I look for when choosing a dentist near me?",
     a: "When choosing a dental clinic, consider the clinic's location, hygiene standards, communication, range of treatments, patient reviews, and whether you feel comfortable discussing your concerns with the dentist. Natural Dental Clinic in Ramachandrapuram, Hyderabad provides patient-focused dental care, clear treatment guidance, and convenient access for nearby patients.",
   },
+  {
+    q: "Do patients visit Natural Dental Clinic from Beeramguda and Ameenpur?",
+    a: "Yes. Natural Dental Clinic is located in Ramachandrapuram and is accessible to patients from nearby areas such as Beeramguda and Ameenpur.",
+  },
+  {
+    q: "Is Natural Dental Clinic close to Patancheru?",
+    a: "The clinic is located in Ramachandrapuram, Hyderabad, with convenient road access from Patancheru and nearby localities.",
+  },
 ];
 
 export default function LocationSection() {
@@ -36,7 +44,7 @@ export default function LocationSection() {
             </h2>
 
             <p className="font-sans text-[1.0625rem] text-charcoal-500 leading-relaxed mb-6">
-              Looking for a dental clinic near you in Ramachandrapuram, Hyderabad? Natural Dental Clinic provides personalised dental care in Sai Nagar Colony, conveniently located behind South India Shopping Mall.
+              Looking for a dental clinic near you in Ramachandrapuram, Hyderabad? Natural Dental Clinic is located in Ramachandrapuram, Hyderabad, and is conveniently accessible for patients from nearby areas including Beeramguda, Ameenpur and Patancheru. Patients also visit the clinic from surrounding areas toward Sangareddy.
             </p>
             
             <div className="space-y-4 mb-6">

@@ -208,14 +208,14 @@ export default function ContactPage() {
       </section>
 
       {/* Visiting the Clinic */}
-      <section className="section-padding bg-white border-t border-gray-100">
+      <section className="section-padding bg-white border-t border-gray-100 pb-12">
         <div className="container-premium">
           <div className="max-w-3xl">
             <h2 className="heading-lg text-forest-600 mb-4">Visiting Natural Dental Clinic</h2>
             <p className="font-sans text-gray-700 leading-relaxed mb-4">
               Natural Dental Clinic is located behind South India Shopping Mall in Sai Nagar Colony, Ramachandrapuram, Hyderabad. The clinic is accessible by local transport, and parking is available nearby.
             </p>
-            <p className="font-sans text-gray-600 text-sm leading-relaxed">
+            <p className="font-sans text-gray-600 text-sm leading-relaxed mb-6">
               <strong>Address:</strong> H No 4, 46/10/9/A, Backside South India Shopping Mall, Sai Nagar Colony, Ramachandrapuram, Hyderabad, Telangana — 502032
             </p>
             <a
@@ -223,10 +223,29 @@ export default function ContactPage() {
               target="_blank"
               rel="noopener noreferrer"
               id="get-directions-visiting-btn"
-              className="inline-block mt-4 text-sage-600 font-medium text-sm hover:text-forest-600 transition-colors"
+              className="inline-block text-sage-600 font-medium text-sm hover:text-forest-600 transition-colors"
             >
               Open in Google Maps →
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Nearby Areas */}
+      <section className="section-padding bg-ivory-100 border-t border-ivory-300 py-12">
+        <div className="container-premium">
+          <div className="max-w-3xl">
+            <h2 className="font-serif text-2xl text-forest-600 mb-4">Nearby areas we serve</h2>
+            <p className="font-sans text-gray-700 leading-relaxed mb-6">
+              Natural Dental Clinic is based in Ramachandrapuram and is accessible to patients from Beeramguda, Ameenpur, Patancheru and surrounding areas.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <span className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700">Ramachandrapuram</span>
+              <span className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700">Beeramguda</span>
+              <span className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700">Ameenpur</span>
+              <span className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700">Patancheru</span>
+              <span className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700">Sangareddy</span>
+            </div>
           </div>
         </div>
       </section>

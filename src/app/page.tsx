@@ -46,7 +46,11 @@ export default function Home() {
     },
     "areaServed": [
       { "@type": "City", "name": "Ramachandrapuram" },
-      { "@type": "City", "name": "Hyderabad" }
+      { "@type": "City", "name": "Hyderabad" },
+      { "@type": "City", "name": "Beeramguda" },
+      { "@type": "City", "name": "Ameenpur" },
+      { "@type": "City", "name": "Patancheru" },
+      { "@type": "City", "name": "Sangareddy" }
     ],
     "openingHoursSpecification": [
       {

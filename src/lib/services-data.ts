@@ -58,7 +58,7 @@ export const SERVICES: Service[] = [
       { question: "What happens if an infected tooth is left untreated?", answer: "Untreated dental infections can worsen over time and may affect surrounding teeth and gum tissue. It is advisable to seek a clinical evaluation promptly if you are experiencing symptoms." },
     ],
     image: "/images/services/root-canal.jpg",
-    localCta: "If you have persistent tooth pain or sensitivity in Ramachandrapuram, contact Natural Dental Clinic for a dental evaluation to understand your options.",
+    localCta: "Patients from Ramachandrapuram, Beeramguda, Ameenpur and nearby areas can contact Natural Dental Clinic for a root canal evaluation.",
     relatedSlugs: ["crowns-bridges", "general-dentistry", "gum-treatment"],
   },
   {
@@ -101,7 +101,7 @@ export const SERVICES: Service[] = [
       { question: "How do I care for dental implants?", answer: "Maintain good oral hygiene — brush twice daily, clean between teeth carefully, and attend regular dental check-ups as recommended." },
     ],
     image: "/images/services/implants.jpg",
-    localCta: "Visit Natural Dental Clinic in Ramachandrapuram to discuss tooth-replacement options and whether dental implants may be suitable for your clinical needs.",
+    localCta: "Visit Natural Dental Clinic in Ramachandrapuram to discuss tooth-replacement options. We welcome patients from Patancheru, Beeramguda and surrounding areas for implant consultations.",
     relatedSlugs: ["crowns-bridges", "gum-treatment", "general-dentistry"],
   },
   {
@@ -188,7 +188,7 @@ export const SERVICES: Service[] = [
       { question: "Can adults get braces?", answer: "Absolutely. Orthodontic treatment is effective at any age. Adults frequently seek treatment for both functional and aesthetic reasons." },
     ],
     image: "/images/services/braces.jpg",
-    localCta: "For an orthodontic consultation in Ramachandrapuram, contact Natural Dental Clinic to have your teeth and bite assessed by Dr. Vandana Vytla.",
+    localCta: "For an orthodontic consultation in Ramachandrapuram, contact Natural Dental Clinic to have your teeth and bite assessed by Dr. Vandana Vytla. Convenient for patients in Patancheru and Sangareddy.",
     relatedSlugs: ["pediatric-dentistry", "general-dentistry", "crowns-bridges"],
   },
   {
@@ -276,7 +276,7 @@ export const SERVICES: Service[] = [
       { question: "When should children start brushing and how should I help?", answer: "Start cleaning your child's teeth as soon as the first tooth appears. Use a soft toothbrush and a small amount of age-appropriate fluoride toothpaste. Parental supervision of brushing is recommended until around age 7–8." },
     ],
     image: "/images/services/pediatric.jpg",
-    localCta: "Parents looking for children's dental care in Ramachandrapuram can contact Natural Dental Clinic to arrange a consultation for their child.",
+    localCta: "Parents looking for children's dental care near Beeramguda, Ameenpur or Ramachandrapuram can contact Natural Dental Clinic to arrange a consultation for their child.",
     relatedSlugs: ["general-dentistry", "braces-orthodontics", "gum-treatment"],
   },
   {

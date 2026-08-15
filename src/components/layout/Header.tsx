@@ -199,7 +199,7 @@ export default function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`relative px-3 py-1.5 font-sans text-[0.875rem] font-semibold transition-colors duration-200 rounded-lg hover:bg-sage-50 ${
+                    className={`relative px-3 py-1.5 font-sans text-[0.875rem] font-semibold transition-colors duration-200 rounded-lg hover:bg-sage-50 whitespace-nowrap ${
                       isActive(link.href) ? "text-forest-600" : "text-charcoal-600 hover:text-forest-600"
                     }`}
                   >
@@ -214,11 +214,11 @@ export default function Header() {
               {/* Phone — xl only */}
               <a
                 href={CLINIC.contact.phoneHref}
-                className="hidden xl:flex items-center gap-1.5 px-3 py-1.5 ml-1 text-[0.8125rem] font-semibold text-charcoal-500 hover:text-forest-600 transition-colors duration-200 rounded-lg hover:bg-sage-50"
+                className="hidden xl:flex items-center gap-1.5 px-3 py-1.5 ml-1 text-[0.8125rem] font-semibold text-charcoal-500 hover:text-forest-600 transition-colors duration-200 rounded-lg hover:bg-sage-50 whitespace-nowrap"
                 aria-label="Call the clinic"
               >
                 <Phone size={14} strokeWidth={2} />
-                <span>{CLINIC.contact.phoneDisplay}</span>
+                <span className="whitespace-nowrap">{CLINIC.contact.phoneDisplay}</span>
               </a>
 
               {/* CTA */}

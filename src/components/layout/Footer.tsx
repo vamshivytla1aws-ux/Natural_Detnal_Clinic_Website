@@ -67,7 +67,7 @@ export default function Footer() {
             <div className="space-y-3 font-sans text-sm text-forest-50/80 mb-5">
               {CLINIC.displayHours.schedule.map((item) => (
                 <div key={item.day} className="flex justify-between items-start border-b border-white/10 pb-2.5 last:border-0 last:pb-0">
-                  <span className="font-medium">{item.day}</span>
+                  <span className="font-medium whitespace-nowrap pr-4">{item.day}</span>
                   <div className="text-right text-xs">
                     <div>{item.morning}</div>
                     {item.evening !== 'Closed' && <div>{item.evening}</div>}

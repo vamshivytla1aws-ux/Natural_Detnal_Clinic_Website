@@ -68,6 +68,11 @@ export default function GalleryPage() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
+                {image.badge && (
+                  <span className="absolute left-4 top-4 rounded-full border border-white/50 bg-forest-600/90 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-white shadow-sm backdrop-blur-md">
+                    {image.badge}
+                  </span>
+                )}
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-forest-700/80 via-forest-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
                   <p className="text-white font-sans text-sm font-medium leading-tight">{image.alt}</p>
@@ -75,6 +80,12 @@ export default function GalleryPage() {
               </div>
             ))}
           </div>
+
+          {filteredImages.some((image) => image.category === 'results') && (
+            <p className="mx-auto mt-10 max-w-3xl text-center text-xs leading-6 text-charcoal-400">
+              Clinical photographs are shown for general illustration. Treatment suitability and outcomes vary between patients and cannot be guaranteed.
+            </p>
+          )}
 
           {filteredImages.length === 0 && (
             <div className="text-center py-20 text-charcoal-400 font-sans">

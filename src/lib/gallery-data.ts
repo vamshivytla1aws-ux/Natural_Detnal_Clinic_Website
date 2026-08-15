@@ -2,17 +2,21 @@ export interface GalleryImage {
   id: string;
   src: string;
   alt: string;
-  category: "clinic" | "doctor" | "treatment" | "details";
+  category: "clinic" | "doctor" | "treatment" | "details" | "reception" | "results" | "camps";
   width: number;
   height: number;
   featured?: boolean;
+  badge?: "Before" | "After" | "Before & After" | "Dental Camp";
 }
 
 export const GALLERY_CATEGORIES = [
   { id: "all", label: "All" },
   { id: "clinic", label: "Clinic" },
   { id: "doctor", label: "Doctor & Team" },
+  { id: "reception", label: "Reception" },
   { id: "treatment", label: "Treatment Space" },
+  { id: "results", label: "Before & After" },
+  { id: "camps", label: "Dental Camps" },
   { id: "details", label: "Clinic Details" },
 ] as const;
 
@@ -92,5 +96,66 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     category: "details",
     width: 1350,
     height: 1800,
+  },
+  {
+    id: "reception-room-new",
+    src: "/images/gallery/reception-room-new.jpg",
+    alt: "Reception and waiting area at Natural Dental Clinic",
+    category: "reception",
+    width: 720,
+    height: 1280,
+  },
+  {
+    id: "doctor-with-patient",
+    src: "/images/gallery/doctor-with-patient.jpg",
+    alt: "Dr. Vandana Vytla with a patient at Natural Dental Clinic",
+    category: "doctor",
+    width: 960,
+    height: 1280,
+  },
+  {
+    id: "treatment-before",
+    src: "/images/gallery/treatment-before.jpg",
+    alt: "Clinical photograph before dental treatment",
+    category: "results",
+    width: 1200,
+    height: 1600,
+    badge: "Before",
+  },
+  {
+    id: "treatment-after",
+    src: "/images/gallery/treatment-after.jpg",
+    alt: "Clinical photograph after dental treatment",
+    category: "results",
+    width: 1200,
+    height: 1600,
+    badge: "After",
+  },
+  {
+    id: "treatment-before-after",
+    src: "/images/gallery/treatment-before-after.jpg",
+    alt: "Before-and-after dental treatment comparison",
+    category: "results",
+    width: 1600,
+    height: 1600,
+    badge: "Before & After",
+  },
+  {
+    id: "dental-camp-care",
+    src: "/images/gallery/dental-camp-care.jpg",
+    alt: "Natural Dental Clinic team providing check-ups at a community dental camp",
+    category: "camps",
+    width: 1800,
+    height: 1350,
+    badge: "Dental Camp",
+  },
+  {
+    id: "dental-camp-entrance",
+    src: "/images/gallery/dental-camp-entrance.jpg",
+    alt: "Natural Dental Clinic community dental camp entrance",
+    category: "camps",
+    width: 1800,
+    height: 1350,
+    badge: "Dental Camp",
   },
 ];

@@ -2,8 +2,9 @@ import { Metadata } from 'next';
 import { CLINIC } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: `Privacy Policy | ${CLINIC.name}`,
+  title: "Privacy Policy",
   description: 'Privacy Policy and data protection terms for Natural Dental Clinic.',
+  alternates: { canonical: "/privacy-policy" },
 };
 
 export default function PrivacyPolicyPage() {

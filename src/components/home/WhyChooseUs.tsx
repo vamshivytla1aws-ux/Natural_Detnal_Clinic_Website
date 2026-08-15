@@ -13,7 +13,7 @@ export default function WhyChooseUs() {
     {
       num: "03",
       title: "Hygiene-Focused Environment",
-      desc: "Strict sterilization protocols and a spotless clinic ensure your absolute safety and peace of mind."
+      desc: "Consistent sterilisation and infection-control procedures support a clean clinical environment."
     },
     {
       num: "04",
@@ -35,7 +35,7 @@ export default function WhyChooseUs() {
               clinical care.
             </h2>
             <p className="text-charcoal-500 font-sans text-lg mb-8 max-w-md leading-relaxed">
-              At Natural Dental Clinic, we combine medical excellence with a warm, reassuring environment.
+              At Natural Dental Clinic, careful clinical planning is paired with a warm, reassuring environment.
             </p>
           </div>
 
@@ -63,4 +63,3 @@ export default function WhyChooseUs() {
     </section>
   );
 }
-

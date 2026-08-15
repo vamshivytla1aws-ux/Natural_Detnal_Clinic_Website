@@ -35,13 +35,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticPages.map((page) => ({
       url: page.url,
-      lastModified: new Date(),
       changeFrequency: page.changeFrequency,
       priority: page.priority,
     })),
     ...servicePages.map((page) => ({
       url: page.url,
-      lastModified: new Date(),
       changeFrequency: page.changeFrequency,
       priority: page.priority,
     })),

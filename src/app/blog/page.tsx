@@ -2,11 +2,10 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getAllPosts, getFeaturedPosts } from '@/lib/blog-utils';
-import { CLINIC } from '@/lib/config';
 import { ClinicActions } from '@/components/ui/ClinicActions';
 
 export const metadata: Metadata = {
-  title: "Dental Care Guides | Natural Dental Clinic, RC Puram Hyderabad",
+  title: "Dental Care Guides — RC Puram, Hyderabad",
   description: "Explore practical dental care guides from Natural Dental Clinic in Ramachandrapuram (RC Puram), Hyderabad covering tooth pain, root canal treatment, implants, braces, children's dentistry, gum care and preventive dental health.",
   alternates: {
     canonical: "/blog",

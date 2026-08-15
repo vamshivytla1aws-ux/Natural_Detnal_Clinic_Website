@@ -1,93 +1,75 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight, Clock3, MapPin } from "lucide-react";
 import { CLINIC } from "@/lib/config";
 import { ClinicActions } from "@/components/ui/ClinicActions";
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-ivory-100 overflow-hidden pt-32 pb-16 lg:pt-40 lg:pb-24">
-      <div className="container-premium relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          
-          {/* Text Content */}
-          <div className="flex flex-col items-start animate-fade-up">
-            <span className="eyebrow mb-6">
-              {CLINIC.name}
-            </span>
-            
-            <h1 className="heading-display text-forest-600 mb-6">
-              Thoughtful Dental Care <br />
-              <span className="text-sage-500">for Every Smile.</span>
+    <section className="relative overflow-hidden bg-ivory-100 pt-28 lg:pt-32">
+      <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(circle_at_72%_18%,rgba(152,170,145,.22),transparent_42%)]" />
+      <div className="container-premium relative z-10 pb-20 pt-10 lg:pb-24 lg:pt-16">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.03fr_.97fr] lg:gap-16">
+          <div className="animate-fade-up">
+            <span className="eyebrow mb-6">Dentistry, considered differently</span>
+            <h1 className="heading-display max-w-3xl text-forest-600">
+              Thoughtful care for a smile that feels like you.
             </h1>
-            
-            <p className="text-lg md:text-xl text-charcoal-500 font-sans mb-8 max-w-xl leading-relaxed">
-              Personalised dental care at Natural Dental Clinic in Ramachandrapuram, Hyderabad. We focus on comfort, clear communication, and your long-term oral health.
+            <p className="mt-7 max-w-xl text-[1.08rem] leading-8 text-charcoal-500 md:text-xl">
+              Personalised dental care in Ramachandrapuram, led by {CLINIC.doctor.name}. Calm consultations, clear guidance, and treatment planned around you.
             </p>
-            
-            <ClinicActions 
-              variant="hero" 
-              showBook={true} 
-              showWhatsApp={true} 
-              showCall={false} 
-              showDirections={false} 
-              className="mb-10" 
+
+            <ClinicActions
+              variant="hero"
+              showBook
+              showWhatsApp
+              showCall={false}
+              showDirections={false}
+              className="mt-9"
             />
-            
-            {/* Trust Principles replacing the unverified stats */}
-            <div className="grid grid-cols-2 gap-x-8 gap-y-4 pt-8 border-t border-ivory-300 w-full">
-              <div className="flex items-center gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-champagne-400" />
-                <span className="text-sm text-charcoal-600 font-medium">Patient-Focused Care</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-champagne-400" />
-                <span className="text-sm text-charcoal-600 font-medium">Modern Solutions</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-champagne-400" />
-                <span className="text-sm text-charcoal-600 font-medium">Hygiene-Focused</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-champagne-400" />
-                <span className="text-sm text-charcoal-600 font-medium">Clear Guidance</span>
+
+            <div className="mt-10 grid max-w-xl gap-4 border-t border-ivory-300 pt-7 sm:grid-cols-2">
+              <a href={CLINIC.address.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="group flex items-start gap-3 text-left">
+                <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-forest-600 shadow-sm"><MapPin size={17} /></span>
+                <span>
+                  <span className="block text-xs font-bold uppercase tracking-[.14em] text-sage-600">Visit us</span>
+                  <span className="mt-1 block text-sm font-medium text-charcoal-600 group-hover:text-forest-600">Ramachandrapuram, Hyderabad</span>
+                </span>
+              </a>
+              <div className="flex items-start gap-3">
+                <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-forest-600 shadow-sm"><Clock3 size={17} /></span>
+                <span>
+                  <span className="block text-xs font-bold uppercase tracking-[.14em] text-sage-600">Clinic hours</span>
+                  <span className="mt-1 block text-sm font-medium text-charcoal-600">Mon–Sat, two sessions</span>
+                </span>
               </div>
             </div>
           </div>
 
-          {/* Image Content */}
-          <div className="relative animate-fade-in" style={{ animationDelay: "200ms" }}>
-            <div className="relative aspect-[4/5] max-w-md mx-auto lg:ml-auto lg:mr-0 rounded-image overflow-hidden shadow-lg border-4 border-white group">
-              <Image 
-                src="/images/doctor/doctor-main.jpg" 
-                alt={`Dr. ${CLINIC.doctor.name}`} 
-                fill 
-                className="object-cover transition-transform duration-700 ease-premium group-hover:scale-105"
+          <div className="relative animate-fade-in lg:pl-4">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[34px] border-[6px] border-white bg-sage-100 shadow-[0_30px_80px_rgba(18,55,42,.16)] sm:aspect-[5/4] lg:aspect-[4/5]">
+              <Image
+                src="/images/gallery/clinic-exterior-day.jpg"
+                alt="Exterior of Natural Dental Clinic in Ramachandrapuram"
+                fill
                 priority
-                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 46vw"
               />
-              
-              {/* Doctor Nameplate */}
-              <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-sm border border-white/50">
-                <p className="font-serif text-xl text-forest-600 font-bold mb-0.5">
-                  {CLINIC.doctor.name}
-                </p>
-                <div className="flex justify-between items-end">
-                  <p className="font-sans text-sm text-charcoal-500 font-medium">
-                    {CLINIC.doctor.title}
-                  </p>
-                  <p className="font-sans text-[0.6875rem] text-sage-600 font-bold tracking-wider">
-                    REG: {CLINIC.doctor.regNo}
-                  </p>
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-900/60 via-transparent to-transparent" />
+              <div className="absolute inset-x-5 bottom-5 rounded-[22px] border border-white/25 bg-forest-900/80 p-5 text-white backdrop-blur-xl sm:inset-x-7 sm:bottom-7 sm:p-6">
+                <p className="text-xs font-bold uppercase tracking-[.16em] text-champagne-300">Natural Dental Clinic</p>
+                <div className="mt-2 flex items-end justify-between gap-4">
+                  <p className="font-serif text-2xl leading-tight text-white sm:text-[1.75rem]">A calm space for considered care.</p>
+                  <Link href="/gallery" aria-label="View the clinic gallery" className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-forest-600 transition-transform hover:-translate-y-0.5">
+                    <ArrowUpRight size={19} />
+                  </Link>
                 </div>
               </div>
             </div>
-            
-            {/* Subtle background decoration */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-sage-100 rounded-full mix-blend-multiply opacity-50 blur-3xl -z-10" />
+            <div className="absolute -right-10 -top-10 -z-10 h-44 w-44 rounded-full border border-champagne-300/60" />
+            <div className="absolute -bottom-10 -left-10 -z-10 h-52 w-52 rounded-full bg-sage-200/60 blur-2xl" />
           </div>
-
         </div>
       </div>
     </section>

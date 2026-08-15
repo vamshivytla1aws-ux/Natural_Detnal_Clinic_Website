@@ -1,5 +1,6 @@
 import HeroSection from "@/components/home/HeroSection";
 import PhilosophySection from "@/components/home/PhilosophySection";
+import TrustStrip from "@/components/home/TrustStrip";
 import DoctorHighlight from "@/components/home/DoctorHighlight";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
@@ -12,7 +13,7 @@ import { Metadata } from "next";
 import { CLINIC } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: CLINIC.seo.defaultTitle,
+  title: { absolute: CLINIC.seo.defaultTitle },
   description: CLINIC.seo.defaultDescription,
   alternates: {
     canonical: "/",
@@ -82,6 +83,7 @@ export default function Home() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(dentistSchema) }} />
       <HeroSection />
+      <TrustStrip />
       <PhilosophySection />
       <DoctorHighlight />
       <ServicesPreview />

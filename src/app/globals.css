@@ -27,6 +27,18 @@
     font-family: var(--font-sans);
   }
 
+  html { color-scheme: light; }
+
+  body { overflow-x: hidden; }
+
+  a, button, summary { -webkit-tap-highlight-color: transparent; }
+
+  :focus-visible {
+    outline: 3px solid rgba(196, 166, 108, 0.72);
+    outline-offset: 4px;
+    border-radius: 6px;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
     @apply text-forest-600;
@@ -81,6 +93,18 @@
     @apply inline-flex items-center font-sans text-[0.6875rem] font-bold tracking-[0.18em] uppercase text-sage-600 mb-4;
   }
 
+  .section-label {
+    @apply inline-flex items-center font-sans text-[0.6875rem] font-bold tracking-[0.18em] uppercase text-sage-600;
+  }
+
+  .card-premium {
+    @apply border border-ivory-300 shadow-card transition-all duration-500 ease-premium hover:-translate-y-1 hover:shadow-card-hover;
+  }
+
+  .premium-panel {
+    @apply rounded-[28px] border border-ivory-300 bg-white shadow-premium;
+  }
+
   /* Premium Buttons */
   .btn-primary {
     @apply inline-flex items-center justify-center px-8 py-3.5 rounded-[10px] bg-forest-600 text-white font-sans text-[0.9375rem] font-semibold tracking-wide transition-all duration-300 ease-premium hover:bg-forest-700 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:pointer-events-none;
@@ -96,6 +120,16 @@
 
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-transparent text-charcoal-500 font-sans text-[0.9375rem] font-medium transition-all duration-300 ease-premium hover:text-forest-600 active:opacity-80;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
@@ -132,4 +166,3 @@
     z-index: 0;
   }
 }
-

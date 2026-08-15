@@ -3,10 +3,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
-import { getPostBySlug, getPostSlugs, getAllPosts } from '@/lib/blog-utils';
+import { getPostBySlug, getAllPosts } from '@/lib/blog-utils';
 import { CLINIC } from '@/lib/config';
 import { ClinicActions } from '@/components/ui/ClinicActions';
-import { SERVICES, getServiceBySlug } from '@/lib/services-data';
+import { getServiceBySlug } from '@/lib/services-data';
 
 interface Props {
   params: {
@@ -15,10 +15,7 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  const slugs = getPostSlugs();
-  return slugs.map((slug) => ({
-    slug: slug.replace(/\.md$/, ''),
-  }));
+  return getAllPosts().map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata(
@@ -34,14 +31,17 @@ export async function generateMetadata(
 
     const previousImages = (await parent).openGraph?.images || [];
 
+    const rawTitle = post.seoTitle || post.title;
+    const cleanTitle = rawTitle.replace(/\s*\|\s*Natural Dental Clinic\s*$/i, "");
+
     return {
-      title: post.seoTitle || post.title,
+      title: cleanTitle,
       description: post.description,
       alternates: {
         canonical: `/blog/${post.slug}`,
       },
       openGraph: {
-        title: post.seoTitle || post.title,
+        title: rawTitle,
         description: post.description,
         url: `${CLINIC.seo.siteUrl}/blog/${post.slug}`,
         type: 'article',
@@ -59,7 +59,7 @@ export async function generateMetadata(
         ],
       },
     };
-  } catch (error) {
+  } catch {
     return {};
   }
 }
@@ -68,7 +68,7 @@ export default function BlogPostPage({ params }: Props) {
   let post;
   try {
     post = getPostBySlug(params.slug);
-  } catch (error) {
+  } catch {
     notFound();
   }
 
@@ -198,10 +198,10 @@ export default function BlogPostPage({ params }: Props) {
               <div className="prose prose-lg prose-headings:font-serif prose-headings:text-forest-600 prose-h2:text-[2rem] prose-h2:mt-12 prose-h2:mb-6 prose-p:font-sans prose-p:text-charcoal-600 prose-p:leading-relaxed prose-a:text-sage-600 prose-a:no-underline hover:prose-a:text-forest-600 prose-li:text-charcoal-600 max-w-none">
                 <ReactMarkdown
                   components={{
-                    h2: ({node, ...props}) => {
+                    h2: (props) => {
                       // Generate ID for TOC
                       const id = props.children?.toString().toLowerCase().replace(/[^\w]+/g, '-') || '';
-                      return <h2 id={id} {...props} />
+                      return <h2 id={id}>{props.children}</h2>
                     }
                   }}
                 >

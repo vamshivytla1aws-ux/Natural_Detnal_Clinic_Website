@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { CLINIC } from "@/lib/config";
 import { 
   GOOGLE_BUSINESS, 
   WRITTEN_REVIEWS, 

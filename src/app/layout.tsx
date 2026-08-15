@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -54,6 +54,13 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
+  manifest: "/manifest.webmanifest",
+  category: "healthcare",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#FAF8F3",
+  colorScheme: "light",
 };
 
 import { Cormorant_Garamond, Manrope } from "next/font/google";

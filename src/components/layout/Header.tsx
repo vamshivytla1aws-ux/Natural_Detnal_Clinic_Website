@@ -12,8 +12,8 @@ const TREATMENTS_DROPDOWN = [
   { label: "Root Canal Treatment", href: "/services/root-canal-treatment" },
   { label: "Dental Implants", href: "/services/dental-implants" },
   { label: "Braces & Orthodontics", href: "/services/braces-orthodontics" },
-  { label: "Children's Dentistry", href: "/services/childrens-dentistry" },
-  { label: "Wisdom Tooth Care", href: "/services/wisdom-tooth-extraction" },
+  { label: "Children's Dentistry", href: "/services/pediatric-dentistry" },
+  { label: "Wisdom Tooth Care", href: "/services/wisdom-tooth-removal" },
   { label: "Teeth Whitening", href: "/services/teeth-whitening" },
 ];
 

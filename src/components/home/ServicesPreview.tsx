@@ -2,31 +2,8 @@
 
 import Link from "next/link";
 import { SERVICES } from "@/lib/services-data";
-import { 
-  Shield, 
-  Star, 
-  Sparkles, 
-  Smile, 
-  Activity, 
-  Baby, 
-  Heart, 
-  Crown, 
-  Microscope,
-  ArrowRight 
-} from "lucide-react";
-
-// Helper to map string icon names to Lucide components
-const IconMap: Record<string, any> = {
-  Shield,
-  Star,
-  Sparkles,
-  Smile,
-  Activity,
-  Baby,
-  Heart,
-  Crown,
-  Microscope,
-};
+import { ArrowRight } from "lucide-react";
+import { ServiceIcon } from "@/components/shared/ServiceIcon";
 
 export default function ServicesPreview() {
   const previewServices = SERVICES.slice(0, 6);
@@ -45,8 +22,6 @@ export default function ServicesPreview() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {previewServices.map((service) => {
-            const IconComponent = IconMap[service.icon] || Shield;
-            
             return (
               <div 
                 key={service.slug} 
@@ -54,7 +29,7 @@ export default function ServicesPreview() {
               >
                 <div>
                   <div className="w-12 h-12 rounded-xl bg-sage-100 text-forest-600 flex items-center justify-center mb-6 transition-transform duration-500 ease-premium group-hover:scale-110 group-hover:bg-sage-200">
-                    <IconComponent size={22} strokeWidth={1.5} />
+                    <ServiceIcon name={service.icon} size={22} strokeWidth={1.5} />
                   </div>
                   <h3 className="heading-md text-forest-600 mb-3 leading-tight">
                     {service.title}

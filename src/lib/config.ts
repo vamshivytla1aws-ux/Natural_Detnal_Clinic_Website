@@ -105,7 +105,7 @@ export const CLINIC = {
       "dental implants Hyderabad",
       "dentist RC Puram",
     ],
-    ogImage: "/og-image.jpg",
+    ogImage: "/og.png",
   },
 } as const;
 

@@ -10,7 +10,6 @@ export interface Service {
   benefits: string[];
   process: { step: string; description: string }[];
   faqs: { question: string; answer: string }[];
-  image: string;
   category: string;
   localCta: string;
   relatedSlugs: string[];
@@ -57,7 +56,6 @@ export const SERVICES: Service[] = [
       { question: "Will I need a crown after a root canal?", answer: "In most cases, yes. A crown helps protect and restore the treated tooth, especially if significant tooth structure has been lost to decay or damage." },
       { question: "What happens if an infected tooth is left untreated?", answer: "Untreated dental infections can worsen over time and may affect surrounding teeth and gum tissue. It is advisable to seek a clinical evaluation promptly if you are experiencing symptoms." },
     ],
-    image: "/images/services/root-canal.jpg",
     localCta: "Patients from Ramachandrapuram, BHEL, Lingampally, Chandanagar and nearby areas can contact Natural Dental Clinic for a root canal evaluation.",
     relatedSlugs: ["crowns-bridges", "general-dentistry", "gum-treatment"],
   },
@@ -100,7 +98,6 @@ export const SERVICES: Service[] = [
       { question: "Is the implant procedure painful?", answer: "The procedure is carried out under local anaesthesia. Some soreness after is normal and manageable with appropriate medication prescribed by the dentist." },
       { question: "How do I care for dental implants?", answer: "Maintain good oral hygiene — brush twice daily, clean between teeth carefully, and attend regular dental check-ups as recommended." },
     ],
-    image: "/images/services/implants.jpg",
     localCta: "Dental implant consultations are available at Natural Dental Clinic in Ramachandrapuram, with convenient access from Ameenpur, Beeramguda, Chandanagar, Miyapur and nearby areas.",
     relatedSlugs: ["crowns-bridges", "gum-treatment", "general-dentistry"],
   },
@@ -143,7 +140,6 @@ export const SERVICES: Service[] = [
       { question: "Will whitening cause sensitivity?", answer: "Some temporary sensitivity is common and usually short-lived. Sensitivity-reducing formulas can be used, and we monitor your comfort throughout the process." },
       { question: "How long do results last?", answer: "Results can be maintained for several months to a year or more with proper aftercare, including limiting staining foods and drinks and following hygiene guidance." },
     ],
-    image: "/images/services/whitening.jpg",
     localCta: "To find out whether teeth whitening may be suitable for you, contact Natural Dental Clinic in Ramachandrapuram to arrange a consultation.",
     relatedSlugs: ["general-dentistry", "crowns-bridges", "braces-orthodontics"],
   },
@@ -187,7 +183,6 @@ export const SERVICES: Service[] = [
       { question: "Will I need a retainer after braces?", answer: "Yes. Retainers are essential to maintain the corrected positions after braces are removed. Full guidance on retainer care is provided." },
       { question: "Can adults get braces?", answer: "Absolutely. Orthodontic treatment is effective at any age. Adults frequently seek treatment for both functional and aesthetic reasons." },
     ],
-    image: "/images/services/braces.jpg",
     localCta: "Natural Dental Clinic provides braces and orthodontic consultations in Ramachandrapuram, Hyderabad, accessible from nearby Beeramguda, Ameenpur, Chandanagar and Miyapur.",
     relatedSlugs: ["pediatric-dentistry", "general-dentistry", "crowns-bridges"],
   },
@@ -231,7 +226,6 @@ export const SERVICES: Service[] = [
       { question: "Do all wisdom teeth need to be removed?", answer: "Not always. Removal is only recommended when the tooth is causing or is very likely to cause clinical problems. Each case is individually evaluated." },
       { question: "What warning signs require immediate dental assessment?", answer: "Significant swelling spreading to the jaw or neck, difficulty breathing or swallowing, or high fever following extraction require prompt dental or medical attention." },
     ],
-    image: "/images/services/wisdom-tooth.jpg",
     localCta: "If you are experiencing wisdom tooth pain or swelling in Ramachandrapuram, contact Natural Dental Clinic for a dental evaluation and to discuss your options.",
     relatedSlugs: ["gum-treatment", "general-dentistry", "crowns-bridges"],
   },
@@ -275,7 +269,6 @@ export const SERVICES: Service[] = [
       { question: "My child is nervous about the dentist — how do you help?", answer: "We work at the child's own pace, explaining each step in a gentle way and giving them time to feel comfortable. Our patients' parents have frequently noted that their children felt at ease during visits." },
       { question: "When should children start brushing and how should I help?", answer: "Start cleaning your child's teeth as soon as the first tooth appears. Use a soft toothbrush and a small amount of age-appropriate fluoride toothpaste. Parental supervision of brushing is recommended until around age 7–8." },
     ],
-    image: "/images/services/pediatric.jpg",
     localCta: "Parents from RC Puram, BHEL, LIG, Ashok Nagar, Lingampally and surrounding areas can contact Natural Dental Clinic for children's dental consultations.",
     relatedSlugs: ["general-dentistry", "braces-orthodontics", "gum-treatment"],
   },
@@ -319,7 +312,6 @@ export const SERVICES: Service[] = [
       { question: "Can gum disease affect my general health?", answer: "Research links gum disease to conditions including heart disease and diabetes. Managing gum disease supports not just oral health but overall wellbeing." },
       { question: "How many appointments will I need?", answer: "Typically 2–4 appointments depending on the severity, followed by regular maintenance visits to keep gum health stable." },
     ],
-    image: "/images/services/gum-treatment.jpg",
     localCta: "If you notice bleeding gums, persistent bad breath, or gum sensitivity in Ramachandrapuram, contact Natural Dental Clinic for a gum health assessment.",
     relatedSlugs: ["general-dentistry", "root-canal-treatment", "dental-implants"],
   },
@@ -362,7 +354,6 @@ export const SERVICES: Service[] = [
       { question: "Will a crown look natural?", answer: "Yes. We use tooth-coloured porcelain or ceramic materials designed to blend with the shade and appearance of your natural teeth." },
       { question: "How do I care for a crown or bridge?", answer: "Brush twice daily, use floss or interdental brushes carefully around bridges, avoid very hard or sticky foods, and attend regular dental check-ups." },
     ],
-    image: "/images/services/crowns-bridges.jpg",
     localCta: "For a consultation about crowns or bridges in Ramachandrapuram, contact Natural Dental Clinic to have your tooth assessed and your options explained clearly.",
     relatedSlugs: ["root-canal-treatment", "dental-implants", "general-dentistry"],
   },
@@ -405,7 +396,6 @@ export const SERVICES: Service[] = [
       { question: "Are fillings noticeable?", answer: "We use tooth-coloured composite resin materials designed to match your natural tooth colour closely, making modern fillings very discreet." },
       { question: "Is a check-up important even if I have no dental pain?", answer: "Yes. Many dental problems such as early decay and gum disease are painless in their early stages. Regular check-ups allow these to be caught and addressed before they become more significant." },
     ],
-    image: "/images/services/general-dentistry.jpg",
     localCta: "Book a routine dental check-up at Natural Dental Clinic in Ramachandrapuram — for yourself or your family.",
     relatedSlugs: ["gum-treatment", "root-canal-treatment", "pediatric-dentistry"],
   },

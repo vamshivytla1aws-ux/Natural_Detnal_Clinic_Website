@@ -34,6 +34,20 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/services/childrens-dentistry",
+        destination: "/services/pediatric-dentistry",
+        permanent: true,
+      },
+      {
+        source: "/services/wisdom-tooth-extraction",
+        destination: "/services/wisdom-tooth-removal",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

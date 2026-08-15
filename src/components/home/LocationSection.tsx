@@ -56,7 +56,7 @@ export default function LocationSection() {
             </h2>
 
             <p className="font-sans text-[1.0625rem] text-charcoal-500 leading-relaxed mb-6">
-              Looking for a dental clinic near you in Ramachandrapuram, Hyderabad? Natural Dental Clinic is located in Ramachandrapuram (RC Puram), Hyderabad, and is conveniently accessible for patients from nearby areas including BHEL, LIG, Ashok Nagar, Beeramguda, Ameenpur, Lingampally, Chandanagar, Miyapur and Patancheru, with patients also visiting from the surrounding Sangareddy region.
+              Find us in Sai Nagar Colony, Ramachandrapuram, behind South India Shopping Mall. The clinic is accessible from BHEL, Beeramguda, Ameenpur, Lingampally, Chandanagar, Miyapur and nearby communities.
             </p>
             
             <div className="space-y-4 mb-6">
@@ -105,7 +105,7 @@ export default function LocationSection() {
             <div className="w-full border-t border-ivory-300 pt-8">
               <h3 className="font-serif text-[1.25rem] text-forest-600 mb-5">Frequently Asked Questions</h3>
               <div className="space-y-4">
-                {LOCAL_FAQS.map((faq, i) => (
+                {LOCAL_FAQS.slice(0, 4).map((faq, i) => (
                   <details key={i} className="group">
                     <summary className="flex items-center justify-between cursor-pointer list-none font-sans text-[0.9375rem] font-semibold text-charcoal-700 py-3 border-b border-ivory-300 gap-4">
                       <span>{faq.q}</span>

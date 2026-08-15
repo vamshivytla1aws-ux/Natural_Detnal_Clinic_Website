@@ -4,16 +4,17 @@ import Link from 'next/link';
 import { CLINIC } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: `About Us | ${CLINIC.name}`,
+  title: "About Us",
   description: 'Learn about Natural Dental Clinic, our philosophy and approach to dental care in Ramachandrapuram, Hyderabad.',
+  alternates: { canonical: "/about" },
 };
 
 const VALUES = [
   { title: 'Compassion', description: 'We treat every patient with empathy, understanding their unique needs and anxieties.' },
-  { title: 'Excellence', description: 'We are committed to delivering the highest quality of dental care using advanced techniques.' },
-  { title: 'Innovation', description: 'Our clinic is equipped with modern technology for precise and comfortable treatments.' },
+  { title: 'Careful Practice', description: 'We plan treatment thoughtfully and explain the clinical reasoning behind each recommendation.' },
+  { title: 'Continual Learning', description: 'We keep our approach current while recommending only what is appropriate for each patient.' },
   { title: 'Trust', description: 'We build lasting relationships based on transparency, honesty, and ethical practices.' },
-  { title: 'Hygiene', description: 'We maintain strict sterilization protocols for your safety and peace of mind.' },
+  { title: 'Hygiene', description: 'We follow consistent sterilisation and infection-control procedures throughout the clinic.' },
   { title: 'Personalization', description: 'Your smile is unique. We tailor every treatment plan specifically for you.' },
 ];
 
@@ -30,7 +31,7 @@ export default function AboutPage() {
               "@type": "Dentist",
               "name": CLINIC.name,
               "image": "/images/clinic/clinic-front.jpg",
-              "description": "Premium dental clinic offering compassionate and advanced dental care.",
+              "description": CLINIC.description,
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": `${CLINIC.address.line1}, ${CLINIC.address.landmark}, ${CLINIC.address.locality}`,
@@ -49,7 +50,7 @@ export default function AboutPage() {
           <span className="section-label text-champagne-400 mb-4 block">Our Story</span>
           <h1 className="heading-display mb-6">About Natural Dental Clinic</h1>
           <p className="text-xl lg:text-2xl text-ivory-100 max-w-3xl mx-auto font-serif">
-            Creating beautiful, healthy smiles through compassionate care and clinical excellence.
+            A thoughtful approach to comfortable, clearly explained dental care.
           </p>
         </div>
       </section>
@@ -74,10 +75,10 @@ export default function AboutPage() {
                   Natural Dental Clinic was founded with a simple yet profound philosophy: to provide exceptional dental care in an environment that feels welcoming, relaxing, and entirely patient-focused. 
                 </p>
                 <p>
-                  We understand that visiting the dentist can be a source of anxiety for many. That's why we've purposefully designed our clinic to feel less like a traditional medical facility and more like a serene retreat. From the moment you step through our doors, our priority is your comfort and well-being.
+                  We understand that visiting the dentist can be a source of anxiety for many. That&apos;s why we&apos;ve designed our clinic to feel welcoming and reassuring. From the moment you step through our doors, our priority is your comfort and wellbeing.
                 </p>
                 <p>
-                  Our approach marries advanced dental technology with a gentle, personalized touch. We believe that oral health is a fundamental component of overall wellness, and we are dedicated to helping our community achieve and maintain optimal oral health for a lifetime.
+                  Our approach combines careful evaluation with a gentle, personalised touch. We believe oral health is an important part of overall wellbeing, and we help patients make informed decisions about maintaining it over time.
                 </p>
               </div>
             </div>

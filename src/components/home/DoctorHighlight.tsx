@@ -14,7 +14,7 @@ export default function DoctorHighlight() {
             <div className="relative aspect-[4/5] max-w-lg mx-auto rounded-image overflow-hidden shadow-md">
               <Image 
                 src="/images/doctor/doctor-main.jpg" 
-                alt={`Dr. ${CLINIC.doctor.name}`} 
+                alt={`${CLINIC.doctor.name}, ${CLINIC.doctor.title}`} 
                 fill 
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"

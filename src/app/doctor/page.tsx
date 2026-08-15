@@ -6,7 +6,7 @@ import { SERVICES } from '@/lib/services-data';
 import { ClinicActions } from '@/components/ui/ClinicActions';
 
 export const metadata: Metadata = {
-  title: "Dr. Vandana Vytla | Dental Surgeon in Ramachandrapuram",
+  title: "Dr. Vandana Vytla — Dental Surgeon in Ramachandrapuram",
   description: "Meet Dr. Vandana Vytla, Dental Surgeon at Natural Dental Clinic in Ramachandrapuram, Hyderabad. Learn about her patient-focused approach to dental care.",
   alternates: {
     canonical: "/doctor",

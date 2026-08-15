@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Contact Natural Dental Clinic | Ramachandrapuram, Hyderabad",
+  title: "Contact & Appointments — Ramachandrapuram",
   description: "Contact Natural Dental Clinic in Ramachandrapuram, Hyderabad. Find the clinic address, directions and contact options for dental consultations.",
   alternates: {
     canonical: "/contact",

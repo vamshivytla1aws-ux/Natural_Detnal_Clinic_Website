@@ -2,8 +2,9 @@ import { Metadata } from 'next';
 import { CLINIC } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: `Terms of Service | ${CLINIC.name}`,
+  title: "Terms of Service",
   description: 'Terms and conditions for using Natural Dental Clinic services and website.',
+  alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {
@@ -32,7 +33,7 @@ export default function TermsPage() {
           <h2 className="heading-lg text-forest-600 mt-12 mb-6">2. Appointments and Cancellations</h2>
           <ul>
             <li>We request that you arrive on time for your scheduled appointments.</li>
-            <li>If you need to cancel or reschedule, please provide at least 24 hours' notice.</li>
+            <li>If you need to cancel or reschedule, please provide at least 24 hours&apos; notice.</li>
             <li>Failure to provide sufficient notice or missing an appointment may result in a cancellation fee.</li>
           </ul>
 

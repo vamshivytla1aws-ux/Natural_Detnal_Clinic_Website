@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Star, ExternalLink } from "lucide-react";
+import { Star } from "lucide-react";
 import { clsx } from "clsx";
 import type { GoogleReview } from "@/lib/reviews-data";
 

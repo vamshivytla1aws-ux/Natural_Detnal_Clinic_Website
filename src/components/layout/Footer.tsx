@@ -5,9 +5,9 @@ const FOOTER_TREATMENTS = [
   { label: "Root Canal Treatment", href: "/services/root-canal-treatment" },
   { label: "Dental Implants", href: "/services/dental-implants" },
   { label: "Braces & Orthodontics", href: "/services/braces-orthodontics" },
-  { label: "Children's Dentistry", href: "/services/childrens-dentistry" },
+  { label: "Children's Dentistry", href: "/services/pediatric-dentistry" },
   { label: "Teeth Whitening", href: "/services/teeth-whitening" },
-  { label: "Wisdom Tooth Care", href: "/services/wisdom-tooth-extraction" },
+  { label: "Wisdom Tooth Care", href: "/services/wisdom-tooth-removal" },
 ];
 
 export default function Footer() {
@@ -26,7 +26,7 @@ export default function Footer() {
               Thoughtful dental care<br className="hidden lg:block" /> in Ramachandrapuram.
             </p>
             <p className="font-sans text-[0.8125rem] text-sage-400">
-              Dr. {CLINIC.doctor.name} — {CLINIC.doctor.title}
+              {CLINIC.doctor.name} — {CLINIC.doctor.title}
             </p>
           </div>
 

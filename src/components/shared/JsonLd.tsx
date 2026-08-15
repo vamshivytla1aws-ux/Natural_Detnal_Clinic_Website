@@ -19,7 +19,7 @@ export function JsonLd({ type, data }: JsonLdProps) {
         description: CLINIC.seo.defaultDescription,
         url: CLINIC.seo.siteUrl,
         logo: `${CLINIC.seo.siteUrl}/images/logo.png`,
-        image: `${CLINIC.seo.siteUrl}/og-image.jpg`,
+        image: `${CLINIC.seo.siteUrl}${CLINIC.seo.ogImage}`,
         telephone: CLINIC.contact.phone,
         email: CLINIC.contact.email,
         address: {

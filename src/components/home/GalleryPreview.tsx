@@ -2,14 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { CLINIC } from "@/lib/config";
-import { ArrowRight } from "lucide-react";
 
 export default function GalleryPreview() {
   const previewImages = [
     { src: "/images/clinic/reception.jpg", alt: "Natural Dental Clinic Reception", span: "md:col-span-2 md:row-span-2" },
     { src: "/images/clinic/treatment-room.jpg", alt: "Treatment Room", span: "md:col-span-1 md:row-span-1" },
-    { src: "/images/clinic/equipment.jpg", alt: "Modern Dental Equipment", span: "md:col-span-1 md:row-span-1" },
+    { src: "/images/gallery/reception-desk.jpg", alt: "Reception desk at Natural Dental Clinic", span: "md:col-span-1 md:row-span-1" },
   ];
 
   return (

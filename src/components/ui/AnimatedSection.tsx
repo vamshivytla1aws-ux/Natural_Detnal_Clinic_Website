@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, ReactNode } from "react";
-import { clsx } from "clsx";
 
 interface AnimatedSectionProps {
   children: ReactNode;

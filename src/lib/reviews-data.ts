@@ -20,6 +20,30 @@ export const GOOGLE_BUSINESS = {
 
 export const REVIEWS: GoogleReview[] = [
   {
+    id: "new-abhyanth",
+    author: "Abhyanth Krishna",
+    profileUrl: GOOGLE_BUSINESS.reviewsUrl,
+    reviewerMeta: "1 photo",
+    originalDateLabel: "2 hours ago",
+    text: "Very good experience at Natural Dental Clinic with Dr. Vandana Vytla. She is friendly, patient, and especially good with children and pediatric dental care. The treatment was explained clearly, the clinic is clean and comfortable, and the charges are very affordable and reasonable. Highly recommended for families and kids.",
+    rating: 5,
+    source: "Google",
+    tags: ["Pediatric Care", "Patient Care", "Cleanliness", "Affordability"],
+    featured: true,
+  },
+  {
+    id: "new-balakishan",
+    author: "Bala Kishan",
+    profileUrl: GOOGLE_BUSINESS.reviewsUrl,
+    reviewerMeta: "1 review · 1 photo",
+    originalDateLabel: "2 hours ago",
+    text: "I am above 50 years old and have diabetes, so I was a little concerned about dental treatment. Dr. Vandana Vytla was very patient, carefully understood my health condition, and explained the treatment clearly before proceeding. The treatment was comfortable, the clinic is clean, and the charges are also reasonable and affordable. Very satisfied with the care at Natural Dental Clinic and would definitely recommend it for senior adults.",
+    rating: 5,
+    source: "Google",
+    tags: ["Senior Care", "Patient Care", "Cleanliness", "Affordability"],
+    featured: true,
+  },
+  {
     id: "1",
     author: "Sai Krishna Vennu",
     profileUrl: "https://www.google.com/maps/contrib/108176946318199102762/reviews?hl=en-IN",

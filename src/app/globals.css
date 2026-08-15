@@ -8,6 +8,13 @@
     --foreground: #262A27; /* Deep Charcoal */
     --font-sans: var(--font-sans, system-ui, sans-serif);
     --font-serif: var(--font-serif, "Georgia", serif);
+
+    /* Fluid type scale */
+    --text-hero:    clamp(2.8rem, 5.5vw, 5.5rem);
+    --text-h1:     clamp(2.5rem, 5vw, 5rem);
+    --text-h2:     clamp(2rem, 4vw, 4.25rem);
+    --text-h3:     clamp(1.5rem, 2vw, 2rem);
+    --text-body-lg: clamp(1.0625rem, 1.2vw, 1.25rem);
   }
 
   /* 
@@ -23,11 +30,20 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
     @apply text-forest-600;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
   }
 
   /* Improved Typography Defaults */
   p {
     @apply leading-relaxed;
+    text-wrap: pretty;
+  }
+
+  /* Branded text selection */
+  ::selection {
+    background-color: rgba(152, 170, 145, 0.25); /* sage-400 at 25% */
+    color: #12372A; /* forest-600 */
   }
 }
 
@@ -40,44 +56,53 @@
     @apply py-20 md:py-28 lg:py-32;
   }
 
+  /* Fluid heading utilities */
   .heading-display {
-    @apply font-serif text-[3rem] md:text-[3.5rem] lg:text-[4.5rem] leading-[1.1] tracking-tight;
+    font-size: var(--text-hero);
+    @apply font-serif font-semibold leading-[1.08] tracking-tight;
   }
 
   .heading-xl {
-    @apply font-serif text-[2.5rem] md:text-[3.25rem] lg:text-[4rem] leading-[1.15] tracking-tight;
+    font-size: var(--text-h1);
+    @apply font-serif font-semibold leading-[1.1] tracking-tight;
   }
 
   .heading-lg {
-    @apply font-serif text-[2rem] md:text-[2.5rem] lg:text-[3rem] leading-[1.2] tracking-tight;
+    font-size: var(--text-h2);
+    @apply font-serif font-semibold leading-[1.15] tracking-tight;
+  }
+
+  .heading-md {
+    font-size: var(--text-h3);
+    @apply font-serif font-semibold leading-[1.25] tracking-tight;
   }
 
   .eyebrow {
-    @apply inline-flex items-center font-sans text-[0.75rem] font-bold tracking-[0.2em] uppercase text-sage-600 mb-4;
+    @apply inline-flex items-center font-sans text-[0.6875rem] font-bold tracking-[0.18em] uppercase text-sage-600 mb-4;
   }
 
   /* Premium Buttons */
   .btn-primary {
-    @apply inline-flex items-center justify-center px-8 py-3.5 rounded-btn bg-forest-600 text-white font-sans text-[0.9375rem] font-medium transition-all duration-300 hover:bg-forest-700 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:pointer-events-none;
+    @apply inline-flex items-center justify-center px-8 py-3.5 rounded-[10px] bg-forest-600 text-white font-sans text-[0.9375rem] font-semibold tracking-wide transition-all duration-300 ease-premium hover:bg-forest-700 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:pointer-events-none;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-8 py-3.5 rounded-btn bg-transparent text-forest-600 font-sans text-[0.9375rem] font-medium border border-forest-600/30 transition-all duration-300 hover:bg-forest-600 hover:text-white hover:border-forest-600 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:pointer-events-none;
+    @apply inline-flex items-center justify-center px-8 py-3.5 rounded-[10px] bg-transparent text-forest-600 font-sans text-[0.9375rem] font-semibold tracking-wide border border-forest-600/30 transition-all duration-300 ease-premium hover:bg-forest-600 hover:text-white hover:border-forest-600 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:pointer-events-none;
   }
 
   .btn-white {
-    @apply inline-flex items-center justify-center px-8 py-3.5 rounded-btn bg-white text-forest-600 font-sans text-[0.9375rem] font-medium transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0;
+    @apply inline-flex items-center justify-center px-8 py-3.5 rounded-[10px] bg-white text-forest-600 font-sans text-[0.9375rem] font-semibold tracking-wide transition-all duration-300 ease-premium shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center px-8 py-3.5 rounded-btn bg-transparent text-charcoal-500 font-sans text-[0.9375rem] font-medium transition-all duration-300 hover:bg-ivory-200 hover:text-forest-600 active:bg-ivory-300;
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-transparent text-charcoal-500 font-sans text-[0.9375rem] font-medium transition-all duration-300 ease-premium hover:text-forest-600 active:opacity-80;
   }
 }
 
 /* Utilities for standardized hover effects */
 @layer utilities {
   .ease-premium {
-    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   }
   
   .scrollbar-hide::-webkit-scrollbar {
@@ -91,4 +116,20 @@
   .pb-safe {
     padding-bottom: env(safe-area-inset-bottom, 20px);
   }
+
+  /* Optional subtle noise texture for ivory backgrounds */
+  .noise-overlay {
+    position: relative;
+  }
+  .noise-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 180px;
+    opacity: 0.018;
+    pointer-events: none;
+    z-index: 0;
+  }
 }
+

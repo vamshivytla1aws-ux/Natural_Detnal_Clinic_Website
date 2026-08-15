@@ -65,7 +65,7 @@ const config: Config = {
       },
       fontFamily: {
         serif: ["var(--font-serif)", "Cormorant Garamond", "Georgia", "serif"],
-        sans:  ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
+        sans:  ["var(--font-sans)", "Manrope", "system-ui", "sans-serif"],
       },
       fontSize: {
         "display-xl": ["4.5rem", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
@@ -108,7 +108,7 @@ const config: Config = {
         },
       },
       transitionTimingFunction: {
-        "premium": "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+        "premium": "cubic-bezier(0.22, 1, 0.36, 1)",
       },
       borderRadius: {
         "btn":   "0.5rem",

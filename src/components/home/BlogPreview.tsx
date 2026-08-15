@@ -34,28 +34,28 @@ export default function BlogPreview() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10 md:mb-0">
           {displayPosts.map(post => (
-            <Link key={post.slug} href={`/blog/${post.slug}`} className="group block bg-white rounded-[20px] overflow-hidden shadow-sm border border-ivory-300 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 flex flex-col h-full">
+            <Link key={post.slug} href={`/blog/${post.slug}`} className="group block bg-white rounded-[20px] overflow-hidden shadow-card border border-ivory-300 transition-all duration-500 ease-premium hover:shadow-card-hover hover:-translate-y-1 flex flex-col h-full">
               <div className="relative h-56 overflow-hidden">
                 <Image 
                   src={post.image || '/images/blog/blog-clinic.jpg'} 
                   alt={post.imageAlt || post.title}
                   fill
-                  className="object-cover transition-transform duration-700 ease-premium group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 ease-premium group-hover:scale-[1.035]"
                 />
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-forest-600 shadow-sm">
+                <div className="absolute top-4 left-4 bg-forest-600/10 backdrop-blur-sm px-3 py-1 rounded-full text-[0.6875rem] font-bold tracking-[0.1em] uppercase text-forest-600 border border-forest-600/10">
                   {post.category}
                 </div>
               </div>
               <div className="p-6 flex flex-col flex-grow">
-                <h3 className="font-serif text-[1.375rem] leading-snug text-forest-600 mb-3 group-hover:text-forest-500 transition-colors line-clamp-2">
+                <h3 className="font-serif text-[1.25rem] leading-snug text-forest-600 mb-3 group-hover:text-forest-500 transition-colors duration-300 line-clamp-2">
                   {post.title}
                 </h3>
                 <p className="font-sans text-charcoal-500 mb-6 text-sm leading-relaxed line-clamp-2 flex-grow">
                   {post.excerpt}
                 </p>
-                <div className="flex items-center text-sage-600 font-sans font-medium text-sm mt-auto group-hover:text-forest-600 transition-colors">
+                <div className="flex items-center text-sage-600 font-sans font-semibold text-sm mt-auto group-hover:text-forest-600 transition-colors duration-300">
                   Read Guide 
-                  <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1.5">→</span>
                 </div>
               </div>
             </Link>

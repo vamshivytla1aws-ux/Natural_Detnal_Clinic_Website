@@ -50,13 +50,13 @@ export default function ServicesPreview() {
             return (
               <div 
                 key={service.slug} 
-                className="group relative bg-ivory-100 rounded-card p-8 border border-ivory-300 transition-all duration-400 ease-premium hover:shadow-premium hover:border-sage-300 hover:-translate-y-1.5 flex flex-col justify-between"
+                className="group relative bg-white rounded-card p-8 border border-ivory-300 shadow-card transition-all duration-500 ease-premium hover:shadow-card-hover hover:border-champagne-200 hover:-translate-y-1.5 flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-sage-200 text-forest-600 flex items-center justify-center mb-6 transition-transform duration-500 group-hover:scale-110">
-                    <IconComponent size={24} strokeWidth={1.5} />
+                  <div className="w-12 h-12 rounded-xl bg-sage-100 text-forest-600 flex items-center justify-center mb-6 transition-transform duration-500 ease-premium group-hover:scale-110 group-hover:bg-sage-200">
+                    <IconComponent size={22} strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-[1.375rem] font-serif text-forest-600 mb-3 leading-tight">
+                  <h3 className="heading-md text-forest-600 mb-3 leading-tight">
                     {service.title}
                   </h3>
                   <p className="text-charcoal-500 font-sans text-[0.9375rem] leading-relaxed mb-6">
@@ -64,13 +64,13 @@ export default function ServicesPreview() {
                   </p>
                 </div>
                 
-                <div className="mt-auto pt-4 border-t border-ivory-300">
+                <div className="mt-auto pt-4 border-t border-ivory-200">
                   <Link 
                     href={`/services/${service.slug}`}
-                    className="inline-flex items-center text-[0.875rem] font-semibold text-sage-600 group-hover:text-forest-600 transition-colors"
+                    className="inline-flex items-center text-[0.875rem] font-semibold text-sage-600 group-hover:text-forest-600 transition-colors duration-300"
                   >
                     About {service.shortTitle}
-                    <ArrowRight className="w-4 h-4 ml-1.5 transition-transform duration-300 group-hover:translate-x-1" />
+                    <ArrowRight className="w-4 h-4 ml-1.5 transition-transform duration-300 group-hover:translate-x-1.5" />
                   </Link>
                 </div>
               </div>

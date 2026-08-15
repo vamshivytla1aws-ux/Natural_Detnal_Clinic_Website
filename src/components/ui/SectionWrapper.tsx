@@ -19,8 +19,8 @@ export function SectionWrapper({
   const bgClasses = {
     white: "bg-white",
     ivory: "bg-ivory-100",
-    forest: "bg-nature-gradient",
-    sage: "bg-sage-soft",
+    forest: "bg-forest-600",
+    sage: "bg-sage-50",
     none: "",
   };
 
@@ -62,9 +62,9 @@ export function SectionHeader({
       {label && (
         <div
           className={clsx(
-            "section-label",
+            "eyebrow",
             centered && "justify-center",
-            dark && "text-mint-400 before:bg-champagne-400"
+            dark && "text-sage-400"
           )}
         >
           {label}
@@ -90,7 +90,6 @@ export function SectionHeader({
           {subtitle}
         </p>
       )}
-      <div className={clsx("divider-gold mt-5", centered && "mx-auto")} />
     </div>
   );
 }

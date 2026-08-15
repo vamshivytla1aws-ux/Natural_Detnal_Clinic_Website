@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { MobileActionBar } from "@/components/ui/MobileActionBar";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { CLINIC } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -55,18 +56,18 @@ export const metadata: Metadata = {
   },
 };
 
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["500", "600", "700"],
   variable: "--font-serif",
   display: "swap",
 });
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
   display: "swap",
 });
@@ -77,8 +78,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${cormorant.variable} ${inter.variable}`}>
+    <html lang="en" className={`scroll-smooth ${cormorant.variable} ${manrope.variable}`}>
       <body className="bg-ivory-100 text-charcoal-700 antialiased font-sans flex flex-col min-h-screen">
+        <ScrollProgress />
         <Header />
         <main className="flex-grow pb-24 lg:pb-0">{children}</main>
         <Footer />

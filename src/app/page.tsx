@@ -8,8 +8,6 @@ import ReviewsSection from "@/components/home/ReviewsSection";
 import LocationSection from "@/components/home/LocationSection";
 import FinalCTA from "@/components/home/FinalCTA";
 import BlogPreview from "@/components/home/BlogPreview";
-import { MobileActionBar } from "@/components/ui/MobileActionBar";
-import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { Metadata } from "next";
 import { CLINIC } from "@/lib/config";
 
@@ -83,7 +81,6 @@ export default function Home() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(dentistSchema) }} />
-      <ScrollProgress />
       <HeroSection />
       <PhilosophySection />
       <DoctorHighlight />
@@ -94,7 +91,6 @@ export default function Home() {
       <BlogPreview />
       <LocationSection />
       <FinalCTA />
-      <MobileActionBar />
     </>
   );
 }

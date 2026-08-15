@@ -128,7 +128,7 @@ export default function LocationSection() {
           <div className="lg:sticky lg:top-28">
             <div className="relative w-full aspect-square lg:aspect-[4/3] rounded-[24px] overflow-hidden shadow-sm border border-ivory-300 mb-6">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.109315570077!2d78.2974448751676!3d17.50231908339893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb933cebe04eb5%3A0x6e902b704c7c5950!2sNatural%20Dental%20Clinic!5e0!3m2!1sen!2sin!4v1707204481234!5m2!1sen!2sin"
+                src={CLINIC.address.embedUrl}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

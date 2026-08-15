@@ -40,9 +40,9 @@ export const CLINIC = {
     postalCode: "502032",
     country: "India",
     full: "H No 4, 46/10/9/A, Road, Backside South India Shopping Mall, Sai Nagar Colony, Ramachandrapuram, Hyderabad, Telangana 502032",
-    googleMapsUrl: "https://maps.app.goo.gl/t2wSYG2y4RoLZ6Co8",
+    googleMapsUrl: "https://maps.app.goo.gl/gnzHsN1j5TwCY5816",
     embedUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.0!2d78.4!3d17.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sNatural+Dental+Clinic!5e0!3m2!1sen!2sin!4v1",
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15221.391217743516!2d78.2821637!3d17.5137687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcbf3f55f6a2143%3A0xa361d317480ceceb!2sNatural%20Dental%20Clinic!5e0!3m2!1sen!2sin!4v1716301234567!5m2!1sen!2sin",
   },
   // Verified actual clinic hours
   openingHours: {

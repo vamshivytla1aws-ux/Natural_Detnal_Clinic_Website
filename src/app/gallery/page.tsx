@@ -81,12 +81,6 @@ export default function GalleryPage() {
             ))}
           </div>
 
-          {filteredImages.some((image) => image.category === 'results') && (
-            <p className="mx-auto mt-10 max-w-3xl text-center text-xs leading-6 text-charcoal-400">
-              Clinical photographs are shown for general illustration. Treatment suitability and outcomes vary between patients and cannot be guaranteed.
-            </p>
-          )}
-
           {filteredImages.length === 0 && (
             <div className="text-center py-20 text-charcoal-400 font-sans">
               <p className="text-lg">No images found for this category.</p>

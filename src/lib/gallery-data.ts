@@ -2,7 +2,7 @@ export interface GalleryImage {
   id: string;
   src: string;
   alt: string;
-  category: "clinic" | "doctor" | "treatment" | "details" | "reception" | "results" | "camps";
+  category: "clinic" | "doctor" | "treatment" | "details" | "reception" | "camps";
   width: number;
   height: number;
   featured?: boolean;
@@ -15,7 +15,6 @@ export const GALLERY_CATEGORIES = [
   { id: "doctor", label: "Doctor & Team" },
   { id: "reception", label: "Reception" },
   { id: "treatment", label: "Treatment Space" },
-  { id: "results", label: "Before & After" },
   { id: "camps", label: "Dental Camps" },
   { id: "details", label: "Clinic Details" },
 ] as const;
@@ -112,33 +111,6 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     category: "doctor",
     width: 960,
     height: 1280,
-  },
-  {
-    id: "treatment-before",
-    src: "/images/gallery/treatment-before.jpg",
-    alt: "Clinical photograph before dental treatment",
-    category: "results",
-    width: 1200,
-    height: 1600,
-    badge: "Before",
-  },
-  {
-    id: "treatment-after",
-    src: "/images/gallery/treatment-after.jpg",
-    alt: "Clinical photograph after dental treatment",
-    category: "results",
-    width: 1200,
-    height: 1600,
-    badge: "After",
-  },
-  {
-    id: "treatment-before-after",
-    src: "/images/gallery/treatment-before-after.jpg",
-    alt: "Before-and-after dental treatment comparison",
-    category: "results",
-    width: 1600,
-    height: 1600,
-    badge: "Before & After",
   },
   {
     id: "dental-camp-care",

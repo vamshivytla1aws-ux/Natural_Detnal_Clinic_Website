@@ -12,10 +12,10 @@ export interface GoogleReview {
 }
 
 export const GOOGLE_BUSINESS = {
-  rating: null as number | null, 
-  reviewCount: 32,
-  reviewsUrl: "https://maps.app.goo.gl/t2wSYG2y4RoLZ6Co8",
-  writeReviewUrl: "https://maps.app.goo.gl/t2wSYG2y4RoLZ6Co8",
+  rating: 5.0, // Set if you want a fixed number like 5.0, or null to hide
+  reviewCount: 34,
+  reviewsUrl: "https://maps.app.goo.gl/gnzHsN1j5TwCY5816",
+  writeReviewUrl: "https://maps.app.goo.gl/gnzHsN1j5TwCY5816",
 };
 
 export const REVIEWS: GoogleReview[] = [

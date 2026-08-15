@@ -28,47 +28,49 @@ export default function Header() {
   ];
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-ivory-100/95 backdrop-blur-md shadow-sm border-b border-ivory-300 py-4" 
-          : "bg-transparent py-6"
-      }`}
-    >
-      <div className="container-premium flex items-center justify-between">
-        
-        <Link href="/" className="flex flex-col relative z-50">
-          <span className="font-serif text-[1.375rem] font-bold text-forest-600 tracking-wide leading-none">
-            NATURAL DENTAL CLINIC
-          </span>
-        </Link>
-
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-8">
-          {navLinks.map(link => (
-            <Link 
-              key={link.href} 
-              href={link.href}
-              className="font-sans text-[0.9375rem] font-medium text-charcoal-600 hover:text-forest-600 transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link href="/contact" className="btn-primary ml-4 py-2.5 px-6">
-            Book Appointment
+    <>
+      <header 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled 
+            ? "bg-ivory-100/95 backdrop-blur-md shadow-sm border-b border-ivory-300 py-4" 
+            : "bg-transparent py-6"
+        }`}
+      >
+        <div className="container-premium flex items-center justify-between">
+          
+          <Link href="/" className="flex flex-col relative z-50">
+            <span className="font-serif text-[1.375rem] font-bold text-forest-600 tracking-wide leading-none">
+              NATURAL DENTAL CLINIC
+            </span>
           </Link>
-        </nav>
 
-        {/* Mobile Toggle */}
-        <button 
-          className="lg:hidden text-forest-600 p-2 -mr-2 relative z-50"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-8">
+            {navLinks.map(link => (
+              <Link 
+                key={link.href} 
+                href={link.href}
+                className="font-sans text-[0.9375rem] font-medium text-charcoal-600 hover:text-forest-600 transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link href="/contact" className="btn-primary ml-4 py-2.5 px-6">
+              Book Appointment
+            </Link>
+          </nav>
 
-      </div>
+          {/* Mobile Toggle */}
+          <button 
+            className="lg:hidden text-forest-600 p-2 -mr-2 relative z-50"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+
+        </div>
+      </header>
 
       {/* Mobile Menu */}
       <div 
@@ -93,7 +95,7 @@ export default function Header() {
           <div className="mt-12 pt-8 border-t border-ivory-300">
             <Link 
               href="/contact" 
-              className="btn-primary w-full"
+              className="btn-primary w-full text-center"
               onClick={() => setMobileMenuOpen(false)}
             >
               Book Appointment
@@ -101,6 +103,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }

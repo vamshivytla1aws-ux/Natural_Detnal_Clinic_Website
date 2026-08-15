@@ -160,7 +160,7 @@ export default function AboutPage() {
               </div>
               <div className="relative h-[400px] rounded-2xl overflow-hidden">
                 <Image 
-                  src="/images/doctor/doctor-main.jpg" 
+                  src="/images/doctor/doctor-vandana.jpg" 
                   alt="Dr. Vandana Vytla" 
                   fill 
                   className="object-cover"

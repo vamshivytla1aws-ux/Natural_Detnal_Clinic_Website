@@ -49,8 +49,8 @@ export default function HeroSection() {
           <div className="relative animate-fade-in lg:pl-4">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[34px] border-[6px] border-white bg-sage-100 shadow-[0_30px_80px_rgba(18,55,42,.16)] sm:aspect-[5/4] lg:aspect-[4/5]">
               <Image
-                src="/images/gallery/clinic-exterior-day.jpg"
-                alt="Exterior of Natural Dental Clinic in Ramachandrapuram"
+                src="/images/doctor/doctor-vandana.jpg"
+                alt={`${CLINIC.doctor.name}, ${CLINIC.doctor.title} at Natural Dental Clinic`}
                 fill
                 priority
                 className="object-cover"
@@ -58,10 +58,13 @@ export default function HeroSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-forest-900/60 via-transparent to-transparent" />
               <div className="absolute inset-x-5 bottom-5 rounded-[22px] border border-white/25 bg-forest-900/80 p-5 text-white backdrop-blur-xl sm:inset-x-7 sm:bottom-7 sm:p-6">
-                <p className="text-xs font-bold uppercase tracking-[.16em] text-champagne-300">Natural Dental Clinic</p>
+                <p className="text-xs font-bold uppercase tracking-[.16em] text-champagne-300">Meet your dentist</p>
                 <div className="mt-2 flex items-end justify-between gap-4">
-                  <p className="font-serif text-2xl leading-tight text-white sm:text-[1.75rem]">A calm space for considered care.</p>
-                  <Link href="/gallery" aria-label="View the clinic gallery" className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-forest-600 transition-transform hover:-translate-y-0.5">
+                  <div>
+                    <p className="font-serif text-2xl leading-tight text-white sm:text-[1.75rem]">{CLINIC.doctor.name}</p>
+                    <p className="mt-1 text-sm text-sage-100">{CLINIC.doctor.title} · Reg. No. {CLINIC.doctor.regNo}</p>
+                  </div>
+                  <Link href="/doctor" aria-label={`Meet ${CLINIC.doctor.name}`} className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-forest-600 transition-transform hover:-translate-y-0.5">
                     <ArrowUpRight size={19} />
                   </Link>
                 </div>

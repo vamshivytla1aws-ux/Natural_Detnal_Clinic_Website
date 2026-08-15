@@ -24,7 +24,7 @@ export default function DoctorPage() {
             "@type": "Physician",
             "name": CLINIC.doctor.name,
             "jobTitle": CLINIC.doctor.title,
-            "image": `${CLINIC.seo.siteUrl}/images/doctor/doctor-main.jpg`,
+            "image": `${CLINIC.seo.siteUrl}/images/doctor/doctor-vandana.jpg`,
             "worksFor": {
               "@type": "MedicalClinic",
               "name": CLINIC.name,
@@ -72,7 +72,7 @@ export default function DoctorPage() {
             <div className="lg:col-span-5">
               <div className="relative h-[500px] w-full rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl">
                 <Image
-                  src="/images/doctor/doctor-main.jpg"
+                  src="/images/doctor/doctor-vandana.jpg"
                   alt="Dr. Vandana Vytla — Dental Surgeon at Natural Dental Clinic"
                   fill
                   className="object-cover"

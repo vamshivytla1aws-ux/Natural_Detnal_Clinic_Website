@@ -5,9 +5,9 @@ import Link from "next/link";
 
 export default function GalleryPreview() {
   const previewImages = [
-    { src: "/images/clinic/reception.jpg", alt: "Natural Dental Clinic Reception", span: "md:col-span-2 md:row-span-2" },
-    { src: "/images/clinic/treatment-room.jpg", alt: "Treatment Room", span: "md:col-span-1 md:row-span-1" },
-    { src: "/images/gallery/reception-desk.jpg", alt: "Reception desk at Natural Dental Clinic", span: "md:col-span-1 md:row-span-1" },
+    { src: "/images/gallery/clinic-interior-wide.jpg", alt: "Interior of Natural Dental Clinic", span: "md:col-span-2 md:row-span-2" },
+    { src: "/images/gallery/clinic-entrance-new.jpg", alt: "Full entrance of Natural Dental Clinic", span: "md:col-span-1 md:row-span-1" },
+    { src: "/images/gallery/sterilisation-equipment.jpg", alt: "Sterilisation equipment at Natural Dental Clinic", span: "md:col-span-1 md:row-span-1" },
   ];
 
   return (

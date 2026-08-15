@@ -22,7 +22,7 @@ export default function GalleryPage() {
           <span className="section-label text-champagne-400 justify-center mb-4 block">Our Space</span>
           <h1 className="heading-display text-white mb-4">Clinic Gallery</h1>
           <p className="text-ivory-100 font-sans max-w-2xl mx-auto text-lg">
-            Take a virtual tour of Natural Dental Clinic. Explore our welcoming environment, state-of-the-art equipment, and the team behind your smile.
+            Take a closer look at our clinic, treatment space, equipment, and the people who welcome you at Natural Dental Clinic.
           </p>
         </div>
       </div>

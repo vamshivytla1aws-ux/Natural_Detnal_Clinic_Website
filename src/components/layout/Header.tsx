@@ -29,46 +29,49 @@ export default function Header() {
 
   return (
     <>
-      <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-ivory-100/95 backdrop-blur-md border-b border-ivory-300 ${
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-premium ${
+        isScrolled ? "pointer-events-none pt-4 px-4 lg:pt-6 lg:px-8" : ""
+      }`}>
+        <div className={`mx-auto w-full transition-all duration-500 ease-premium ${
           isScrolled 
-            ? "shadow-sm py-4" 
-            : "py-6"
-        }`}
-      >
-        <div className="container-premium flex items-center justify-between">
-          
-          <Link href="/" className="flex flex-col relative z-50">
-            <span className="font-serif text-[1.375rem] font-bold text-forest-600 tracking-wide leading-none">
-              NATURAL DENTAL CLINIC
-            </span>
-          </Link>
-
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map(link => (
-              <Link 
-                key={link.href} 
-                href={link.href}
-                className="font-sans text-[0.9375rem] font-medium text-charcoal-600 hover:text-forest-600 transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link href="/contact" className="btn-primary ml-4 py-2.5 px-6">
-              Book Appointment
+            ? "pointer-events-auto max-w-[1440px] bg-ivory-100/95 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-ivory-300/80 rounded-2xl py-3.5 px-6 lg:px-10" 
+            : "bg-ivory-100/95 backdrop-blur-md border-b border-ivory-300 py-6"
+        }`}>
+          <div className={isScrolled ? "flex items-center justify-between w-full" : "container-premium flex items-center justify-between"}>
+            
+            <Link href="/" className="flex flex-col relative z-50 group">
+              <span className="font-serif text-[1.375rem] font-bold text-forest-600 tracking-wide leading-none transition-transform duration-300 group-hover:scale-[1.02]">
+                NATURAL DENTAL CLINIC
+              </span>
             </Link>
-          </nav>
 
-          {/* Mobile Toggle */}
-          <button 
-            className="lg:hidden text-forest-600 p-2 -mr-2 relative z-50"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+            {/* Desktop Nav */}
+            <nav className="hidden lg:flex items-center gap-8">
+              {navLinks.map(link => (
+                <Link 
+                  key={link.href} 
+                  href={link.href}
+                  className="relative group font-sans text-[0.9375rem] font-medium text-charcoal-600 transition-colors hover:text-forest-600 py-1"
+                >
+                  {link.label}
+                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-forest-600/80 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+                </Link>
+              ))}
+              <Link href="/contact" className="btn-primary ml-4 py-2.5 px-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                Book Appointment
+              </Link>
+            </nav>
 
+            {/* Mobile Toggle */}
+            <button 
+              className="lg:hidden text-forest-600 p-2 -mr-2 relative z-50 pointer-events-auto"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+
+          </div>
         </div>
       </header>
 

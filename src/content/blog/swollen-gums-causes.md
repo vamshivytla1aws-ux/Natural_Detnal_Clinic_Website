@@ -6,7 +6,7 @@ excerpt: "Discover the common causes of swollen gums and what you can do to trea
 category: "Preventive Care"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/gallery/clinic-exterior-real.jpg"
+image: "/images/blog/blog-gum.jpg"
 imageAlt: "Swollen gums diagnosis"
 author: "Natural Dental Clinic"
 status: "draft"

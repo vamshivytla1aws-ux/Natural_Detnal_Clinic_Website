@@ -164,7 +164,7 @@ export default function BlogPostPage({ params }: Props) {
           {/* Featured Image */}
           <div className="max-w-5xl mx-auto mb-16 relative aspect-[16/9] md:aspect-[21/9] rounded-[24px] overflow-hidden shadow-lg border-4 border-white">
             <Image 
-              src={post.image || '/images/gallery/clinic-exterior-real.jpg'} 
+              src={post.image || '/images/blog/blog-clinic.jpg'} 
               alt={post.imageAlt || post.title}
               fill
               className="object-cover"
@@ -283,7 +283,7 @@ export default function BlogPostPage({ params }: Props) {
                 <Link key={relatedPost.slug} href={`/blog/${relatedPost.slug}`} className="group block bg-white rounded-[20px] overflow-hidden shadow-sm border border-ivory-300 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                   <div className="relative h-48 overflow-hidden">
                     <Image 
-                      src={relatedPost.image || '/images/gallery/clinic-exterior-real.jpg'} 
+                      src={relatedPost.image || '/images/blog/blog-clinic.jpg'} 
                       alt={relatedPost.imageAlt || relatedPost.title}
                       fill
                       className="object-cover transition-transform duration-700 ease-premium group-hover:scale-105"

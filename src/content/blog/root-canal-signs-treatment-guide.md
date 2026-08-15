@@ -6,7 +6,7 @@ excerpt: "Learn the warning signs that indicate you might need a root canal and 
 category: "Root Canal"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/gallery/clinic-exterior-real.jpg"
+image: "/images/blog/blog-tooth.jpg"
 imageAlt: "Dentist performing root canal treatment"
 author: "Natural Dental Clinic"
 status: "published"

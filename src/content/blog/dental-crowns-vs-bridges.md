@@ -6,7 +6,7 @@ excerpt: "Confused about the difference between dental crowns and bridges? Learn
 category: "Restorative Dentistry"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/gallery/clinic-exterior-real.jpg"
+image: "/images/blog/blog-implant.jpg"
 imageAlt: "Dental restorative models showing crowns and bridges"
 author: "Natural Dental Clinic"
 status: "published"

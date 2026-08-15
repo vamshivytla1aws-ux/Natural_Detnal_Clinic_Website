@@ -6,7 +6,7 @@ excerpt: "Missing a tooth can affect your confidence and oral health. Dental imp
 category: "Dental Implants"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/gallery/clinic-exterior-real.jpg"
+image: "/images/blog/blog-implant.jpg"
 imageAlt: "Close-up model of a dental implant replacing a missing tooth"
 author: "Natural Dental Clinic"
 status: "published"

@@ -6,7 +6,7 @@ excerpt: "Brushing isn't always enough to fight bad breath. Learn about the unde
 category: "Dental Hygiene"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/gallery/clinic-exterior-real.jpg"
+image: "/images/blog/blog-tooth.jpg"
 imageAlt: "Natural Dental Clinic exterior"
 author: "Natural Dental Clinic"
 status: "draft"

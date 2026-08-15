@@ -6,7 +6,7 @@ excerpt: "Learn how to properly care for your dental crowns to ensure they last 
 category: "Restorative Dentistry"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/gallery/clinic-exterior-real.jpg"
+image: "/images/blog/blog-implant.jpg"
 imageAlt: "Dental care for crowns"
 author: "Natural Dental Clinic"
 status: "draft"

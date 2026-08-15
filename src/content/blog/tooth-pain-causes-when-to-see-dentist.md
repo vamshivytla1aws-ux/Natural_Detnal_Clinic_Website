@@ -6,7 +6,7 @@ excerpt: "Learn about the common causes of toothaches and when it's crucial to s
 category: "Dental Problems"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/gallery/clinic-exterior-real.jpg"
+image: "/images/blog/blog-tooth.jpg"
 imageAlt: "Patient holding jaw in pain"
 author: "Natural Dental Clinic"
 status: "published"

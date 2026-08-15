@@ -48,6 +48,31 @@ export default function GalleryPage() {
             ))}
           </div>
 
+          {(activeCategory === 'all' || activeCategory === 'clinic') && (
+            <div className="mb-12 overflow-hidden rounded-[28px] border border-ivory-300 bg-white shadow-premium">
+              <div className="grid items-center gap-0 lg:grid-cols-[1.35fr_.65fr]">
+                <video
+                  controls
+                  playsInline
+                  preload="metadata"
+                  poster="/images/gallery/clinic-interior-wide.jpg"
+                  className="aspect-video h-full w-full bg-charcoal-900 object-cover"
+                  aria-label="Natural Dental Clinic gallery video"
+                >
+                  <source src="/videos/natural-dental-clinic-gallery.mp4" type="video/mp4" />
+                  Your browser does not support embedded video.
+                </video>
+                <div className="p-8 md:p-10">
+                  <span className="eyebrow">Featured video</span>
+                  <h2 className="font-serif text-3xl font-semibold text-forest-600 md:text-4xl">Inside Natural Dental Clinic</h2>
+                  <p className="mt-4 leading-7 text-charcoal-500">
+                    Watch a closer look at the clinic environment and the space prepared for your care.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Image Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
             {filteredImages.map((image) => (

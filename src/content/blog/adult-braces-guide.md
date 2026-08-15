@@ -6,7 +6,7 @@ excerpt: "Considering braces as an adult? Learn about the benefits, types, and w
 category: "Braces & Orthodontics"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/clinic-exterior.jpg"
+image: "/images/gallery/clinic-exterior-real.jpg"
 imageAlt: "Adult smiling with braces"
 author: "Natural Dental Clinic"
 status: "published"

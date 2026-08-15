@@ -6,7 +6,7 @@ excerpt: "Many people notice a bit of blood when brushing or flossing. While it 
 category: "Gum Health"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/clinic-exterior.jpg"
+image: "/images/gallery/clinic-exterior-real.jpg"
 imageAlt: "Person brushing their teeth and examining gums in the mirror"
 author: "Natural Dental Clinic"
 status: "published"

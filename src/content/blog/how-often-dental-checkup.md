@@ -6,7 +6,7 @@ excerpt: "Wondering how often you should have a dental check-up? Learn the stand
 category: "Preventive Care"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/clinic-exterior.jpg"
+image: "/images/gallery/clinic-exterior-real.jpg"
 imageAlt: "Patient having a dental check-up"
 author: "Natural Dental Clinic"
 status: "published"

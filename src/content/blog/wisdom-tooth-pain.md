@@ -6,7 +6,7 @@ excerpt: "Wisdom tooth eruption is often uncomfortable, but how do you know when
 category: "Wisdom Teeth"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/clinic-exterior.jpg"
+image: "/images/gallery/clinic-exterior-real.jpg"
 imageAlt: "Dental X-ray showing impacted wisdom teeth"
 author: "Natural Dental Clinic"
 status: "published"

@@ -6,7 +6,7 @@ excerpt: "Missing teeth? Explore the differences between dental implants and bri
 category: "Tooth Replacement"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/clinic-exterior.jpg"
+image: "/images/gallery/clinic-exterior-real.jpg"
 imageAlt: "Natural Dental Clinic exterior"
 author: "Natural Dental Clinic"
 status: "draft"

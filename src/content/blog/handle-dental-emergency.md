@@ -6,7 +6,7 @@ excerpt: "A quick guide on what to do when you encounter a dental emergency like
 category: "Dental Emergencies"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/clinic-exterior.jpg"
+image: "/images/gallery/clinic-exterior-real.jpg"
 imageAlt: "Emergency dental care"
 author: "Natural Dental Clinic"
 status: "draft"

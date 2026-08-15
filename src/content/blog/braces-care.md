@@ -6,7 +6,7 @@ excerpt: "Taking care of your teeth is extra important when you have braces. Lea
 category: "Orthodontics"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/clinic-exterior.jpg"
+image: "/images/gallery/clinic-exterior-real.jpg"
 imageAlt: "Close up of someone brushing teeth with braces"
 author: "Natural Dental Clinic"
 status: "draft"

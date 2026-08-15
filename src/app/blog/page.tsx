@@ -47,7 +47,7 @@ export default function BlogLandingPage() {
               <div className="grid md:grid-cols-2 gap-0">
                 <div className="relative h-64 md:h-auto overflow-hidden">
                   <Image 
-                    src={featuredPost.image || '/images/clinic-exterior.jpg'} 
+                    src={featuredPost.image || '/images/gallery/clinic-exterior-real.jpg'} 
                     alt={featuredPost.imageAlt || featuredPost.title}
                     fill
                     className="object-cover transition-transform duration-700 ease-premium group-hover:scale-105"
@@ -81,7 +81,7 @@ export default function BlogLandingPage() {
               <Link key={post.slug} href={`/blog/${post.slug}`} className="group block bg-white rounded-[20px] overflow-hidden shadow-sm border border-ivory-300 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 flex flex-col h-full">
                 <div className="relative h-56 overflow-hidden">
                   <Image 
-                    src={post.image || '/images/clinic-exterior.jpg'} 
+                    src={post.image || '/images/gallery/clinic-exterior-real.jpg'} 
                     alt={post.imageAlt || post.title}
                     fill
                     className="object-cover transition-transform duration-700 ease-premium group-hover:scale-105"

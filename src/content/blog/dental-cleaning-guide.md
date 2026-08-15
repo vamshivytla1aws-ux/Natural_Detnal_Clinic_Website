@@ -6,7 +6,7 @@ excerpt: "A step-by-step guide to what you can expect during a professional dent
 category: "Preventive Care"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/clinic-exterior.jpg"
+image: "/images/gallery/clinic-exterior-real.jpg"
 imageAlt: "Dental cleaning process"
 author: "Natural Dental Clinic"
 status: "draft"

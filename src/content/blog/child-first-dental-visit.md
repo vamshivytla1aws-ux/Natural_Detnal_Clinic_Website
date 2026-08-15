@@ -6,7 +6,7 @@ excerpt: "Dental care starts earlier than many parents think. Setting a positive
 category: "Children's Dentistry"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/clinic-exterior.jpg"
+image: "/images/gallery/clinic-exterior-real.jpg"
 imageAlt: "A happy child sitting in a dental chair smiling"
 author: "Natural Dental Clinic"
 status: "published"

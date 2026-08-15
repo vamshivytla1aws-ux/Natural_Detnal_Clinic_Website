@@ -6,7 +6,7 @@ excerpt: "Cavities are one of the most common dental issues, but what exactly ca
 category: "General Dentistry"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/clinic-exterior.jpg"
+image: "/images/gallery/clinic-exterior-real.jpg"
 imageAlt: "Illustration of a tooth with a cavity"
 author: "Natural Dental Clinic"
 status: "draft"

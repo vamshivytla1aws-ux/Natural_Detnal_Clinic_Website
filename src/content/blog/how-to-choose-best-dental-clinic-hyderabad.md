@@ -6,7 +6,7 @@ excerpt: "A comprehensive guide on selecting the best dental clinic in Hyderabad
 category: "Local Dental Guides"
 publishedAt: "2026-08-14"
 featured: true
-image: "/images/clinic-exterior.jpg"
+image: "/images/gallery/clinic-exterior-real.jpg"
 imageAlt: "Modern dental clinic in Hyderabad"
 author: "Natural Dental Clinic"
 status: "published"

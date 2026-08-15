@@ -6,7 +6,7 @@ excerpt: "Find out why you might be experiencing tooth pain specifically when bi
 category: "Dental Problems"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/clinic-exterior.jpg"
+image: "/images/gallery/clinic-exterior-real.jpg"
 imageAlt: "Natural Dental Clinic exterior"
 author: "Natural Dental Clinic"
 status: "draft"

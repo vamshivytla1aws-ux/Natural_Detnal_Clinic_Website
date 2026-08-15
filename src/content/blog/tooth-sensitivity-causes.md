@@ -6,7 +6,7 @@ excerpt: "Understand the root causes of tooth sensitivity to hot and cold temper
 category: "Dental Problems"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/clinic-exterior.jpg"
+image: "/images/gallery/clinic-exterior-real.jpg"
 imageAlt: "Person grimacing while drinking a cold beverage"
 author: "Natural Dental Clinic"
 status: "published"

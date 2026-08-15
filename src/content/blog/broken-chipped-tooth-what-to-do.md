@@ -6,7 +6,7 @@ excerpt: "Suffered a broken or chipped tooth? Learn the immediate steps to take 
 category: "Dental Emergencies"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/clinic-exterior.jpg"
+image: "/images/gallery/clinic-exterior-real.jpg"
 imageAlt: "Dentist examining a damaged tooth"
 author: "Natural Dental Clinic"
 status: "published"

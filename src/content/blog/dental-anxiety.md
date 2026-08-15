@@ -6,7 +6,7 @@ excerpt: "Dental anxiety is common, but it doesn't have to stop you from getting
 category: "General Dentistry"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/clinic-exterior.jpg"
+image: "/images/gallery/clinic-exterior-real.jpg"
 imageAlt: "A comfortable dental clinic waiting area"
 author: "Natural Dental Clinic"
 status: "draft"

@@ -6,7 +6,7 @@ excerpt: "Learn the essential facts about teeth whitening procedures before maki
 category: "Cosmetic Dentistry"
 publishedAt: "2026-08-14"
 featured: false
-image: "/images/clinic-exterior.jpg"
+image: "/images/gallery/clinic-exterior-real.jpg"
 imageAlt: "Natural Dental Clinic exterior"
 author: "Natural Dental Clinic"
 status: "draft"

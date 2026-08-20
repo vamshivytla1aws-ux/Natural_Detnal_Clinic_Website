@@ -96,9 +96,14 @@ export default function Footer() {
 
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-forest-500/50 font-sans text-[0.8125rem] text-sage-300">
-          <p>© {new Date().getFullYear()} {CLINIC.name}. All rights reserved.</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between pt-8 border-t border-forest-500/50 font-sans text-[0.8125rem] text-sage-300">
+          <div className="text-left">
+            <p>© {new Date().getFullYear()} {CLINIC.name}. All rights reserved.</p>
+            <p className="mt-1 text-sage-400">
+              Developed by <a href="https://www.aasthix.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">www.aasthix.com</a> (Vamshi Vytla)
+            </p>
+          </div>
+          <div className="flex gap-6 mt-6 md:mt-0">
             <Link href="/privacy-policy" className="hover:text-white transition-colors duration-200">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors duration-200">Terms of Service</Link>
           </div>
